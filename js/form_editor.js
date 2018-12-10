@@ -2044,15 +2044,15 @@ function StartDuplicateField(element) {
 
             if(field.inputs != null) {
 
-                var inputId = 1;
-
                 for(inputIndex in field.inputs) {
 
                     if(!field.inputs.hasOwnProperty(inputIndex))
                         continue;
 
-                    var id = field.inputs[inputIndex]['id'] + "";
-                    field.inputs[inputIndex]['id'] = id.replace(/(\d+\.)/, field.id + '.');
+                    var id = field.inputs[inputIndex]['id'] + '',
+						newId = id == sourcefieldId ? field.id : id.replace(/(\d+\.)/, field.id + '.');
+
+                    field.inputs[inputIndex]['id'] = newId;
 
                 }
             }

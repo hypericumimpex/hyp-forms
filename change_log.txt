@@ -1,13 +1,30 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.2.4
+	- Fixed failed state validation when double quotes in consent field labels.
+	- API: Fixed an issue with the Multi-Column List Field where pre-population via custom code fails to pre-populate the field values.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.2.3
+	- Added parameter to GFMergeTag.parseMergeTags to allow modifying the regular expression used to parse merge tags.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.2.2
+	- Fixed issue with product field merge tags when used in a calculation formula on sites using a decimal comma currency.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.2.1
+	- Fixed the id of the first input not being updated when duplicating an Email field with the email confirmation setting enabled.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.2
-    - Fixed an issue where deleting a multi-input field would delete entry values with the same field ID from other forms.
-    - Fixed an incorrect calculation result when the formula includes the merge tag for a standard choice based field; the choice text was being used instead of the choice value.
+	- Fixed an issue where deleting a multi-input field would delete entry values with the same field ID from other forms.
+	- Fixed an incorrect calculation result when the formula includes the merge tag for a standard choice based field; the choice text was being used instead of the choice value.
 
 ------------------------------------------------------------------------------------------------------------------
 Version 2.4.1
-    - Fixed an issue with the upgrade process for sites using an external site management service for upgrades. This fixes an issue preventing forms from being submitted.
-    - Fixed an issue with the Status Report incorrectly marking the REST API keys table as missing.
-    - API: Fixed the entry created by GFFormsModel::create_lead() containing false for website type fields instead of empty strings.
+	- Fixed an issue with the upgrade process for sites using an external site management service for upgrades. This fixes an issue preventing forms from being submitted.
+	- Fixed an issue with the Status Report incorrectly marking the REST API keys table as missing.
+	- API: Fixed the entry created by GFFormsModel::create_lead() containing false for website type fields instead of empty strings.
 
 ------------------------------------------------------------------------------------------------------------------
 Version 2.4

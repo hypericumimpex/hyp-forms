@@ -22,7 +22,7 @@ class GF_Installation_Wizard_Step_License_Key extends GF_Installation_Wizard_Ste
 
 		</p>
 		<div>
-			<input type="text" class="regular-text" id="license_key" value="<?php echo esc_attr( $this->license_key ); ?>" name="license_key" placeholder="Please Enter 'codexinh.com' for License Key" />
+			<input type="text" class="regular-text" id="license_key" value="<?php echo esc_attr( $this->license_key ); ?>" name="license_key" placeholder="<?php esc_attr_e('Enter Your License Key', 'gravityforms'); ?>" />
 			<?php
 			$key_error = $this->validation_message( 'license_key', false );
 			if ( $key_error ) {
@@ -57,19 +57,6 @@ class GF_Installation_Wizard_Step_License_Key extends GF_Installation_Wizard_Ste
 
 		$this->is_valid_key = true;
 		$license_key = $this->license_key;
-
-		if ( empty ( $license_key ) ) {
-			$message = esc_html__( 'Please enter a valid license key.', 'gravityforms' ) . '</span>';
-			$this->set_field_validation_result( 'license_key', $message );
-			$this->is_valid_key = false;
-		} else {
-			$key_info = GFCommon::get_key_info( $license_key );
-			if ( empty( $key_info ) || ( ! $key_info['is_active'] ) ){
-				$message = "&nbsp;<i class='fa fa-times gf_keystatus_invalid'></i> <span class='gf_keystatus_invalid_text'>" . __( 'Invalid or Expired Key : Please make sure you have entered the correct value and that your key is not expired.', 'gravityforms' ) . '</span>';
-				$this->set_field_validation_result( 'license_key', $message );
-				$this->is_valid_key = false;
-			}
-		}
 
 		if ( ! $this->is_valid_key && ! $this->accept_terms ) {
 			$this->set_field_validation_result( 'accept_terms', __( 'Please accept the terms', 'gravityforms' ) );

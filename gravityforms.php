@@ -3,39 +3,23 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.2
-Author: rocketgenius
+Version: 2.4.2.4
+Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
 Text Domain: gravityforms
 Domain Path: /languages
 
-------------------------------------------------------------------------
-Copyright 2009-2018 Rocketgenius, Inc.
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see http://www.gnu.org/licenses.
 */
 
 //------------------------------------------------------------------------------------------------------------------
-//---------- Gravity Forms License Key -----------------------------------------------------------------------------
+//---------- License Key -----------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------
-// If you hardcode a Gravity Forms License Key here, it will automatically populate on activation.
+// If you hardcode a License Key here, it will automatically populate on activation.
 $gf_license_key = '';
 
 //-- OR ---//
 
-// You can also add the Gravity Forms license key to your wp-config.php file to automatically populate on activation
 // Add the code in the comment below to your wp-config.php to do so:
 // define('GF_LICENSE_KEY','YOUR_KEY_GOES_HERE');
 //------------------------------------------------------------------------------------------------------------------
@@ -215,7 +199,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.2';
+	public static $version = '2.4.2.4';
 
 	/**
 	 * Handles background upgrade tasks.

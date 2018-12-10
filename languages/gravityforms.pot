@@ -1,9 +1,9 @@
 # Copyright 2009-2018 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.2\n"
+"Project-Id-Version: Gravity Forms 2.4.2.4\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2018-12-04 15:17:48+00:00\n"
+"POT-Creation-Date: 2018-12-07 14:05:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgid "Embed URL"
 msgstr ""
 
 #: common.php:576 entry_detail.php:1318 entry_list.php:828 export.php:938
-#: forms_model.php:5689 select_columns.php:184
+#: forms_model.php:5690 select_columns.php:184
 msgid "Entry Id"
 msgstr ""
 
@@ -512,7 +512,7 @@ msgstr ""
 msgid "Entry ID"
 msgstr ""
 
-#: common.php:4993 export.php:939 forms_model.php:5695
+#: common.php:4993 export.php:939 forms_model.php:5696
 #: includes/addon/class-gf-addon.php:2852 select_columns.php:185
 msgid "Entry Date"
 msgstr ""
@@ -533,15 +533,15 @@ msgstr ""
 msgid "Source URL"
 msgstr ""
 
-#: common.php:5021 export.php:944 forms_model.php:5701 select_columns.php:188
+#: common.php:5021 export.php:944 forms_model.php:5702 select_columns.php:188
 msgid "Payment Status"
 msgstr ""
 
-#: common.php:5026 export.php:943 forms_model.php:5707 select_columns.php:191
+#: common.php:5026 export.php:943 forms_model.php:5708 select_columns.php:191
 msgid "Payment Date"
 msgstr ""
 
-#: common.php:5032 export.php:942 forms_model.php:5710
+#: common.php:5032 export.php:942 forms_model.php:5711
 #: includes/addon/class-gf-payment-addon.php:2302
 #: includes/addon/class-gf-payment-addon.php:2307 select_columns.php:190
 msgid "Payment Amount"
@@ -551,7 +551,7 @@ msgstr ""
 msgid "Transaction ID"
 msgstr ""
 
-#: common.php:5040 entry_detail.php:1334 forms_model.php:5713
+#: common.php:5040 entry_detail.php:1334 forms_model.php:5714
 #: includes/webapi/includes/class-gf-api-keys-table.php:21
 #: includes/webapi/webapi.php:350 select_columns.php:192
 msgid "User"
@@ -901,7 +901,7 @@ msgstr ""
 msgid "Subscription Id"
 msgstr ""
 
-#: entry_detail.php:1243 export.php:941 forms_model.php:5704
+#: entry_detail.php:1243 export.php:941 forms_model.php:5705
 #: select_columns.php:189
 msgid "Transaction Id"
 msgstr ""
@@ -923,7 +923,7 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: entry_detail.php:1328 export.php:948 forms_model.php:5692
+#: entry_detail.php:1328 export.php:948 forms_model.php:5693
 #: includes/addon/class-gf-addon.php:2853 select_columns.php:186
 msgid "User IP"
 msgstr ""
@@ -1445,7 +1445,7 @@ msgstr ""
 msgid "Created By (User Id)"
 msgstr ""
 
-#: export.php:940 forms_model.php:5698 includes/addon/class-gf-addon.php:2854
+#: export.php:940 forms_model.php:5699 includes/addon/class-gf-addon.php:2854
 #: select_columns.php:187
 msgid "Source Url"
 msgstr ""
@@ -3483,7 +3483,7 @@ msgstr ""
 msgid "New submission from"
 msgstr ""
 
-#: form_detail.php:3008 forms_model.php:5977 includes/api.php:430
+#: form_detail.php:3008 forms_model.php:5978 includes/api.php:430
 msgid "Default Confirmation"
 msgstr ""
 
