@@ -1,4 +1,10 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.2.5
+	- Fixed a PHP notice which could occur when saving a new confirmation if the conditional logic was not configured.
+	- Fixed the logging admin notice being displayed for users who can't access the plugin settings.
+	- Fixed an issue with the confirmation and notification message settings when no-conflict mode is enabled with WordPress 5.0.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.2.4
 	- Fixed failed state validation when double quotes in consent field labels.
 	- API: Fixed an issue with the Multi-Column List Field where pre-population via custom code fails to pre-populate the field values.

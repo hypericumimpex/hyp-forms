@@ -1820,11 +1820,14 @@ class GFCommon {
 
 				// If field value is empty, skip.
 				if ( empty( $attachment_urls ) ) {
+					self::log_debug( __METHOD__ . '(): No file(s) to attach for field #' . $upload_field->id );
 					continue;
 				}
 
 				// Convert to array.
 				$attachment_urls = $upload_field->multipleFiles ? json_decode( stripslashes( $attachment_urls ), true ) : array( $attachment_urls );
+
+				self::log_debug( __METHOD__ . '(): Attaching file(s) for field #' . $upload_field->id . '. ' . print_r( $attachment_urls, true ) );
 
 				// Loop through attachment URLs; replace URL with path and add to attachments.
 				foreach ( $attachment_urls as $attachment_url ) {
@@ -2535,7 +2538,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return;
+		return stripslashes( get_option( 'rg_gforms_message' ) );
 	}
 
 	public static function get_key() {
@@ -2550,10 +2553,6 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
-		$key_info["is_active"] = true;
-			
-		return $key_info;
-		
 
 		$options            = array( 'method' => 'POST', 'timeout' => 3 );
 		$options['headers'] = array(
@@ -2570,8 +2569,6 @@ Content-Type: text/html;
 
 		$key_info = unserialize( trim( $raw_response['body'] ) );
 
-		$key_info["is_active"] = true;
-			
 		return $key_info ? $key_info : array();
 	}
 
@@ -2757,7 +2754,6 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
-		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";

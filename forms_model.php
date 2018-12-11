@@ -6364,7 +6364,7 @@ class GFFormsModel {
 		} else {
 			if ( isset( $element['conditionalLogic'] ) && is_array( $element['conditionalLogic'] ) && isset( $element['conditionalLogic']['rules'] ) && is_array( $element['conditionalLogic']['rules'] ) ) {
 				foreach ( $element['conditionalLogic']['rules'] as &$rule ) {
-					$value = (string) $rule['value'];
+					$value = (string) rgar( $rule, 'value' );
 					if ( $value !== trim( $value ) ) {
 						$field      = isset( $form['fields'] ) ? GFFormsModel::get_field( $form, $rule['fieldId'] ) : array();
 						$trim_value = apply_filters( 'gform_trim_input_value', true, rgar( $form, 'id' ), $field );
