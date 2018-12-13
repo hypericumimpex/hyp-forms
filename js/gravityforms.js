@@ -1543,8 +1543,8 @@ var GFCalc = function(formId, formulaFields){
 				modifier = matches[i][3];
 			}
 			else {
-				var is_product_radio =  jQuery('.gfield_price input[name=input_' + fieldId).is('input[type=radio]');
-                var is_product_dropdown = jQuery('.gfield_price select[name=input_' + fieldId).length > 0;
+				var is_product_radio =  jQuery('.gfield_price input[name=input_' + fieldId + ']').is('input[type=radio]');
+                var is_product_dropdown = jQuery('.gfield_price select[name=input_' + fieldId + ']').length > 0;
 
                 if( is_product_dropdown || is_product_radio ) {
 					modifier = 'price';

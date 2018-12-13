@@ -2538,7 +2538,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return stripslashes( get_option( 'rg_gforms_message' ) );
+		return;
 	}
 
 	public static function get_key() {
@@ -2553,6 +2553,10 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
+		$key_info["is_active"] = true;
+			
+		return $key_info;
+		
 
 		$options            = array( 'method' => 'POST', 'timeout' => 3 );
 		$options['headers'] = array(
@@ -2569,6 +2573,8 @@ Content-Type: text/html;
 
 		$key_info = unserialize( trim( $raw_response['body'] ) );
 
+		$key_info["is_active"] = true;
+			
 		return $key_info ? $key_info : array();
 	}
 
@@ -2754,6 +2760,7 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
+		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";
