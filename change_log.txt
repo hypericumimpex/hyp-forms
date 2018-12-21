@@ -1,4 +1,10 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.3.1
+	- Fixed issue where conditional logic dependent on a Radio Button click was not correctly evaluated when the Radio Button's default value was restored.
+	- Fixed a PHP notice which can occur when refreshing the cached product info when a product name input is not present in the entry.
+	- Fixed an issue with conditional logic and datepicker based form settings when no-conflict mode is enabled.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.3
 	- Added parameter to GFMergeTag.parseMergeTags to allow modifying the regular expression used to parse merge tags.
 	- Fixed a PHP notice which could occur when saving a new confirmation if the conditional logic was not configured.
