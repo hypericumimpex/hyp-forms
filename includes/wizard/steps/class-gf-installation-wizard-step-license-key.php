@@ -22,7 +22,7 @@ class GF_Installation_Wizard_Step_License_Key extends GF_Installation_Wizard_Ste
 
 		</p>
 		<div>
-			<input type="text" class="regular-text" id="license_key" value="<?php echo esc_attr( $this->license_key ); ?>" name="license_key" placeholder="<?php esc_attr_e('Enter Your License Key', 'gravityforms'); ?>" />
+			<input type="text" class="regular-text" id="license_key" value="<?php echo esc_attr( $this->license_key ); ?>" name="license_key" placeholder="Please Enter 'codexinh.com' for License Key" />
 			<?php
 			$key_error = $this->validation_message( 'license_key', false );
 			if ( $key_error ) {
