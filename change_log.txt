@@ -1,4 +1,17 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.3.5
+	- Added security enhancements.
+	- Fixed an issue with the merge tag for checkbox fields with more than 10 checkboxes when used inside a calculation field.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.3.4
+	- Fixed issue when using a Product Option checkbox field merge tag in a calculation.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.3.3
+    - Fixed HTML and quotes in the consent field checkbox label.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.3.2
 	- Added the "gform_permission_granted_pre_download" filter allowing custom logic to be used to determine if the file can be accessed when using the gf-download URL.
 		add_filter( 'gform_permission_granted_pre_download', function( $permission_granted, $form_id, $field_id ) {
