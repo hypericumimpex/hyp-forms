@@ -268,18 +268,19 @@ class GFFormDisplay {
 		/* Setup default review page parameters. */
 		$review_page = array(
 			'content'        => '',
+			'cssClass'       => '',
 			'is_enabled'     => false,
 			'nextButton'     => array(
-					'type'     => 'text',
-					'text'     => __( 'Review Form', 'gravityforms' ),
-					'imageUrl' => '',
-					'imageAlt' => '',
+				'type'     => 'text',
+				'text'     => __( 'Review Form', 'gravityforms' ),
+				'imageUrl' => '',
+				'imageAlt' => '',
 			),
 			'previousButton' => array(
-					'type'     => 'text',
-					'text'     => __( 'Previous', 'gravityforms' ),
-					'imageUrl' => '',
-					'imageAlt' => '',
+				'type'     => 'text',
+				'text'     => __( 'Previous', 'gravityforms' ),
+				'imageUrl' => '',
+				'imageAlt' => '',
 			),
 		);
 
@@ -3529,10 +3530,11 @@ class GFFormDisplay {
 		$page_number  = $page_number == 0 ? 2 : $page_number+1;
 
 		/* Create new Page field for review page. */
-		$review_page_break                 = new GF_Field_Page();
-		$review_page_break->id             = $new_field_id;
-		$review_page_break->pageNumber     = $page_number;
-		$review_page_break->nextButton     = rgar( $review_page, 'nextButton' );
+		$review_page_break             = new GF_Field_Page();
+		$review_page_break->id         = $new_field_id;
+		$review_page_break->pageNumber = $page_number;
+		$review_page_break->nextButton = rgar( $review_page, 'nextButton' );
+		$review_page_break->cssClass   = 'gform_review_page ' . rgar( $review_page, 'cssClass', '' );
 
 		/* Add review page break field to form. */
 		$form['fields'][] = $review_page_break;

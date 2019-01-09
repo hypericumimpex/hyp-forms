@@ -109,9 +109,20 @@ class GFEntryDetail {
 		$form    = apply_filters( 'gform_admin_pre_render', $form );
 		$form    = apply_filters( 'gform_admin_pre_render_' . $form_id, $form );
 
-		self::$_form = $form;
+		self::set_current_form( $form );
 
 		return $form;
+	}
+
+	/**
+	 * Caches the current form.
+	 *
+	 * @since 2.4.4.1
+	 *
+	 * @param array $form The form to be cached.
+	 */
+	public static function set_current_form( $form ) {
+		self::$_form = $form;
 	}
 
 	public static function get_current_entry() {
@@ -367,7 +378,7 @@ class GFEntryDetail {
 				check_admin_referer( 'gforms_update_note', 'gforms_update_note' );
 				if ( $_POST['bulk_action'] == 'delete' ) {
 					if ( ! GFCommon::current_user_can_any( 'gravityforms_edit_entry_notes' ) ) {
-						die( esc_html__( "You don't have adequate permission to delete notes.", 'gravityforms' ) );
+						wp_die( esc_html__( "You don't have adequate permission to delete notes.", 'gravityforms' ) );
 					}
 					RGFormsModel::delete_notes( $_POST['note'] );
 				}
@@ -402,7 +413,7 @@ class GFEntryDetail {
 			case 'delete' :
 				check_admin_referer( 'gforms_save_entry', 'gforms_save_entry' );
 				if ( ! GFCommon::current_user_can_any( 'gravityforms_delete_entries' ) ) {
-					die( esc_html__( "You don't have adequate permission to delete entries.", 'gravityforms' ) );
+					wp_die( esc_html__( "You don't have adequate permission to delete entries.", 'gravityforms' ) );
 				}
 				GFFormsModel::delete_entry( $lead['id'] );
 				$admin_url = admin_url( 'admin.php?page=gf_entries&view=entries&id=' . absint( $form['id'] ) . '&deleted=' . absint( $lead['id'] ) );
@@ -995,7 +1006,7 @@ class GFEntryDetail {
 						// Ignore product fields as they will be grouped together at the end of the grid.
 						if ( GFCommon::is_product_field( $field->type ) ) {
 							$has_product_fields = true;
-							continue;
+							break;
 						}
 
 						$value = RGFormsModel::get_lead_field_value( $lead, $field );
@@ -1157,7 +1168,7 @@ class GFEntryDetail {
 					 * @var array  $products        Current order summary object.
 					 * @var string $format          Format that should be used to display the summary ('html' or 'text').
 					 */
-                    $order_summary = gf_apply_filters( array( 'gform_order_summary', $form['id'] ), ob_get_clean(), $form, $lead, $products, 'html' );
+                    $order_summary = gf_apply_filters( array( 'gform_order_summary', $form['id'] ), trim( ob_get_clean() ), $form, $lead, $products, 'html' );
                     echo $order_summary;
 				}
 			}
@@ -1504,7 +1515,7 @@ class GFEntryDetail {
 	public static function maybe_display_empty_fields( $allow_display_empty_fields, $form, $lead = false ) {
 		$display_empty_fields = false;
 		if ( $allow_display_empty_fields ) {
-			$display_empty_fields = rgget( 'gf_display_empty_fields', $_COOKIE );
+			$display_empty_fields = (bool) rgget( 'gf_display_empty_fields', $_COOKIE );
 		}
 
 		if ( ! $lead ) {
