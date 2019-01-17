@@ -1,13 +1,17 @@
 ------------------------------------------------------------------------------------------------------------------
-Version 2.4.4.2
-	- Added support for using a cssClass property with the array returned by the gform_review_page filter to apply custom classes to the page div element.
-
+Version 2.4.5.1
+	- Updated reCAPTCHA settings description.
+	- Fixed the input mask type setting reverting to the standard choice after some custom masks are configured.
+                                            
 ------------------------------------------------------------------------------------------------------------------
-Version 2.4.4.1
-	- Added GFEntryDetail::set_current_form().
+Version 2.4.5
+	- Added security enhancements.
+	- Added support for using a cssClass property with the array returned by the gform_review_page filter to apply custom classes to the page div element.
 	- Updated the entry detail page gform_order_summary filter to remove leading and trailing whitespace from the first param, the order summary markup.
-	- Updated GFEntryDetail::lead_detail_page() to use wp_die() instead of die() when the user does not have the required capabilities for the current action.
+	- Updated the entry detail page to use wp_die() instead of die() when the user does not have the required capabilities for the current action.
 	- Fixed a PHP 7.3 warning on the entry detail page.
+	- Fixed an issue on the entry detail page where file uploads are not deleted successfully when new fields are uploaded to a multi-file upload field.
+	- AF: Fixed generic mapping key input disappearing if custom key value is left empty.
 
 ------------------------------------------------------------------------------------------------------------------
 Version 2.4.4

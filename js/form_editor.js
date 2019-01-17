@@ -740,7 +740,11 @@ function LoadFieldSettings(){
     var hasPostFeaturedImage = field.postFeaturedImage ? true : false;
     jQuery('#gfield_featured_image').prop('checked', hasPostFeaturedImage);
 
-    var isStandardMask = IsStandardMask(field.inputMaskValue);
+	if (typeof field.inputMaskIsCustom != 'boolean') {
+		field.inputMaskIsCustom = !IsStandardMask(field.inputMaskValue);
+	}
+
+	var isStandardMask = !field.inputMaskIsCustom;
 
     jQuery("#field_input_mask").prop('checked', field.inputMask ? true : false);
 
@@ -1569,22 +1573,24 @@ function ToggleInputMask(isInit){
         jQuery(".maxlen_setting").show();
         SetFieldProperty('inputMask', false);
         SetFieldProperty('inputMaskValue', '');
+		SetFieldProperty('inputMaskIsCustom', false);
     }
 }
 
 function ToggleInputMaskOptions(isInit){
 
-    var isStandard = jQuery("#field_mask_standard").is(":checked");
-    show_element = isStandard ? "#field_mask_select" : "#field_mask_text, .mask_text_description"
-    hide_element = isStandard ? "#field_mask_text, .mask_text_description"  : "#field_mask_select";
+	var isStandard = jQuery('#field_mask_standard').is(':checked'),
+		show_element = isStandard ? '#field_mask_select' : '#field_mask_text, .mask_text_description',
+		hide_element = isStandard ? '#field_mask_text, .mask_text_description' : '#field_mask_select',
+		speed = isInit ? '' : '';
 
-    var speed = isInit ? "" : "";
+	jQuery(hide_element).val('').hide(speed);
+	jQuery(show_element).show(speed);
 
-    jQuery(hide_element).val('').hide(speed);
-    jQuery(show_element).show(speed);
-
-    if(!isInit)
-        SetFieldProperty('inputMaskValue', '');
+	if (!isInit) {
+		SetFieldProperty('inputMaskValue', '');
+		SetFieldProperty('inputMaskIsCustom', !isStandard);
+	}
 }
 
 function ToggleAutoresponder(){

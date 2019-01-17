@@ -474,6 +474,13 @@ class GFEntryDetail {
 					jQuery('#preview_' + fieldId).hide();
 					jQuery('#upload_' + fieldId).show('slow');
 				}
+
+				var $input = jQuery( 'input[name="input_' + fieldId + '"]' ),
+					files  = jQuery.parseJSON( $input.val() );
+
+				delete files[ fileIndex ];
+				$input.val( jQuery.toJSON( files ) );
+
 			}
 
 			function ToggleShowEmptyFields() {

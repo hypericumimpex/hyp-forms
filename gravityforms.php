@@ -3,14 +3,12 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.4.2
+Version: 2.4.5.1
 Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
 Text Domain: gravityforms
 Domain Path: /languages
-
-*/
 
 //------------------------------------------------------------------------------------------------------------------
 //---------- Gravity Forms License Key -----------------------------------------------------------------------------
@@ -200,7 +198,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.4.2';
+	public static $version = '2.4.5.1';
 
 	/**
 	 * Handles background upgrade tasks.

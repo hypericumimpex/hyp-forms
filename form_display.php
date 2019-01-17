@@ -1259,7 +1259,7 @@ class GFFormDisplay {
 				$button_input = "<input type='{$input_type}' id='{$button_input_id}' class='{$class}' value='" . esc_attr( $button_text ) . "' {$tabindex} {$onclick} />";
 			}
 		} else {
-			$imageUrl     = $button['imageUrl'];
+			$imageUrl = esc_url( $button['imageUrl'] );
 			$class .= ' gform_image_button';
 			$button_input = "<input type='image' src='{$imageUrl}' id='{$button_input_id}' class='{$class}' alt='{$alt}' {$tabindex} {$onclick} />";
 		}
