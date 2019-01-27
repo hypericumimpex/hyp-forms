@@ -5911,7 +5911,7 @@ class GFFormsModel {
 	public static function get_sub_field( $repeater_field, $field_id ) {
 		if ( is_array( $repeater_field->fields ) ) {
 			foreach ( $repeater_field->fields as $field ) {
-				if ( is_array( $field ) ) {
+				if ( is_array( $field->fields ) ) {
 					$f = self::get_sub_field( $field, $field_id );
 					if ( $f ) {
 						return $f;
