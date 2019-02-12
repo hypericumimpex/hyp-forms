@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: HYP Forms
-Plugin URI: https://github.com/hypericumimpex/hyp-forms/
+Plugin Name: Gravity Forms
+Plugin URI: https://www.gravityforms.com
 Description: Easily create web forms and manage form entries within the WordPress admin.
 Version: 2.4.5.10
-Author: Romeo C.
-Author URI: https://github.com/hypericumimpex/
+Author: rocketgenius
+Author URI: https://www.rocketgenius.com
 License: GPL-2.0+
 Text Domain: gravityforms
 Domain Path: /languages
