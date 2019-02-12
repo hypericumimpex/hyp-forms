@@ -693,6 +693,10 @@ function LoadFieldSettings(){
 		field = UpgradePasswordField(field);
 	}
 
+    if(field.type === 'consent'){
+        field = UpgradeConsentField(field);
+    }
+
     var defaultState = field.defaultState == undefined ? "" : field.defaultState;
     var defaultProvince = field.defaultProvince == undefined ? "" : field.defaultProvince; //for backwards compatibility
     var defaultStateProvince = addressType == "canadian" && defaultState == "" ? defaultProvince : defaultState;
@@ -1360,6 +1364,18 @@ function UpgradeAddressField(field){
         stateInput.isHidden = true;
     }
     delete field.hideState;
+
+    return field;
+}
+
+function UpgradeConsentField(field) {
+    if(field.type !== 'consent'){
+        return field;
+    }
+
+    if(field.choices[1] && field.choices[1]['value'] === "0"){
+        field.choices.pop();
+    }
 
     return field;
 }
@@ -2206,14 +2222,22 @@ function ResetRecaptcha(){
     field['captchaTheme'] = 'light';
 }
 
-function StartChangeProductType(type){
-    field = GetSelectedField();
-    if(type == "singleproduct" || type == "hiddenproduct" || field["inputType"] == "calculation" )
-        field["enablePrice"] = null;
-    else
-        field["enablePrice"] = true;
+function StartChangeProductType(type) {
+	field = GetSelectedField();
 
-    return StartChangeInputType(type, field);
+	if (type === 'radio' || type === 'select') {
+		field.enablePrice = true;
+	} else {
+		field.enablePrice = null;
+		field.choices = null;
+	}
+
+	if (type !== 'calculation') {
+		field.enableCalculation = false;
+		field.calculationFormula = '';
+	}
+
+	return StartChangeInputType(type, field);
 }
 
 function StartChangeDonationType(type){
@@ -2226,12 +2250,16 @@ function StartChangeDonationType(type){
     return StartChangeInputType(type, field);
 }
 
-function StartChangeShippingType(type){
-    field = GetSelectedField();
-    if(type != "singleshipping")
-        field["enablePrice"] = true;
+function StartChangeShippingType(type) {
+	field = GetSelectedField();
+	if (type !== 'singleshipping') {
+		field.enablePrice = true;
+	} else {
+		field.enablePrice = null;
+		field.choices = null;
+	}
 
-    return StartChangeInputType(type, field);
+	return StartChangeInputType(type, field);
 }
 
 function StartChangePostCategoryType(type){
