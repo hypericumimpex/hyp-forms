@@ -763,7 +763,7 @@ class GF_Field_List extends GF_Field {
 		}
 
 		$value = rgar( $entry, $input_id );
-		$value = unserialize( $value );
+		$value = maybe_unserialize( $value );
 
 		if ( empty( $value ) || $is_csv ) {
 			return $value;

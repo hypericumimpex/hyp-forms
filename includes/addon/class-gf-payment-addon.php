@@ -2079,6 +2079,10 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 	 * @return bool|string
 	 */
 	public function get_entry_by_transaction_id( $transaction_id ) {
+		if ( empty( $transaction_id ) ) {
+			return false;
+		}
+
 		global $wpdb;
 
 		$entry_table_name = self::get_entry_table_name();
