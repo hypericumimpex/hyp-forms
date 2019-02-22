@@ -1,9 +1,9 @@
 # Copyright 2009-2019 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.6.1\n"
+"Project-Id-Version: Gravity Forms 2.4.6.2\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2019-02-15 18:42:52+00:00\n"
+"POT-Creation-Date: 2019-02-20 19:31:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: common.php:561 common.php:565 entry_detail.php:1247 form_detail.php:777
 #: form_detail.php:1718 form_detail.php:2770 form_detail.php:2771
-#: includes/addon/class-gf-payment-addon.php:2832
+#: includes/addon/class-gf-payment-addon.php:2831
 #: includes/fields/class-gf-field-date.php:13 js.php:648 js.php:1241
 msgid "Date"
 msgstr ""
@@ -203,7 +203,7 @@ msgid "Order"
 msgstr ""
 
 #: common.php:1430 entry_detail.php:1158 gravityforms.php:2064
-#: includes/addon/class-gf-payment-addon.php:2617
+#: includes/addon/class-gf-payment-addon.php:2616
 #: includes/fields/class-gf-field-total.php:24 js.php:752
 msgid "Total"
 msgstr ""
@@ -542,8 +542,8 @@ msgid "Payment Date"
 msgstr ""
 
 #: common.php:5036 export.php:963 forms_model.php:5922
-#: includes/addon/class-gf-payment-addon.php:2306
-#: includes/addon/class-gf-payment-addon.php:2311 select_columns.php:190
+#: includes/addon/class-gf-payment-addon.php:2305
+#: includes/addon/class-gf-payment-addon.php:2310 select_columns.php:190
 msgid "Payment Amount"
 msgstr ""
 
@@ -906,12 +906,12 @@ msgstr ""
 msgid "Transaction Id"
 msgstr ""
 
-#: entry_detail.php:1282 includes/addon/class-gf-payment-addon.php:2259
-#: includes/addon/class-gf-payment-addon.php:2263
+#: entry_detail.php:1282 includes/addon/class-gf-payment-addon.php:2258
+#: includes/addon/class-gf-payment-addon.php:2262
 msgid "Recurring Amount"
 msgstr ""
 
-#: entry_detail.php:1282 includes/addon/class-gf-payment-addon.php:2150
+#: entry_detail.php:1282 includes/addon/class-gf-payment-addon.php:2149
 msgid "Amount"
 msgstr ""
 
@@ -1096,8 +1096,8 @@ msgid "This form does not have any entries yet."
 msgstr ""
 
 #: entry_list.php:1122 entry_list.php:1153 entry_list.php:1185
+#: includes/addon/class-gf-payment-addon.php:3106
 #: includes/addon/class-gf-payment-addon.php:3107
-#: includes/addon/class-gf-payment-addon.php:3108
 msgid "View"
 msgstr ""
 
@@ -1413,8 +1413,8 @@ msgid "Select Fields"
 msgstr ""
 
 #: export.php:560 form_settings.php:1507
-#: includes/addon/class-gf-payment-addon.php:2350
-#: includes/addon/class-gf-payment-addon.php:2352 notification.php:1188
+#: includes/addon/class-gf-payment-addon.php:2349
+#: includes/addon/class-gf-payment-addon.php:2351 notification.php:1188
 #: tooltips.php:113 tooltips.php:130 tooltips.php:153
 msgid "Conditional Logic"
 msgstr ""
@@ -1866,7 +1866,7 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: form_detail.php:781 includes/addon/class-gf-payment-addon.php:2535
+#: form_detail.php:781 includes/addon/class-gf-payment-addon.php:2534
 #: includes/fields/class-gf-field-email.php:13 js.php:624
 msgid "Email"
 msgstr ""
@@ -2024,7 +2024,7 @@ msgid "Address Fields"
 msgstr ""
 
 #: form_detail.php:1167 includes/addon/class-gf-addon.php:3219
-#: includes/addon/class-gf-payment-addon.php:2539
+#: includes/addon/class-gf-payment-addon.php:2538
 #: includes/fields/class-gf-field-address.php:128
 #: includes/fields/class-gf-field-address.php:405
 msgid "State"
@@ -2604,7 +2604,7 @@ msgstr ""
 msgid "April"
 msgstr ""
 
-#: form_detail.php:1467 includes/addon/class-gf-payment-addon.php:2977
+#: form_detail.php:1467 includes/addon/class-gf-payment-addon.php:2976
 msgid "May"
 msgstr ""
 
@@ -4185,9 +4185,9 @@ msgid ""
 "class=\"saved_message_email\">{save_email}</span>"
 msgstr ""
 
-#: form_settings.php:2264 includes/addon/class-gf-payment-addon.php:2148
-#: includes/addon/class-gf-payment-addon.php:2224
-#: includes/addon/class-gf-payment-addon.php:2228
+#: form_settings.php:2264 includes/addon/class-gf-payment-addon.php:2147
+#: includes/addon/class-gf-payment-addon.php:2223
+#: includes/addon/class-gf-payment-addon.php:2227
 #: includes/fields/class-gf-field-name.php:39 js.php:552 js.php:729
 #: notification.php:742 notification.php:1744
 msgid "Name"
@@ -4843,7 +4843,7 @@ msgid "Name (Last)"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:3216
-#: includes/addon/class-gf-payment-addon.php:2536
+#: includes/addon/class-gf-payment-addon.php:2535
 #: includes/fields/class-gf-field-address.php:36 js.php:600
 msgid "Address"
 msgstr ""
@@ -4853,7 +4853,7 @@ msgid "Address (Street Address)"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:3217
-#: includes/addon/class-gf-payment-addon.php:2537
+#: includes/addon/class-gf-payment-addon.php:2536
 msgid "Address 2"
 msgstr ""
 
@@ -4862,7 +4862,7 @@ msgid "Address (Address Line 2)"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:3218
-#: includes/addon/class-gf-payment-addon.php:2538
+#: includes/addon/class-gf-payment-addon.php:2537
 #: includes/fields/class-gf-field-address.php:157 js.php:602
 msgid "City"
 msgstr ""
@@ -4876,7 +4876,7 @@ msgid "Address (State / Province)"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:3220
-#: includes/addon/class-gf-payment-addon.php:2540
+#: includes/addon/class-gf-payment-addon.php:2539
 msgid "Zip"
 msgstr ""
 
@@ -4885,7 +4885,7 @@ msgid "Address (Zip / Postal Code)"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:3221
-#: includes/addon/class-gf-payment-addon.php:2541
+#: includes/addon/class-gf-payment-addon.php:2540
 #: includes/fields/class-gf-field-address.php:161 js.php:603
 msgid "Country"
 msgstr ""
@@ -5115,431 +5115,431 @@ msgstr ""
 msgid "feeds"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:856
+#: includes/addon/class-gf-payment-addon.php:855
 msgid "Payment failed to be captured. Reason: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:898
+#: includes/addon/class-gf-payment-addon.php:897
 msgid "Initial payment"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:905
+#: includes/addon/class-gf-payment-addon.php:904
 msgid "%s has been captured successfully. Amount: %s. Transaction Id: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:910
+#: includes/addon/class-gf-payment-addon.php:909
 msgid "Failed to capture %s. Reason: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:924
+#: includes/addon/class-gf-payment-addon.php:923
 msgid "Subscription failed to be created. Reason: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1245
+#: includes/addon/class-gf-payment-addon.php:1244
 msgid "options: "
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1454
+#: includes/addon/class-gf-payment-addon.php:1453
 msgid "This webhook has already been processed (Event Id: %s)"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1620
+#: includes/addon/class-gf-payment-addon.php:1619
 msgid "Payment is pending. Amount: %s. Transaction Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1651
+#: includes/addon/class-gf-payment-addon.php:1650
 msgid "Payment has been authorized. Amount: %s. Transaction Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1686
+#: includes/addon/class-gf-payment-addon.php:1685
 msgid "Payment has been completed. Amount: %s. Transaction Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1744
+#: includes/addon/class-gf-payment-addon.php:1743
 msgid "Payment has been refunded. Amount: %s. Transaction Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1798
+#: includes/addon/class-gf-payment-addon.php:1797
 msgid "Payment has failed. Amount: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1817
+#: includes/addon/class-gf-payment-addon.php:1816
 msgid "Authorization has been voided. Transaction Id: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1848
+#: includes/addon/class-gf-payment-addon.php:1847
 msgid "Subscription has been created. Subscription Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1902
+#: includes/addon/class-gf-payment-addon.php:1901
 msgid "Subscription has been paid. Amount: %s. Subscription Id: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:1957
+#: includes/addon/class-gf-payment-addon.php:1956
 msgid "Subscription payment has failed. Amount: %s. Subscription Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2012
+#: includes/addon/class-gf-payment-addon.php:2011
 msgid "Subscription has been cancelled. Subscription Id: %s."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2053
+#: includes/addon/class-gf-payment-addon.php:2052
 msgid "Subscription has expired. Subscriber Id: %s"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2149
-#: includes/addon/class-gf-payment-addon.php:2232
-#: includes/addon/class-gf-payment-addon.php:2246
+#: includes/addon/class-gf-payment-addon.php:2148
+#: includes/addon/class-gf-payment-addon.php:2231
+#: includes/addon/class-gf-payment-addon.php:2245
 msgid "Transaction Type"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2157
-#: includes/addon/class-gf-payment-addon.php:2244
+#: includes/addon/class-gf-payment-addon.php:2156
+#: includes/addon/class-gf-payment-addon.php:2243
 msgid "Subscription"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2160
-#: includes/addon/class-gf-payment-addon.php:2241
+#: includes/addon/class-gf-payment-addon.php:2159
+#: includes/addon/class-gf-payment-addon.php:2240
 msgid "Products and Services"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2163
+#: includes/addon/class-gf-payment-addon.php:2162
 msgid "Donations"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2168
+#: includes/addon/class-gf-payment-addon.php:2167
 msgid "Unsupported transaction type"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2175
-#: includes/addon/class-gf-payment-addon.php:2506
-#: includes/addon/class-gf-payment-addon.php:2514
+#: includes/addon/class-gf-payment-addon.php:2174
+#: includes/addon/class-gf-payment-addon.php:2505
+#: includes/addon/class-gf-payment-addon.php:2513
 msgid "Form Total"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2212
+#: includes/addon/class-gf-payment-addon.php:2211
 msgid ""
 "You must add a Credit Card field to your form before creating a feed. Let's "
 "go %sadd one%s!"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2228
+#: includes/addon/class-gf-payment-addon.php:2227
 msgid "Enter a feed name to uniquely identify this setup."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2237
+#: includes/addon/class-gf-payment-addon.php:2236
 msgid "Select a transaction type"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2246
+#: includes/addon/class-gf-payment-addon.php:2245
 msgid "Select a transaction type."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2251
+#: includes/addon/class-gf-payment-addon.php:2250
 msgid "Subscription Settings"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2263
+#: includes/addon/class-gf-payment-addon.php:2262
 msgid ""
 "Select which field determines the recurring payment amount, or select 'Form "
 "Total' to use the total of all pricing fields as the recurring amount."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2267
-#: includes/addon/class-gf-payment-addon.php:2269
+#: includes/addon/class-gf-payment-addon.php:2266
+#: includes/addon/class-gf-payment-addon.php:2268
 msgid "Billing Cycle"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2269
+#: includes/addon/class-gf-payment-addon.php:2268
 msgid ""
 "Select your billing cycle.  This determines how often the recurring payment "
 "should occur."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2273
-#: includes/addon/class-gf-payment-addon.php:2281
+#: includes/addon/class-gf-payment-addon.php:2272
+#: includes/addon/class-gf-payment-addon.php:2280
 msgid "Recurring Times"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2277
+#: includes/addon/class-gf-payment-addon.php:2276
 msgid "infinite"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2281
+#: includes/addon/class-gf-payment-addon.php:2280
 msgid ""
 "Select how many times the recurring payment should be made.  The default is "
 "to bill the customer until the subscription is canceled."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2285
+#: includes/addon/class-gf-payment-addon.php:2284
 msgid "Setup Fee"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2290
+#: includes/addon/class-gf-payment-addon.php:2289
 msgid "Trial"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2293
+#: includes/addon/class-gf-payment-addon.php:2292
 msgid "Trial Period"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2293
+#: includes/addon/class-gf-payment-addon.php:2292
 msgid ""
 "Enable a trial period.  The user's recurring payment will not begin until "
 "after this trial period."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2298
+#: includes/addon/class-gf-payment-addon.php:2297
 msgid "Products &amp; Services Settings"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2311
+#: includes/addon/class-gf-payment-addon.php:2310
 msgid ""
 "Select which field determines the payment amount, or select 'Form Total' to "
 "use the total of all pricing fields as the payment amount."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2316
+#: includes/addon/class-gf-payment-addon.php:2315
 msgid "Other Settings"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2331
-#: includes/addon/class-gf-payment-addon.php:2334
+#: includes/addon/class-gf-payment-addon.php:2330
+#: includes/addon/class-gf-payment-addon.php:2333
 msgid "Billing Information"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2334
+#: includes/addon/class-gf-payment-addon.php:2333
 msgid "Map your Form Fields to the available listed fields."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2342
+#: includes/addon/class-gf-payment-addon.php:2341
 msgid "Options"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2352
+#: includes/addon/class-gf-payment-addon.php:2351
 msgid ""
 "When conditions are enabled, form submissions will only be sent to the "
 "payment gateway when the conditions are met. When disabled, all form "
 "submissions will be sent to the payment gateway."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2412
-#: includes/addon/class-gf-payment-addon.php:2457
+#: includes/addon/class-gf-payment-addon.php:2411
+#: includes/addon/class-gf-payment-addon.php:2456
 #: includes/webapi/webapi.php:467
 #: includes/wizard/steps/class-gf-installation-wizard-step-background-updates.php:110
 msgid "Enabled"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2471
+#: includes/addon/class-gf-payment-addon.php:2470
 msgid "Enter an amount"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2523
+#: includes/addon/class-gf-payment-addon.php:2522
 msgid "Sample Option"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2559
+#: includes/addon/class-gf-payment-addon.php:2558
 msgid "day(s)"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2560
+#: includes/addon/class-gf-payment-addon.php:2559
 msgid "week(s)"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2561
+#: includes/addon/class-gf-payment-addon.php:2560
 msgid "month(s)"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2562
+#: includes/addon/class-gf-payment-addon.php:2561
 msgid "year(s)"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2571
+#: includes/addon/class-gf-payment-addon.php:2570
 msgid "Select a product field"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2614
+#: includes/addon/class-gf-payment-addon.php:2613
 msgid "Today"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2615
+#: includes/addon/class-gf-payment-addon.php:2614
 msgid "Yesterday"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2616
+#: includes/addon/class-gf-payment-addon.php:2615
 msgid "Last 30 Days"
+msgstr ""
+
+#: includes/addon/class-gf-payment-addon.php:2622
+#: includes/addon/class-gf-payment-addon.php:2629
+#: includes/addon/class-gf-payment-addon.php:2637
+#: includes/addon/class-gf-payment-addon.php:2644
+msgid "subscriptions"
 msgstr ""
 
 #: includes/addon/class-gf-payment-addon.php:2623
 #: includes/addon/class-gf-payment-addon.php:2630
 #: includes/addon/class-gf-payment-addon.php:2638
 #: includes/addon/class-gf-payment-addon.php:2645
-msgid "subscriptions"
-msgstr ""
-
-#: includes/addon/class-gf-payment-addon.php:2624
-#: includes/addon/class-gf-payment-addon.php:2631
-#: includes/addon/class-gf-payment-addon.php:2639
-#: includes/addon/class-gf-payment-addon.php:2646
 msgid "orders"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2654
+#: includes/addon/class-gf-payment-addon.php:2653
 msgid "There aren't any transactions that match your criteria."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2766
-#: includes/addon/class-gf-payment-addon.php:2775
+#: includes/addon/class-gf-payment-addon.php:2765
+#: includes/addon/class-gf-payment-addon.php:2774
 msgid "Revenue"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2771
+#: includes/addon/class-gf-payment-addon.php:2770
 msgid "Orders"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2772
+#: includes/addon/class-gf-payment-addon.php:2771
 msgid "Subscriptions"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2773
+#: includes/addon/class-gf-payment-addon.php:2772
 msgid "Recurring Payments"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2774
+#: includes/addon/class-gf-payment-addon.php:2773
 msgid "Refunds"
 msgstr ""
 
+#: includes/addon/class-gf-payment-addon.php:2795
 #: includes/addon/class-gf-payment-addon.php:2796
-#: includes/addon/class-gf-payment-addon.php:2797
 msgid "Week"
 msgstr ""
 
+#: includes/addon/class-gf-payment-addon.php:2812
 #: includes/addon/class-gf-payment-addon.php:2813
-#: includes/addon/class-gf-payment-addon.php:2814
 #: includes/fields/class-gf-field-creditcard.php:284
 #: includes/fields/class-gf-field-date.php:558 js.php:880 js.php:881
 msgid "Month"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2830
-#: includes/addon/class-gf-payment-addon.php:2833
+#: includes/addon/class-gf-payment-addon.php:2829
+#: includes/addon/class-gf-payment-addon.php:2832
 #: includes/fields/class-gf-field-date.php:566 js.php:882 js.php:883
 msgid "Day"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2973
+#: includes/addon/class-gf-payment-addon.php:2972
 msgid "Jan"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2974
+#: includes/addon/class-gf-payment-addon.php:2973
 msgid "Feb"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2975
+#: includes/addon/class-gf-payment-addon.php:2974
 msgid "Mar"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2976
+#: includes/addon/class-gf-payment-addon.php:2975
 msgid "Apr"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2978
+#: includes/addon/class-gf-payment-addon.php:2977
 msgid "Jun"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2979
+#: includes/addon/class-gf-payment-addon.php:2978
 msgid "Jul"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2980
+#: includes/addon/class-gf-payment-addon.php:2979
 msgid "Aug"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2981
+#: includes/addon/class-gf-payment-addon.php:2980
 msgid "Sep"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2982
+#: includes/addon/class-gf-payment-addon.php:2981
 msgid "Oct"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2983
+#: includes/addon/class-gf-payment-addon.php:2982
 msgid "Nov"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2984
+#: includes/addon/class-gf-payment-addon.php:2983
 msgid "Dec"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3100
+#: includes/addon/class-gf-payment-addon.php:3099
 msgid "Daily"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3101
+#: includes/addon/class-gf-payment-addon.php:3100
 msgid "Weekly"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3102
+#: includes/addon/class-gf-payment-addon.php:3101
 msgid "Monthly"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3108
+#: includes/addon/class-gf-payment-addon.php:3107
 msgid "Select how you would like the sales data to be displayed."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3129
+#: includes/addon/class-gf-payment-addon.php:3128
 msgid "Payment Method"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3245
+#: includes/addon/class-gf-payment-addon.php:3244
 msgid ""
 "Warning! This subscription will be canceled. This cannot be undone. 'OK' to "
 "cancel subscription, 'Cancel' to stop"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3247
+#: includes/addon/class-gf-payment-addon.php:3246
 msgid "Canceled"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3248
+#: includes/addon/class-gf-payment-addon.php:3247
 msgid "The subscription could not be canceled. Please try again later."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3514
+#: includes/addon/class-gf-payment-addon.php:3513
 msgid "Cancel Subscription"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3640
+#: includes/addon/class-gf-payment-addon.php:3639
 msgid "sale"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3641
+#: includes/addon/class-gf-payment-addon.php:3640
 msgid "sales"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3655
+#: includes/addon/class-gf-payment-addon.php:3654
 msgid "There hasn't been any sales in the specified date range."
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3678
+#: includes/addon/class-gf-payment-addon.php:3677
 msgid "1 item"
 msgid_plural "%s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/addon/class-gf-payment-addon.php:3695
+#: includes/addon/class-gf-payment-addon.php:3694
 msgid "Go to the first page"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3702
+#: includes/addon/class-gf-payment-addon.php:3701
 msgid "Go to the previous page"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3717
+#: includes/addon/class-gf-payment-addon.php:3716
 msgid "Go to the next page"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3726
+#: includes/addon/class-gf-payment-addon.php:3725
 msgid "Go to the last page"
 msgstr ""
 
@@ -12068,17 +12068,17 @@ msgctxt "Form List"
 msgid "Trash"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2587
+#: includes/addon/class-gf-payment-addon.php:2586
 msgctxt "toolbar label"
 msgid "Sales"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:2588
+#: includes/addon/class-gf-payment-addon.php:2587
 msgctxt "metabox title"
 msgid "Filter"
 msgstr ""
 
-#: includes/addon/class-gf-payment-addon.php:3712
+#: includes/addon/class-gf-payment-addon.php:3711
 msgctxt "paging"
 msgid "%1$s of %2$s"
 msgstr ""

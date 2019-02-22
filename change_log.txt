@@ -1,4 +1,9 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.2
+	- Reverted conditional logic change in 2.4.6 which introduced performance issues for some form configurations.
+	- AF: Fixed Payment Add-On feeds not deactivating when deleting a credit card field from form.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.1
 	- Added aria-describedby to single input fields including: Number, Phone, Post Title, Post Body, Post Excerpt and Post Custom Field.
 	- Fixed an issue with the accessibility of the choice add and remove buttons in the form editor.

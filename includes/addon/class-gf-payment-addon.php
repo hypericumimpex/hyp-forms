@@ -242,7 +242,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 		add_filter( 'gform_currencies', array( $this, 'supported_currencies' ) );
 
 		add_filter( 'gform_delete_lead', array( $this, 'entry_deleted' ) );
-
+		add_action( 'gform_before_delete_field', array( $this, 'before_delete_field' ), 10, 2 );
 
 		if ( rgget( 'page' ) == 'gf_entries' ) {
 			add_action( 'gform_payment_details', array( $this, 'entry_info' ), 10, 2 );
@@ -265,7 +265,6 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 		parent::init_ajax();
 
 		add_action( 'wp_ajax_gaddon_cancel_subscription', array( $this, 'ajax_cancel_subscription' ) );
-		add_action( 'gform_before_delete_field', array( $this, 'before_delete_field' ), 10, 2 );
 	}
 
 	/**

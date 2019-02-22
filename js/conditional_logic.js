@@ -135,7 +135,7 @@ function gf_is_match_checkable( $inputs, rule, formId, fieldId ) {
 
 function gf_is_match_default( $input, rule, formId, fieldId ) {
 
-	var val        = $input.is( 'select' ) && gformIsHidden( $input ) ? '' : $input.val(),
+	var val        = $input.val(),
 		values     = ( val instanceof Array ) ? val : [ val ], // transform regular value into array to support multi-select (which returns an array of selected items)
 		matchCount = 0;
 
@@ -353,7 +353,7 @@ function gf_do_action(action, targetId, useAnimation, defaultValues, isInit, cal
 
 		// remove tabindex and stash as a data attr for selects
 		$target.find( 'select' ).each( function() {
-			$select = jQuery( this );
+			var $select = jQuery( this );
 			$select.data( 'tabindex', $select.attr( 'tabindex' ) ).removeAttr( 'tabindex' );
 		} );
 
@@ -375,11 +375,6 @@ function gf_do_action(action, targetId, useAnimation, defaultValues, isInit, cal
 				callback();
 			}
 		}
-	}
-
-	var $select = $target.find( 'select' );
-	if( $select.length > 0 && $select.find( 'option[value=""]' ).length === 0 ) {
-		$select.change();
 	}
 
 }
