@@ -422,8 +422,7 @@ function gf_reset_to_default(targetId, defaultValue){
 
 	//cascading down conditional logic to children to support nested conditions
 	//text fields and drop downs, filter out list field text fields name with "_shim"
-	var target = jQuery(targetId).find('select, input[type="text"]:not([id*="_shim"]), input[type="number"], textarea');
-
+	var target = jQuery(targetId).find( 'select, input[type="text"]:not([id*="_shim"]), input[type="number"], input[type="hidden"], input[type="email"], input[type="tel"], input[type="url"], textarea' );
 	var target_index = 0;
 
 	// When a List field is hidden via conditional logic during a page submission, the markup will be reduced to a
@@ -436,9 +435,15 @@ function gf_reset_to_default(targetId, defaultValue){
 	}
 
 	target.each(function(){
+
 		var val = "";
 
 		var element = jQuery(this);
+
+		// Only reset Single Product and Shipping hidden inputs.
+		if( element.is( '[type="hidden"]' ) && ! gf_is_hidden_pricing_input( element ) ) {
+			return;
+		}
 
 		//get name of previous input field to see if it is the radio button which goes with the "Other" text box
 		//otherwise field is populated with input field name
@@ -451,9 +456,13 @@ function gf_reset_to_default(targetId, defaultValue){
 		}
 		else if(jQuery.isPlainObject(defaultValue)){
 			val = defaultValue[element.attr("name")];
-			if( ! val ) {
+			if( ! val && element.attr( 'id' ) ) {
 				// 'input_123_3_1' => '3.1'
 				var inputId = element.attr( 'id' ).split( '_' ).slice( 2 ).join( '.' );
+				val = defaultValue[ inputId ];
+			}
+			if( ! val ) {
+				var inputId = element.attr( 'name' ).split( '_' )[1];
 				val = defaultValue[ inputId ];
 			}
 		}
@@ -470,11 +479,15 @@ function gf_reset_to_default(targetId, defaultValue){
 			if (element.is('select') && element.next().hasClass('chosen-container')) {
 				element.trigger('chosen:updated');
 			}
+			// Check for Single Product & Shipping input and force visual price update.
+			if( gf_is_hidden_pricing_input( element ) ) {
+				var ids = gf_get_ids_by_html_id( element.parents( '.gfield' ).attr( 'id' ) );
+				jQuery( '#input_' + ids[1] + '_' + ids[2] ).text( gformFormatMoney( element.val() ) );
+			}
 		}
 		else{
 			element.val(val);
 		}
-
 
 		target_index++;
 	});
@@ -504,4 +517,19 @@ function gf_reset_to_default(targetId, defaultValue){
 		}
 	});
 
+}
+
+function gf_is_hidden_pricing_input( element ) {
+
+	if( element.attr( 'type' ) !== 'hidden' ) {
+		return false;
+	}
+
+	// Check for Single Product fields.
+	if( element.attr( 'id' ) && element.attr( 'id' ).indexOf( 'ginput_base_price' ) === 0 ) {
+		return true;
+	}
+
+	// Check for Shipping fields.
+	return element.parents( '.gfield_shipping' ).length;
 }

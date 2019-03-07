@@ -417,7 +417,8 @@ class GF_Field_List extends GF_Field {
 	 * @return array
 	 */
 	public function create_list_array_recursive( $value ) {
-		if ( is_array( $value[0] ) ) {
+		if ( isset( $value[0] ) && is_array( $value[0] ) ) {
+			$new_value = array();
 			foreach ( $value  as $k => $v ) {
 				$new_value[ $k ] = $this->create_list_array_recursive( $v );
 			}

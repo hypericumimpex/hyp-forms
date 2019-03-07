@@ -2147,7 +2147,7 @@ class GFFormsModel {
 		if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
 			$file_path = preg_replace( "|^(.*?)/files/gravity_forms/|", BLOGUPLOADDIR . 'gravity_forms/', $url );
 		} else {
-			$file_path = str_replace( WP_CONTENT_URL, WP_CONTENT_DIR, $url );
+			$file_path = str_replace( self::get_upload_url_root(), self::get_upload_root(), $url );
 		}
 
 		return $file_path;
@@ -6122,14 +6122,12 @@ class GFFormsModel {
 	public static function get_sub_field( $repeater_field, $field_id ) {
 		if ( is_array( $repeater_field->fields ) ) {
 			foreach ( $repeater_field->fields as $field ) {
-				if ( is_array( $field->fields ) ) {
+				if ( $field->id == $field_id ) {
+					return $field;
+				} elseif ( is_array( $field->fields ) ) {
 					$f = self::get_sub_field( $field, $field_id );
 					if ( $f ) {
 						return $f;
-					}
-				} else {
-					if ( $field->id == $field_id ) {
-						return $field;
 					}
 				}
 			}

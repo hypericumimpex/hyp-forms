@@ -3568,10 +3568,11 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 	}
 
 	/**
-	 * Target of gform_before_delete_field hook. Sets relevant payment feeds to inactive when the credit card field is deleted.
+	 * Target of gform_before_delete_field hook. Sets relevant payment feeds to inactive when the credit card field is
+	 * deleted.
 	 *
-	 * @param $form_id . ID of the form being edited.
-	 * @param $field_id . ID of the field being deleted.
+	 * @param int $form_id   ID of the form being edited.
+	 * @param int $field_id  ID of the field being deleted.
 	 */
 	public function before_delete_field( $form_id, $field_id ) {
 		if ( $this->_requires_credit_card ) {

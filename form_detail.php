@@ -99,28 +99,6 @@ class GFFormDetail {
 				InsertVariable(element_id, callback);
 			}
 
-
-			function IsValidFormula(formula) {
-				if (formula == '')
-					return true;
-				var patt = /{([^}]+)}/i,
-					exprPatt = /^[0-9 -/*\(\)]+$/i,
-					expr = formula.replace(/(\r\n|\n|\r)/gm, ''),
-					match;
-				while (match = patt.exec(expr)) {
-					expr = expr.replace(match[0], 1);
-				}
-				if (exprPatt.test(expr)) {
-					try {
-						var r = eval(expr);
-						return !isNaN(parseFloat(r)) && isFinite(r);
-					} catch (e) {
-						return false;
-					}
-				} else {
-					return false;
-				}
-			}
 		</script>
 
 		<?php
