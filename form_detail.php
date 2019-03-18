@@ -830,18 +830,38 @@ class GFFormDetail {
 		}
 
 		do_action( 'gform_field_standard_settings', 600, $form_id );
+		$recaptcha_type = get_option( 'rg_gforms_captcha_type' );
+		$recaptcha_image_base = $recaptcha_type == 'invisible' ? '/images/captcha_invisible_' : '/images/captcha_';
 		?>
 		<li class="captcha_theme_setting field_setting">
 			<label for="field_captcha_theme" class="section_label">
 				<?php esc_html_e( 'Theme', 'gravityforms' ); ?>
 				<?php gform_tooltip( 'form_field_recaptcha_theme' ) ?>
 			</label>
-			<select id="field_captcha_theme" onchange="SetCaptchaTheme(this.value, '<?php echo GFCommon::get_base_url() ?>/images/captcha_' + this.value + '.jpg')">
+			<select id="field_captcha_theme" onchange="SetCaptchaTheme(this.value, '<?php echo GFCommon::get_base_url() . $recaptcha_image_base ?>' + this.value + '.jpg')">
 				<option value="light"><?php esc_html_e( 'Light', 'gravityforms' ); ?></option>
 				<option value="dark"><?php esc_html_e( 'Dark', 'gravityforms' ); ?></option>
 			</select>
 		</li>
 		<?php
+
+		if ( $recaptcha_type == 'invisible' ) {
+			do_action( 'gform_field_standard_settings', 625, $form_id );
+			?>
+			<li class="captcha_badge_setting field_setting">
+				<label for="field_captcha_badge" class="section_label">
+					<?php esc_html_e( 'Badge Position', 'gravityforms' ); ?>
+					<?php gform_tooltip( 'form_field_recaptcha_badge' ) ?>
+				</label>
+				<select id="field_captcha_badge" onchange="SetFieldProperty('captchaBadge', jQuery(this).val());">
+					<option value="bottomright"><?php esc_html_e( 'Bottom Right', 'gravityforms' ); ?></option>
+					<option value="bottomleft"><?php esc_html_e( 'Bottom Left', 'gravityforms' ); ?></option>
+					<option value="inline"><?php esc_html_e( 'Inline', 'gravityforms' ); ?></option>
+				</select>
+			</li>
+			<?php
+		}
+
 		do_action( 'gform_field_standard_settings', 650, $form_id );
 		?>
 		<li class="post_custom_field_setting field_setting">

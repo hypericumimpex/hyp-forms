@@ -1,4 +1,21 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.11
+	- Updated the Canadian Provinces list to use "and" instead of ampersand for Newfoundland and Labrador.
+	- Updated the minimum version of WordPress required for support to 5.0.
+	- Updated form anchor to use <div> tag instead of <a>.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.10
+	- Fixed issue compatibility with 3rd party inline datepicker implementations.
+	- Added gformInitSingleDatepicker() function and refactored gformInitDatepicker() to use it.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.9
+	- Added support for Invisible reCAPTCHA v2.
+	- Fixed dismissible message not using the message type to determine the styling class.
+	- API: Fixed an issue with entry search when combining clauses with nullable entry columns.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.8
 	- Added the gform_is_valid_formula_form_editor JS filter allowing the formula validation result to be overridden in the form editor.
 

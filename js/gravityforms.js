@@ -1763,15 +1763,26 @@ function renderRecaptcha() {
             parameters.stoken = $elem.data( 'stoken' );
         }
 
-	    /**
-	     * Allows a custom callback function to be executed when the user successfully submits the captcha.
-	     *
-	     * @since 2.2.5.20
-	     *
-	     * @param string|false callback The name of the callback function to be executed when the user successfully submits the captcha.
-	     * @param object       $elem    The jQuery object containing the div element with the ginput_recaptcha class for the current reCaptcha field.
-	     */
-	    var callback = gform.applyFilters( 'gform_recaptcha_callback', false, $elem );
+        var callback = false;
+
+        if ( $elem.data( 'size' ) == 'invisible' ) {
+            callback = function( token ) {
+                if ( token ) {
+                    $elem.closest('form').submit();
+                }
+            }
+        }
+
+        /**
+         * Allows a custom callback function to be executed when the user successfully submits the captcha.
+         *
+         * @since 2.4.x     The callback will be a function if reCAPTCHA v2 Invisible is used.
+         * @since 2.2.5.20
+         *
+         * @param string|false|object   The name of the callback function or the function object itself to be executed when the user successfully submits the captcha.
+         * @param object       $elem    The jQuery object containing the div element with the ginput_recaptcha class for the current reCaptcha field.
+         */
+	    callback = gform.applyFilters( 'gform_recaptcha_callback', callback, $elem );
 	    if ( callback ) {
 		    parameters.callback = callback;
 	    }
@@ -1783,6 +1794,7 @@ function renderRecaptcha() {
 	    }
 
         gform.doAction( 'gform_post_recaptcha_render', $elem );
+
 
     } );
 
@@ -2298,7 +2310,23 @@ jQuery( document ).on( 'submit.gravityforms', '.gform_wrapper form', function( e
 		window[ 'gf_submitting_' + formID ] = false;
 		formWrapper.find( '.gform_ajax_spinner' ).remove();
 		event.preventDefault();
-	}
+	} else if ( isSubmit || isSubmit ) {
+        var $reCaptcha = formWrapper.find( '.ginput_recaptcha' );
+
+        if ( $reCaptcha.length !== 0 && $reCaptcha.data( 'size' ) === 'invisible' ) {
+            // Check for the verified invisible captcha token first.
+            var $reCaptchaResponse = formWrapper.find( 'input[name="g-recaptcha-response"]' );
+            if ( $reCaptchaResponse.length === 0 ) {
+                $reCaptchaResponse = $reCaptcha.find( '.g-recaptcha-response' );
+            }
+            var token = $reCaptchaResponse.val();
+            if ( ! token ) {
+                // Execute the invisible captcha.
+                grecaptcha.execute();
+                event.preventDefault();
+            }
+        }
+    }
 
 } );
 

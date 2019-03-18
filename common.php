@@ -4758,12 +4758,12 @@ Content-Type: text/html;
 					continue;
 				}
 
-				$class = in_array( $message['key'], array(
+				$class = in_array( $message['type'], array(
 					'warning',
 					'error',
 					'updated',
 					'success',
-				) ) ? $message['key'] : 'error';
+				) ) ? $message['type'] : 'error';
 				?>
 				<div class="notice below-h1 notice-<?php echo $class; ?> is-dismissible"
 				     data-gf_dismissible_key="<?php echo $message['key'] ?>"

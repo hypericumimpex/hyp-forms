@@ -3839,7 +3839,7 @@ class GFFormsModel {
 		}
 
 		// Converting list format
-		if ( RGFormsModel::get_input_type( $field ) == 'list' ) {
+		if ( ! empty( $value ) && RGFormsModel::get_input_type( $field ) == 'list' ) {
 
 			// Transforms this: col1|col2,col1b|col2b into this: col1,col2,col1b,col2b
 			$column_count = is_array( $field->choices ) ? count( $field->choices ) : 0;

@@ -2168,6 +2168,7 @@ class GFFormDisplay {
 		$dependents        = '';
 		$fields_with_logic = array();
 		$default_values    = array();
+		$field_dependents  = array();
 
 		foreach ( $form['fields'] as $field ) {
 
@@ -3583,7 +3584,7 @@ class GFFormDisplay {
 
 		return array(
 			'scroll' => $anchor,
-			'tag'    => $anchor !== false ? "<a id='gf_{$form_id}' class='gform_anchor' ></a>" : '',
+			'tag'    => $anchor !== false ? "<div id='gf_{$form_id}' class='gform_anchor' tabindex='-1'></div>" : '',
 			'id'     => $anchor !== false ? "#gf_{$form_id}" : ''
 		);
 	}

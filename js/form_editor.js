@@ -937,6 +937,7 @@ function LoadFieldSettings(){
     SetColorPickerColor("field_captcha_bg", bg);
 
 	jQuery("#field_captcha_type").val(field.captchaType == undefined ? "captcha" : field.captchaType);
+	jQuery("#field_captcha_badge").val(field.captchaBadge == undefined ? "bottomright" : field.captchaBadge);
 	jQuery("#field_captcha_size").val(field.simpleCaptchaSize == undefined ? "medium" : field.simpleCaptchaSize);
 
 	//controlling settings based on captcha type
