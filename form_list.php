@@ -226,7 +226,7 @@ class GFFormList {
 			if ( rgget( 'filter' ) ) {
 				echo '<input type="hidden" value="' . esc_attr( rgget( 'filter' ) ) . '" name="filter" />';
 			}
-						
+
 			$table->search_box( esc_html__( 'Search Forms', 'gravityforms' ), 'form' );
 		?>
 		</form>
@@ -665,7 +665,6 @@ class GF_Form_List_Table extends WP_List_Table {
 			if ( $this->filter == 'trash' ) {
 				$form_actions['restore'] = array(
 					'label'        => __( 'Restore', 'gravityforms' ),
-					'title'        => __( 'Restore', 'gravityforms' ),
 					'url'          => '#',
 					'onclick'      => 'RestoreForm(' . absint( $form->id ) . ');',
 					'onkeypress'   => 'RestoreForm(' . absint( $form->id ) . ');',
@@ -674,7 +673,6 @@ class GF_Form_List_Table extends WP_List_Table {
 				);
 				$form_actions['delete']  = array(
 					'label'        => __( 'Delete permanently', 'gravityforms' ),
-					'title'        => __( 'Delete permanently', 'gravityforms' ),
 					'menu_class'   => 'delete',
 					'url'          => '#',
 					'onclick'      => 'ConfirmDeleteForm(' . absint( $form->id ) . ');',
@@ -693,7 +691,6 @@ class GF_Form_List_Table extends WP_List_Table {
 
 				$form_actions['duplicate'] = array(
 					'label'        => __( 'Duplicate', 'gravityforms' ),
-					'title'        => __( 'Duplicate this form', 'gravityforms' ),
 					'url'          => '#',
 					'onclick'      => 'DuplicateForm(' . absint( $form->id ) . ');return false;',
 					'onkeypress'   => 'DuplicateForm(' . absint( $form->id ) . ');return false;',
@@ -703,7 +700,7 @@ class GF_Form_List_Table extends WP_List_Table {
 
 				$form_actions['trash'] = array(
 					'label'        => __( 'Trash', 'gravityforms' ),
-					'title'        => __( 'Move this form to the trash', 'gravityforms' ),
+					'aria-label'        => __( 'Move this form to the trash', 'gravityforms' ),
 					'url'          => '#',
 					'onclick'      => 'TrashForm(' . absint( $form->id ) . ');return false;',
 					'onkeypress'   => 'TrashForm(' . absint( $form->id ) . ');return false;',
@@ -794,7 +791,7 @@ class GF_Form_List_Table extends WP_List_Table {
 					$trashed = RGFormsModel::trash_form( $form_id );
 					$message = is_wp_error( $trashed ) ? $trashed->get_error_message() : __( 'Form moved to the trash.', 'gravityforms' );
 					$message_class = is_wp_error( $trashed ) ? 'error' : 'updated';
-					break;				
+					break;
 				case 'duplicate' :
 					check_ajax_referer( "gf_duplicate_form_{$form_id}" );
 					$duplicated = RGFormsModel::duplicate_form( $form_id );

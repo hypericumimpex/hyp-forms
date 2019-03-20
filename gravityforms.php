@@ -3,7 +3,7 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.6.11
+Version: 2.4.6.13
 Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.6.11';
+	public static $version = '2.4.6.13';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -1812,7 +1812,7 @@ class GFForms {
                  padding-left: 0.4em;
                 }
              </style>
-              <a href="#" class="button gform_media_link" id="add_gform" title="' . esc_attr__( 'Add Gravity Form', 'gravityforms' ) . '"><div class="gform_media_icon svg" style="background-image: url(\'' . self::get_admin_icon_b64() . '\')"><br /></div><div style="padding-left: 20px;">' . esc_html__( 'Add Form', 'gravityforms' ) . '</div></a>';
+              <a href="#" class="button gform_media_link" id="add_gform" aria-label="' . esc_attr__( 'Add Gravity Form', 'gravityforms' ) . '"><div class="gform_media_icon svg" style="background-image: url(\'' . self::get_admin_icon_b64() . '\')"><br /></div><div style="padding-left: 20px;">' . esc_html__( 'Add Form', 'gravityforms' ) . '</div></a>';
 	}
 
 	/**
@@ -2078,13 +2078,13 @@ class GFForms {
 						?>
 						<tr class='author-self status-inherit' valign="top">
 							<td class="gf_dashboard_form_title column-title" style="padding:8px 18px;">
-								<a <?php echo $form['unread_count'] > 0 ? "class='form_title_unread' style='font-weight:bold;'" : '' ?> href="admin.php?page=gf_entries&view=entries&id=<?php echo absint( $form['id'] ) ?>" title="<?php echo esc_attr( $form['title'] ) ?> : <?php esc_attr_e( 'View All Entries', 'gravityforms' ) ?>"><?php echo esc_html( $form['title'] ) ?></a>
+								<a <?php echo $form['unread_count'] > 0 ? "class='form_title_unread' style='font-weight:bold;'" : '' ?> href="admin.php?page=gf_entries&view=entries&id=<?php echo absint( $form['id'] ) ?>"><?php echo esc_html( $form['title'] ) ?></a>
 							</td>
 							<td class="gf_dashboard_entries_unread column-date" style="padding:8px 18px; text-align:center;">
-								<a <?php echo $form['unread_count'] > 0 ? "class='form_entries_unread' style='font-weight:bold;'" : '' ?> href="admin.php?page=gf_entries&view=entries&filter=unread&id=<?php echo absint( $form['id'] ) ?>" title="<?php printf( esc_attr__( 'Last Entry: %s', 'gravityforms' ), $date_display ); ?>"><?php echo absint( $form['unread_count'] ) ?></a>
+								<a <?php echo $form['unread_count'] > 0 ? "class='form_entries_unread' style='font-weight:bold;'" : '' ?> href="admin.php?page=gf_entries&view=entries&filter=unread&id=<?php echo absint( $form['id'] ) ?>" aria-label="<?php printf( esc_attr__( 'Last Entry: %s', 'gravityforms' ), $date_display ); ?>"><?php echo absint( $form['unread_count'] ) ?></a>
 							</td>
 							<td class="gf_dashboard_entries_total column-date" style="padding:8px 18px; text-align:center;">
-								<a href="admin.php?page=gf_entries&view=entries&id=<?php echo absint( $form['id'] ) ?>" title="<?php esc_attr_e( 'View All Entries', 'gravityforms' ) ?>"><?php echo absint( $form['total_entries'] ) ?></a>
+								<a href="admin.php?page=gf_entries&view=entries&id=<?php echo absint( $form['id'] ) ?>" aria-label="<?php esc_attr_e( 'View All Entries', 'gravityforms' ) ?>"><?php echo absint( $form['total_entries'] ) ?></a>
 							</td>
 						</tr>
 						<?php
@@ -4104,12 +4104,13 @@ class GFForms {
 					$link_class = esc_attr( rgar( $menu_item, 'link_class' ) );
 					$icon       = rgar( $menu_item, 'icon' );
 					$url        = esc_url( rgar( $menu_item, 'url' ) );
-					$title      = esc_attr( rgar( $menu_item, 'title' ) );
+					$aria_label = rgar( $menu_item, 'aria-label' );
+					$aria_label = ( ! empty( $aria_label ) ) ? "aria-label='" . esc_attr( $aria_label ) . "'" : '';
 					$onclick    = esc_attr( rgar( $menu_item, 'onclick' ) );
 					$label      = esc_html( $label );
 					$target     = rgar( $menu_item, 'target' );
 
-					$link = "<a class='{$link_class}' onclick='{$onclick}' onkeypress='{$onclick}' title='{$title}' href='{$url}' target='{$target}'>{$icon} {$label}</a>" . $sub_menu_str;
+					$link = "<a class='{$link_class}' onclick='{$onclick}' onkeypress='{$onclick}' {$aria_label} href='{$url}' target='{$target}'>{$icon} {$label}</a>" . $sub_menu_str;
 					if ( $compact ) {
 						if ( $key == 'delete' ) {
 
@@ -4170,7 +4171,6 @@ class GFForms {
 			'label'        => __( 'Edit', 'gravityforms' ),
 			'short_label'  => esc_html__( 'Editor', 'gravityforms' ),
 			'icon'         => '<i class="fa fa-pencil-square-o fa-lg"></i>',
-			'title'        => __( 'Edit this form', 'gravityforms' ),
 			'url'          => '?page=gf_edit_forms&id=' . $form_id,
 			'menu_class'   => 'gf_form_toolbar_editor',
 			'link_class'   => self::toolbar_class( 'editor' ),
@@ -4185,7 +4185,7 @@ class GFForms {
 		$menu_items['settings'] = array(
 			'label'          => __( 'Settings', 'gravityforms' ),
 			'icon'           => '<i class="fa fa-cogs fa-lg"></i>',
-			'title'          => __( 'Edit settings for this form', 'gravityforms' ),
+			'aria-label'     => __( 'Edit settings for this form', 'gravityforms' ),
 			'url'            => $is_mobile ? '#' : '?page=gf_edit_forms&view=settings&id=' . $form_id,
 			'menu_class'     => 'gf_form_toolbar_settings',
 			'link_class'     => self::toolbar_class( 'settings' ),
@@ -4206,7 +4206,7 @@ class GFForms {
 		$menu_items['entries'] = array(
 			'label'        => __( 'Entries', 'gravityforms' ),
 			'icon'         => '<i class="fa fa-comment-o fa-lg"></i>',
-			'title'        => __( 'View entries generated by this form', 'gravityforms' ),
+			'aria-label'   => __( 'View entries generated by this form', 'gravityforms' ),
 			'url'          => '?page=gf_entries&id=' . $form_id,
 			'menu_class'   => 'gf_form_toolbar_entries',
 			'link_class'   => self::toolbar_class( 'entries' ),
@@ -4225,7 +4225,6 @@ class GFForms {
 		$menu_items['preview'] = array(
 			'label'        => __( 'Preview', 'gravityforms' ),
 			'icon'         => '<i class="fa fa-eye fa-lg"></i>',
-			'title'        => __( 'Preview this form', 'gravityforms' ),
 			'url'          => trailingslashit( site_url() ) . '?gf_page=preview&id=' . $form_id,
 			'menu_class'   => 'gf_form_toolbar_preview',
 			'link_class'   => self::toolbar_class( 'preview' ),

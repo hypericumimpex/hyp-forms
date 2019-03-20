@@ -927,6 +927,9 @@ class GFFormsModel {
 		// Load notifications to legacy structure to maintain backward compatibility with legacy hooks and functions
 		$form = self::load_notifications_to_legacy( $form );
 
+		// Ensure the next field ID is set correctly.
+		$form['nextFieldId'] = self::get_next_field_id( $form['fields'] );
+
 		/**
 		 * Filters the Form object after the form meta is obtained
 		 *
@@ -938,6 +941,33 @@ class GFFormsModel {
 		self::$_current_forms[ $key ] = $form;
 
 		return $form;
+	}
+
+	/**
+	 * Recursively checks the highest ID for all the fields in the form and then returns the highest ID + 1.
+	 *
+	 * @since 2.4.6.12
+	 *
+	 * @param GF_Field[] $fields
+	 * @param int        $next_field_id
+	 *
+	 * @return int
+	 */
+	public static function get_next_field_id( $fields, $next_field_id = 1 ) {
+
+		foreach ( $fields as $field ) {
+
+			if ( is_array( $field->fields ) ) {
+				$next_field_id = self::get_next_field_id( $field->fields, $next_field_id );
+			}
+
+			if ( $field->id >= $next_field_id ) {
+				$next_field_id = $field->id + 1;
+			}
+
+		}
+
+		return (int) $next_field_id;
 	}
 
 	/**

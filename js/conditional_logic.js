@@ -461,7 +461,7 @@ function gf_reset_to_default(targetId, defaultValue){
 				var inputId = element.attr( 'id' ).split( '_' ).slice( 2 ).join( '.' );
 				val = defaultValue[ inputId ];
 			}
-			if( ! val ) {
+			if( ! val && element.attr( 'name' ) ) {
 				var inputId = element.attr( 'name' ).split( '_' )[1];
 				val = defaultValue[ inputId ];
 			}

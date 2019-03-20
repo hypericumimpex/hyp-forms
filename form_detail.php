@@ -454,21 +454,21 @@ class GFFormDetail {
 				<p><?php esc_html_e( 'What would you like to do next?', 'gravityforms' ); ?></p>
 
 				<div class="new-form-option">
-					<a title="<?php esc_attr_e( 'Preview this form', 'gravityforms' ); ?>" id="preview_form_link" href="<?php echo esc_url_raw( trailingslashit( site_url() ) ); ?>?gf_page=preview&id={formid}" target="_blank"><?php esc_html_e( 'Preview this Form', 'gravityforms' ); ?></a>
+					<a id="preview_form_link" href="<?php echo esc_url_raw( trailingslashit( site_url() ) ); ?>?gf_page=preview&id={formid}" target="_blank"><?php esc_html_e( 'Preview this Form', 'gravityforms' ); ?></a>
 				</div>
 
 				<?php if ( GFCommon::current_user_can_any( 'gravityforms_edit_forms' ) ) { ?>
 					<div class="new-form-option">
-						<a title="<?php esc_attr_e( 'Setup email notifications for this form', 'gravityforms' ); ?>" id="notification_form_link" href="#"><?php esc_html_e( 'Setup Email Notifications for this Form', 'gravityforms' ); ?></a>
+						<a id="notification_form_link" href="#"><?php esc_html_e( 'Setup Email Notifications for this Form', 'gravityforms' ); ?></a>
 					</div>
 				<?php } ?>
 
 				<div class="new-form-option">
-					<a title="<?php esc_attr_e( 'Continue editing this form', 'gravityforms' ); ?>" id="edit_form_link" href="#"><?php esc_html_e( 'Continue Editing this Form', 'gravityforms' ); ?></a>
+					<a id="edit_form_link" href="#"><?php esc_html_e( 'Continue Editing this Form', 'gravityforms' ); ?></a>
 				</div>
 
 				<div class="new-form-option">
-					<a title="<?php esc_attr_e( 'I am done. Take me back to form list', 'gravityforms' ); ?>" href="?page=gf_edit_forms"><?php esc_html_e( 'Return to Form List', 'gravityforms' ); ?></a>
+					<a href="?page=gf_edit_forms"><?php esc_html_e( 'Return to Form List', 'gravityforms' ); ?></a>
 				</div>
 
 			</div>
@@ -2439,7 +2439,7 @@ class GFFormDetail {
 					echo $cancel_button;
 
 					if ( GFCommon::current_user_can_any( 'gravityforms_delete_forms' ) ) {
-						$trash_link = '<a class="submitdelete" title="' . __( 'Move this form to the trash', 'gravityforms' ) . '" onclick="gf_vars.isFormTrash = true; jQuery(\'#form_trash\')[0].submit();" onkeypress="gf_vars.isFormTrash = true; jQuery(\'#form_trash\')[0].submit();">' . __( 'Move to Trash', 'gravityforms' ) . '</a>';
+						$trash_link = '<a class="submitdelete" onclick="gf_vars.isFormTrash = true; jQuery(\'#form_trash\')[0].submit();" onkeypress="gf_vars.isFormTrash = true; jQuery(\'#form_trash\')[0].submit();">' . __( 'Move to Trash', 'gravityforms' ) . '</a>';
 
 						/**
 						 * @deprecated
@@ -2463,7 +2463,7 @@ class GFFormDetail {
 
 					<div class="updated_base" id="after_update_dialog" style="display:none;">
 						<strong><?php esc_html_e( 'Form updated successfully.', 'gravityforms' ); ?>
-							&nbsp;<a title="<?php esc_html_e( 'Preview this form', 'gravityforms' ); ?>" href="<?php echo esc_url( trailingslashit( site_url() ) ) ?>?gf_page=preview&id=<?php echo absint( rgar( $form, 'id' ) ) ?>" target="_blank"><?php esc_html_e( 'Preview', 'gravityforms' ); ?></a></strong>
+							&nbsp;<a href="<?php echo esc_url( trailingslashit( site_url() ) ) ?>?gf_page=preview&id=<?php echo absint( rgar( $form, 'id' ) ) ?>" target="_blank"><?php esc_html_e( 'Preview', 'gravityforms' ); ?></a></strong>
 					</div>
 					<div class="error_base" id="after_update_error_dialog" style="padding:10px 10px 16px 10px; display:none;">
 						<?php esc_html_e( 'There was an error while saving your form.', 'gravityforms' ) ?>

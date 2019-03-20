@@ -190,7 +190,9 @@ class GF_Field_CAPTCHA extends GF_Field {
 
 					} else {
 						$type_suffix = $type == 'invisible' ? 'invisible_' : '';
-						return "<div class='ginput_container'><img class='gfield_captcha' src='" . GFCommon::get_base_url() . "/images/captcha_{$type_suffix}{$theme}.jpg' alt='reCAPTCHA' /></div>";
+						$alt         = esc_attr__( 'An example of reCAPTCHA', 'gravityforms' );
+
+						return "<div class='ginput_container'><img class='gfield_captcha' src='" . GFCommon::get_base_url() . "/images/captcha_{$type_suffix}{$theme}.jpg' alt='{$alt}' /></div>";
 					}
 				}
 				else {

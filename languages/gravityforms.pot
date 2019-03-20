@@ -1,9 +1,9 @@
 # Copyright 2009-2019 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.6.11\n"
+"Project-Id-Version: Gravity Forms 2.4.6.13\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2019-03-13 18:48:49+00:00\n"
+"POT-Creation-Date: 2019-03-19 15:36:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgid "Embed URL"
 msgstr ""
 
 #: common.php:576 entry_detail.php:1339 entry_list.php:828 export.php:959
-#: forms_model.php:5901 select_columns.php:184
+#: forms_model.php:5931 select_columns.php:184
 msgid "Entry Id"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgid ""
 "in touch with you shortly."
 msgstr ""
 
-#: common.php:4540 common.php:4570 form_detail.php:3021 includes/api.php:433
+#: common.php:4540 common.php:4570 form_detail.php:3021 includes/api.php:461
 msgid "Thanks for contacting us! We will get in touch with you shortly."
 msgstr ""
 
@@ -512,7 +512,7 @@ msgstr ""
 msgid "Entry ID"
 msgstr ""
 
-#: common.php:4997 export.php:960 forms_model.php:5907
+#: common.php:4997 export.php:960 forms_model.php:5937
 #: includes/addon/class-gf-addon.php:2852 select_columns.php:185
 msgid "Entry Date"
 msgstr ""
@@ -533,15 +533,15 @@ msgstr ""
 msgid "Source URL"
 msgstr ""
 
-#: common.php:5025 export.php:965 forms_model.php:5913 select_columns.php:188
+#: common.php:5025 export.php:965 forms_model.php:5943 select_columns.php:188
 msgid "Payment Status"
 msgstr ""
 
-#: common.php:5030 export.php:964 forms_model.php:5919 select_columns.php:191
+#: common.php:5030 export.php:964 forms_model.php:5949 select_columns.php:191
 msgid "Payment Date"
 msgstr ""
 
-#: common.php:5036 export.php:963 forms_model.php:5922
+#: common.php:5036 export.php:963 forms_model.php:5952
 #: includes/addon/class-gf-payment-addon.php:2305
 #: includes/addon/class-gf-payment-addon.php:2310 select_columns.php:190
 msgid "Payment Amount"
@@ -551,7 +551,7 @@ msgstr ""
 msgid "Transaction ID"
 msgstr ""
 
-#: common.php:5044 entry_detail.php:1355 forms_model.php:5925
+#: common.php:5044 entry_detail.php:1355 forms_model.php:5955
 #: includes/webapi/includes/class-gf-api-keys-table.php:21
 #: includes/webapi/webapi.php:350 select_columns.php:192
 msgid "User"
@@ -811,7 +811,7 @@ msgid "You don't have adequate permission to delete notes."
 msgstr ""
 
 #: entry_detail.php:416 entry_list.php:1357 entry_list.php:1394
-#: form_list.php:846
+#: form_list.php:843
 msgid "You don't have adequate permission to delete entries."
 msgstr ""
 
@@ -901,7 +901,7 @@ msgstr ""
 msgid "Subscription Id"
 msgstr ""
 
-#: entry_detail.php:1264 export.php:962 forms_model.php:5916
+#: entry_detail.php:1264 export.php:962 forms_model.php:5946
 #: select_columns.php:189
 msgid "Transaction Id"
 msgstr ""
@@ -923,13 +923,9 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: entry_detail.php:1349 export.php:969 forms_model.php:5904
+#: entry_detail.php:1349 export.php:969 forms_model.php:5934
 #: includes/addon/class-gf-addon.php:2853 select_columns.php:186
 msgid "User IP"
-msgstr ""
-
-#: entry_detail.php:1356
-msgid "View user profile"
 msgstr ""
 
 #: entry_detail.php:1361
@@ -938,10 +934,6 @@ msgstr ""
 
 #: entry_detail.php:1368
 msgid "Edit Post"
-msgstr ""
-
-#: entry_detail.php:1369
-msgid "Click to edit post"
 msgstr ""
 
 #: entry_detail.php:1391 entry_list.php:1158 entry_list.php:1267
@@ -958,7 +950,7 @@ msgid "Delete Permanently"
 msgstr ""
 
 #: entry_detail.php:1405 entry_list.php:1127 entry_list.php:1263
-#: form_list.php:525 form_list.php:667 form_list.php:668
+#: form_list.php:525 form_list.php:667
 msgid "Restore"
 msgstr ""
 
@@ -970,8 +962,8 @@ msgstr ""
 msgid "Mark as Spam"
 msgstr ""
 
-#: entry_detail.php:1435 form_settings.php:2494 gravityforms.php:4170
-#: gravityforms.php:4487 includes/addon/class-gf-feed-addon.php:1424
+#: entry_detail.php:1435 form_settings.php:2494 gravityforms.php:4171
+#: gravityforms.php:4486 includes/addon/class-gf-feed-addon.php:1424
 #: includes/webapi/includes/class-gf-api-keys-table.php:61
 #: notification.php:1954
 msgid "Edit"
@@ -1040,7 +1032,7 @@ msgstr ""
 msgid "Spam"
 msgstr ""
 
-#: entry_list.php:456 entry_list.php:1205 entry_list.php:1283 form_list.php:705
+#: entry_list.php:456 entry_list.php:1205 entry_list.php:1283 form_list.php:702
 msgid "Trash"
 msgstr ""
 
@@ -1052,8 +1044,7 @@ msgstr ""
 msgid "Select entry"
 msgstr ""
 
-#: entry_list.php:967 entry_list.php:1122 entry_list.php:1153
-#: entry_list.php:1185
+#: entry_list.php:967
 msgid "View this entry"
 msgstr ""
 
@@ -1101,14 +1092,6 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: entry_list.php:1127
-msgid "Restore this entry"
-msgstr ""
-
-#: entry_list.php:1136 entry_list.php:1167
-msgid "Delete this entry permanently"
-msgstr ""
-
 #: entry_list.php:1158
 msgid "Mark this entry as not spam"
 msgstr ""
@@ -1133,7 +1116,7 @@ msgstr ""
 msgid "Move this entry to the trash"
 msgstr ""
 
-#: entry_list.php:1233 form_list.php:725
+#: entry_list.php:1233 form_list.php:722
 msgid "Show more details"
 msgstr ""
 
@@ -1445,7 +1428,7 @@ msgstr ""
 msgid "Created By (User Id)"
 msgstr ""
 
-#: export.php:961 forms_model.php:5910 includes/addon/class-gf-addon.php:2854
+#: export.php:961 forms_model.php:5940 includes/addon/class-gf-addon.php:2854
 #: select_columns.php:187
 msgid "Source Url"
 msgstr ""
@@ -1458,7 +1441,7 @@ msgstr ""
 msgid "The PHP readfile function is not available, please contact the web host."
 msgstr ""
 
-#: form_detail.php:127 gravityforms.php:1443 gravityforms.php:4551
+#: form_detail.php:127 gravityforms.php:1443 gravityforms.php:4550
 msgid "New Form"
 msgstr ""
 
@@ -1711,16 +1694,8 @@ msgstr ""
 msgid "What would you like to do next?"
 msgstr ""
 
-#: form_detail.php:457 form_detail.php:2466 gravityforms.php:4228
-msgid "Preview this form"
-msgstr ""
-
 #: form_detail.php:457
 msgid "Preview this Form"
-msgstr ""
-
-#: form_detail.php:462
-msgid "Setup email notifications for this form"
 msgstr ""
 
 #: form_detail.php:462
@@ -1728,15 +1703,7 @@ msgid "Setup Email Notifications for this Form"
 msgstr ""
 
 #: form_detail.php:467
-msgid "Continue editing this form"
-msgstr ""
-
-#: form_detail.php:467
 msgid "Continue Editing this Form"
-msgstr ""
-
-#: form_detail.php:471
-msgid "I am done. Take me back to form list"
 msgstr ""
 
 #: form_detail.php:471
@@ -3475,11 +3442,7 @@ msgstr ""
 msgid "Enable Next Button Conditional Logic"
 msgstr ""
 
-#: form_detail.php:2442 form_list.php:706
-msgid "Move this form to the trash"
-msgstr ""
-
-#: form_detail.php:2466 gravityforms.php:4226 gravityforms.php:4525
+#: form_detail.php:2466 gravityforms.php:4226 gravityforms.php:4524
 msgid "Preview"
 msgstr ""
 
@@ -3491,7 +3454,7 @@ msgstr ""
 msgid "Pricing Fields"
 msgstr ""
 
-#: form_detail.php:3000 forms_model.php:1140
+#: form_detail.php:3000 forms_model.php:1170
 msgid "Admin Notification"
 msgstr ""
 
@@ -3499,7 +3462,7 @@ msgstr ""
 msgid "New submission from"
 msgstr ""
 
-#: form_detail.php:3018 forms_model.php:6187 includes/api.php:430
+#: form_detail.php:3018 forms_model.php:6217 includes/api.php:458
 msgid "Default Confirmation"
 msgstr ""
 
@@ -3693,7 +3656,7 @@ msgid ""
 msgstr ""
 
 #: form_list.php:207 gravityforms.php:1433 gravityforms.php:1438
-#: gravityforms.php:2041 gravityforms.php:4449
+#: gravityforms.php:2041 gravityforms.php:4448
 #: includes/class-personal-data.php:831
 msgid "Forms"
 msgstr ""
@@ -3732,7 +3695,7 @@ msgstr ""
 msgid "Saved! Redirecting..."
 msgstr ""
 
-#: form_list.php:526 form_list.php:676 form_list.php:677
+#: form_list.php:526 form_list.php:675
 msgid "Delete permanently"
 msgstr ""
 
@@ -3761,7 +3724,7 @@ msgid "ID"
 msgstr ""
 
 #: form_list.php:547 gravityforms.php:1448 gravityforms.php:4207
-#: gravityforms.php:4498
+#: gravityforms.php:4497
 msgid "Entries"
 msgstr ""
 
@@ -3777,88 +3740,88 @@ msgstr ""
 msgid "Select form"
 msgstr ""
 
-#: form_list.php:695 form_settings.php:2495
+#: form_list.php:693 form_settings.php:2495
 #: includes/addon/class-gf-feed-addon.php:1425 notification.php:1955
 msgid "Duplicate"
 msgstr ""
 
-#: form_list.php:696
-msgid "Duplicate this form"
+#: form_list.php:703
+msgid "Move this form to the trash"
 msgstr ""
 
-#: form_list.php:731
+#: form_list.php:728
 msgid "No forms were found for your search query. %sView all forms%s."
 msgstr ""
 
-#: form_list.php:736
+#: form_list.php:733
 msgid "There are no forms in the trash."
 msgstr ""
 
-#: form_list.php:738
+#: form_list.php:735
 msgid "You don't have any forms. Let's go %screate one%s!"
 msgstr ""
 
-#: form_list.php:761 form_list.php:795
+#: form_list.php:758 form_list.php:792
 msgid "Form moved to the trash."
 msgstr ""
 
-#: form_list.php:766
+#: form_list.php:763
 msgid "Form restored."
 msgstr ""
 
-#: form_list.php:772
+#: form_list.php:769
 msgid "Form deleted."
 msgstr ""
 
-#: form_list.php:775
+#: form_list.php:772
 msgid "You don't have adequate permission to delete forms."
 msgstr ""
 
-#: form_list.php:781 form_list.php:801
+#: form_list.php:778 form_list.php:798
 msgid "Form duplicated."
 msgstr ""
 
-#: form_list.php:818
+#: form_list.php:815
 msgid "%s form moved to the trash."
 msgid_plural "%s forms moved to the trash."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:822
+#: form_list.php:819
 msgid "%s form restored."
 msgid_plural "%s forms restored."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:827
+#: form_list.php:824
 msgid "%s form deleted."
 msgid_plural "%s forms deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:829
+#: form_list.php:826
 msgid "You don't have adequate permissions to delete forms."
 msgstr ""
 
-#: form_list.php:837
+#: form_list.php:834
 msgid "Views for %s form have been reset."
 msgid_plural "Views for %s forms have been reset."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:844
+#: form_list.php:841
 msgid "Entries for %s form have been deleted."
 msgid_plural "Entries for %s forms have been deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:854
+#: form_list.php:851
 msgid "%s form has been marked as active."
 msgid_plural "%s forms have been marked as active."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:860
+#: form_list.php:857
 msgid "%s form has been marked as inactive."
 msgid_plural "%s forms have been marked as inactive."
 msgstr[0] ""
@@ -4209,18 +4172,6 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: form_settings.php:2494 notification.php:1954
-msgid "Edit this item"
-msgstr ""
-
-#: form_settings.php:2495
-msgid "Duplicate this confirmation"
-msgstr ""
-
-#: form_settings.php:2496
-msgid "Delete this item"
-msgstr ""
-
 #: form_settings.php:2496
 msgid "WARNING: You are about to delete this confirmation."
 msgstr ""
@@ -4233,30 +4184,30 @@ msgstr ""
 msgid "<em>This page does not exist.</em>"
 msgstr ""
 
-#: forms_model.php:1164
+#: forms_model.php:1194
 msgid "User Notification"
 msgstr ""
 
-#: forms_model.php:1332 forms_model.php:1364
+#: forms_model.php:1362 forms_model.php:1394
 msgid "Notification not found"
 msgstr ""
 
-#: forms_model.php:1593 forms_model.php:1615 forms_model.php:1660
-#: forms_model.php:1690 forms_model.php:1728 includes/api.php:121
+#: forms_model.php:1623 forms_model.php:1645 forms_model.php:1690
+#: forms_model.php:1720 forms_model.php:1758 includes/api.php:121
 #: includes/api.php:148 includes/api.php:170 includes/api.php:202
-#: includes/api.php:289 includes/api.php:335 includes/api.php:356
-#: includes/api.php:394 includes/api.php:677 includes/api.php:711
-#: includes/api.php:761 includes/api.php:1126 includes/api.php:1249
-#: includes/api.php:1398 includes/api.php:1559 includes/api.php:1591
-#: includes/api.php:1634
+#: includes/api.php:312 includes/api.php:358 includes/api.php:379
+#: includes/api.php:417 includes/api.php:712 includes/api.php:746
+#: includes/api.php:796 includes/api.php:1165 includes/api.php:1288
+#: includes/api.php:1437 includes/api.php:1598 includes/api.php:1630
+#: includes/api.php:1673
 msgid "Submissions are currently blocked due to an upgrade in progress"
 msgstr ""
 
-#: forms_model.php:2570 includes/legacy/forms_model_legacy.php:516
+#: forms_model.php:2600 includes/legacy/forms_model_legacy.php:516
 msgid "You don't have adequate permission to edit entries."
 msgstr ""
 
-#: forms_model.php:2582 includes/legacy/forms_model_legacy.php:551
+#: forms_model.php:2612 includes/legacy/forms_model_legacy.php:551
 msgid ""
 "An error prevented the entry for this form submission being saved. Please "
 "contact support."
@@ -4341,7 +4292,7 @@ msgid "Update Available"
 msgstr ""
 
 #: gravityforms.php:1461 gravityforms.php:1881 gravityforms.php:4186
-#: gravityforms.php:4509 includes/addon/class-gf-addon.php:4599
+#: gravityforms.php:4508 includes/addon/class-gf-addon.php:4599
 #: includes/addon/class-gf-addon.php:4822
 #: includes/addon/class-gf-addon.php:4988
 #: includes/system-status/class-gf-update.php:73 settings.php:776
@@ -4417,12 +4368,12 @@ msgstr ""
 msgid "Unread"
 msgstr ""
 
-#: gravityforms.php:2081 gravityforms.php:2087
-msgid "View All Entries"
-msgstr ""
-
 #: gravityforms.php:2084
 msgid "Last Entry: %s"
+msgstr ""
+
+#: gravityforms.php:2087
+msgid "View All Entries"
 msgstr ""
 
 #: gravityforms.php:2099
@@ -4489,12 +4440,8 @@ msgstr ""
 msgid "Switch Form"
 msgstr ""
 
-#: gravityforms.php:4171
+#: gravityforms.php:4172
 msgid "Editor"
-msgstr ""
-
-#: gravityforms.php:4173
-msgid "Edit this form"
 msgstr ""
 
 #: gravityforms.php:4188
@@ -4505,92 +4452,92 @@ msgstr ""
 msgid "View entries generated by this form"
 msgstr ""
 
-#: gravityforms.php:4426 widget.php:38
+#: gravityforms.php:4425 widget.php:38
 msgid "Form"
 msgstr ""
 
-#: gravityforms.php:4464
+#: gravityforms.php:4463
 msgid "Recent"
 msgstr ""
 
-#: gravityforms.php:4540
+#: gravityforms.php:4539
 msgid "All Forms"
 msgstr ""
 
-#: gravityforms.php:4706 includes/locking/class-gf-locking.php:209
+#: gravityforms.php:4705 includes/locking/class-gf-locking.php:209
 msgid "Error"
 msgstr ""
 
-#: gravityforms.php:4843 widget.php:123
+#: gravityforms.php:4842 widget.php:123
 msgid "Select a Form"
 msgstr ""
 
-#: gravityforms.php:4850
+#: gravityforms.php:4849
 msgid "Select a form below to add it to your post or page."
 msgstr ""
 
-#: gravityforms.php:4851
+#: gravityforms.php:4850
 msgid "Select a form from the list to add it to your post or page."
 msgstr ""
 
-#: gravityforms.php:4855
+#: gravityforms.php:4854
 msgid "Can't find your form? Make sure it is active."
 msgstr ""
 
-#: gravityforms.php:4859 widget.php:139
+#: gravityforms.php:4858 widget.php:139
 msgid "Display form title"
 msgstr ""
 
-#: gravityforms.php:4864
+#: gravityforms.php:4863
 msgid "Whether or not to display the form title."
 msgstr ""
 
-#: gravityforms.php:4867 widget.php:141
+#: gravityforms.php:4866 widget.php:141
 msgid "Display form description"
 msgstr ""
 
-#: gravityforms.php:4872
+#: gravityforms.php:4871
 msgid "Whether or not to display the form description."
 msgstr ""
 
-#: gravityforms.php:4875 widget.php:148
+#: gravityforms.php:4874 widget.php:148
 msgid "Enable Ajax"
 msgstr ""
 
-#: gravityforms.php:4879
+#: gravityforms.php:4878
 msgid "Specify whether or not to use Ajax to submit the form."
 msgstr ""
 
-#: gravityforms.php:4885
+#: gravityforms.php:4884
 msgid "Specify the starting tab index for the fields of this form."
 msgstr ""
 
-#: gravityforms.php:4900
+#: gravityforms.php:4899
 msgid "Select an action"
 msgstr ""
 
-#: gravityforms.php:4912
+#: gravityforms.php:4911
 msgid "Select an action for this shortcode. Actions are added by some add-ons."
 msgstr ""
 
-#: gravityforms.php:4999
+#: gravityforms.php:4998
 msgid ""
 "Gravity Forms logging is currently enabled. Log files can contain sensitive "
 "information so ensure that logging is only enabled for as long as is "
 "required for troubleshooting. %sClick here to disable logging.%s"
 msgstr ""
 
-#: gravityforms.php:5003
+#: gravityforms.php:5002
 msgid ""
 "If you're currently receiving support, do not disable logging until the "
 "issue is resolved."
 msgstr ""
 
-#: gravityforms.php:5104
+#: gravityforms.php:5103
 msgid "Forms per page"
 msgstr ""
 
-#: gravityforms.php:5388
+#: gravityforms.php:5387
 #. translators: 1: The table name 2: the URL with further details
 msgid ""
 "An outdated add-on or custom code is attempting to access the %1$s table "
@@ -4598,11 +4545,11 @@ msgid ""
 "and custom code to prevent loss of form data. Further details: %2$s"
 msgstr ""
 
-#: gravityforms.php:5418
+#: gravityforms.php:5417
 msgid "Gravity Forms Exporter"
 msgstr ""
 
-#: gravityforms.php:5435
+#: gravityforms.php:5434
 msgid "Gravity Forms Eraser"
 msgstr ""
 
@@ -5072,18 +5019,6 @@ msgstr ""
 msgid ""
 "There was an error updating this feed. Please review all errors below and "
 "try again."
-msgstr ""
-
-#: includes/addon/class-gf-feed-addon.php:1424
-msgid "Edit this feed"
-msgstr ""
-
-#: includes/addon/class-gf-feed-addon.php:1425
-msgid "Duplicate this feed"
-msgstr ""
-
-#: includes/addon/class-gf-feed-addon.php:1426
-msgid "Delete this feed"
 msgstr ""
 
 #: includes/addon/class-gf-feed-addon.php:1426
@@ -5718,126 +5653,130 @@ msgstr ""
 msgid "Form with id: %s not found"
 msgstr ""
 
-#: includes/api.php:206 includes/api.php:398
+#: includes/api.php:206 includes/api.php:421
 msgid "Invalid form object"
 msgstr ""
 
-#: includes/api.php:227
+#: includes/api.php:218
 #: includes/webapi/v2/includes/controllers/class-controller-form-feeds.php:205
 #: includes/webapi/webapi.php:1105
 msgid "Missing form id"
 msgstr ""
 
-#: includes/api.php:233 includes/webapi/v2/includes/class-results-cache.php:477
+#: includes/api.php:234 includes/webapi/v2/includes/class-results-cache.php:477
 #: includes/webapi/v2/includes/controllers/class-controller-forms.php:135
 msgid "Form not found"
 msgstr ""
 
-#: includes/api.php:243
+#: includes/api.php:244
 msgid "Error updating form"
 msgstr ""
 
-#: includes/api.php:249
+#: includes/api.php:250
 msgid "Error updating form confirmations"
 msgstr ""
 
-#: includes/api.php:256
+#: includes/api.php:257
 msgid "Error updating form notifications"
 msgstr ""
 
-#: includes/api.php:264
+#: includes/api.php:265
 msgid "Error updating title"
 msgstr ""
 
-#: includes/api.php:297
+#: includes/api.php:320
 msgid "Property key incorrect"
 msgstr ""
 
-#: includes/api.php:360
+#: includes/api.php:383
 msgid "Invalid form objects"
 msgstr ""
 
-#: includes/api.php:402
+#: includes/api.php:425
 msgid "The form title is missing"
 msgstr ""
 
-#: includes/api.php:457
+#: includes/api.php:429
+msgid "The form fields are missing"
+msgstr ""
+
+#: includes/api.php:492
 msgid "There was a problem while inserting the form"
 msgstr ""
 
-#: includes/api.php:644 includes/api.php:655
+#: includes/api.php:679 includes/api.php:690
 msgid "Entry with id %s not found"
 msgstr ""
 
-#: includes/api.php:777 includes/legacy/forms_model_legacy.php:2033
+#: includes/api.php:812 includes/legacy/forms_model_legacy.php:2033
 msgid "Missing entry id"
 msgstr ""
 
-#: includes/api.php:783 includes/legacy/forms_model_legacy.php:2039
+#: includes/api.php:818 includes/legacy/forms_model_legacy.php:2039
 msgid "Entry not found"
 msgstr ""
 
-#: includes/api.php:798 includes/api.php:1144
+#: includes/api.php:833 includes/api.php:1183
 #: includes/legacy/forms_model_legacy.php:2053
 #: includes/legacy/forms_model_legacy.php:2275
 msgid "The form for this entry does not exist"
 msgstr ""
 
-#: includes/api.php:946 includes/legacy/forms_model_legacy.php:2120
+#: includes/api.php:981 includes/legacy/forms_model_legacy.php:2120
 msgid "There was a problem while updating the entry properties"
 msgstr ""
 
-#: includes/api.php:1009 includes/api.php:1083
+#: includes/api.php:1044 includes/api.php:1122
 #: includes/legacy/forms_model_legacy.php:2160
 #: includes/legacy/forms_model_legacy.php:2196
 msgid "There was a problem while updating the field values"
 msgstr ""
 
-#: includes/api.php:1063 includes/legacy/forms_model_legacy.php:2147
+#: includes/api.php:1102 includes/legacy/forms_model_legacy.php:2147
 msgid "There was a problem while updating one of the input values for the entry"
 msgstr ""
 
-#: includes/api.php:1134 includes/legacy/forms_model_legacy.php:2265
+#: includes/api.php:1173 includes/legacy/forms_model_legacy.php:2265
 msgid "The entry object must be an array"
 msgstr ""
 
-#: includes/api.php:1140 includes/legacy/forms_model_legacy.php:2271
+#: includes/api.php:1179 includes/legacy/forms_model_legacy.php:2271
 msgid "The form id must be specified"
 msgstr ""
 
-#: includes/api.php:1188 includes/legacy/forms_model_legacy.php:2315
+#: includes/api.php:1227 includes/legacy/forms_model_legacy.php:2315
 msgid "There was a problem while inserting the entry properties"
 msgstr ""
 
-#: includes/api.php:1254
+#: includes/api.php:1293
 msgid "Invalid entry id: %s"
 msgstr ""
 
-#: includes/api.php:1405
+#: includes/api.php:1444
 msgid "Your form could not be found"
 msgstr ""
 
-#: includes/api.php:1430 includes/api.php:1436
+#: includes/api.php:1469 includes/api.php:1475
 msgid "There was an error while processing the form:"
 msgstr ""
 
-#: includes/api.php:1534
+#: includes/api.php:1573
 msgid "Feed not found"
 msgstr ""
 
-#: includes/api.php:1568
+#: includes/api.php:1607
 msgid "There was an error while deleting feed id %s"
 msgstr ""
 
-#: includes/api.php:1572
+#: includes/api.php:1611
 msgid "Feed id %s not found"
 msgstr ""
 
-#: includes/api.php:1611
+#: includes/api.php:1650
 msgid "There was an error while updating feed id %s"
 msgstr ""
 
-#: includes/api.php:1644
+#: includes/api.php:1683
 msgid "There was an error while inserting a feed"
 msgstr ""
 
@@ -8414,6 +8353,10 @@ msgid ""
 "of the %sSettings page%s"
 msgstr ""
 
+#: includes/fields/class-gf-field-captcha.php:193
+msgid "An example of reCAPTCHA"
+msgstr ""
+
 #: includes/fields/class-gf-field-checkbox.php:638
 #: includes/fields/class-gf-field-radio.php:148
 msgid "%d of %d items shown. Edit field to view all"
@@ -8559,18 +8502,25 @@ msgid "Download file"
 msgstr ""
 
 #: includes/fields/class-gf-field-fileupload.php:269
-#: includes/fields/class-gf-field-fileupload.php:295
+#: includes/fields/class-gf-field-fileupload.php:296
 msgid "Delete file"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:437
+#: includes/fields/class-gf-field-fileupload.php:270
+msgid "View file"
+msgstr ""
+
+#: includes/fields/class-gf-field-fileupload.php:438
 msgid "%d files"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:452
-#: includes/fields/class-gf-field-fileupload.php:497
+#: includes/fields/class-gf-field-fileupload.php:453
 #: includes/fields/class-gf-field-post-image.php:114
 #: includes/fields/class-gf-field-post-image.php:138
+msgid "View the image"
+msgstr ""
+
+#: includes/fields/class-gf-field-fileupload.php:498
 msgid "Click to view"
 msgstr ""
 
@@ -8588,15 +8538,15 @@ msgid ""
 "admin. Preview this form to view the content."
 msgstr ""
 
-#: includes/fields/class-gf-field-list.php:240
+#: includes/fields/class-gf-field-list.php:235
 msgid "Add another row"
 msgstr ""
 
-#: includes/fields/class-gf-field-list.php:240
+#: includes/fields/class-gf-field-list.php:235
 msgid "Add a new row"
 msgstr ""
 
-#: includes/fields/class-gf-field-list.php:241
+#: includes/fields/class-gf-field-list.php:236
 msgid "Remove this row"
 msgstr ""
 
@@ -10615,14 +10565,6 @@ msgstr ""
 
 #: notification.php:1753
 msgid "Service"
-msgstr ""
-
-#: notification.php:1955
-msgid "Duplicate this notification"
-msgstr ""
-
-#: notification.php:1956
-msgid "Delete this notification"
 msgstr ""
 
 #: notification.php:1956

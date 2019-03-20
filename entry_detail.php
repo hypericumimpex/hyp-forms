@@ -1192,7 +1192,7 @@ class GFEntryDetail {
 		$class .= ' gf_entry_pagination_link';
 		$class .= $pos !== false ? ' gf_entry_pagination_link_active' : ' gf_entry_pagination_link_inactive';
 
-		return '<a ' . $href . ' class="' . $class . '" title="' . esc_attr( $label ) . '"><i class="fa-lg ' . esc_attr( $icon ) . '"></i></a></li>';
+		return '<a ' . $href . ' class="' . $class . '" aria-label="' . esc_attr( $label ) . '"><i aria-hidden="true" class="fa-lg ' . esc_attr( $icon ) . '" title="' . esc_attr( $label ) . '"></i></a>';
 	}
 
 	public static function payment_details_box( $entry, $form ) {
@@ -1353,20 +1353,20 @@ class GFEntryDetail {
 				if ( ! empty( $entry['created_by'] ) && $usermeta = get_userdata( $entry['created_by'] ) ) {
 					?>
 					<?php esc_html_e( 'User', 'gravityforms' ); ?>:
-					<a href="user-edit.php?user_id=<?php echo absint( $entry['created_by'] ) ?>" alt="<?php esc_attr_e( 'View user profile', 'gravityforms' ); ?>" title="<?php esc_attr_e( 'View user profile', 'gravityforms' ); ?>"><?php echo esc_html( $usermeta->user_login ) ?></a>
+					<a href="user-edit.php?user_id=<?php echo absint( $entry['created_by'] ) ?>"><?php echo esc_html( $usermeta->user_login ) ?></a>
 					<br /><br />
 					<?php
 				}
 
 				esc_html_e( 'Embed Url', 'gravityforms' ); ?>:
-				<a href="<?php echo esc_url( $entry['source_url'] ) ?>" target="_blank" alt="<?php echo esc_attr( $entry['source_url'] ) ?>" title="<?php echo esc_attr( $entry['source_url'] ) ?>">.../<?php echo esc_html( GFCommon::truncate_url( $entry['source_url'] ) ) ?></a>
+				<a href="<?php echo esc_url( $entry['source_url'] ) ?>" target="_blank">.../<?php echo esc_html( GFCommon::truncate_url( $entry['source_url'] ) ) ?></a>
 				<br /><br />
 				<?php
 				if ( ! empty( $entry['post_id'] ) ) {
 					$post = get_post( $entry['post_id'] );
 					?>
 					<?php esc_html_e( 'Edit Post', 'gravityforms' ); ?>:
-					<a href="post.php?action=edit&post=<?php echo absint( $post->ID ) ?>" alt="<?php esc_attr_e( 'Click to edit post', 'gravityforms' ); ?>" title="<?php esc_attr_e( 'Click to edit post', 'gravityforms' ); ?>"><?php echo esc_html( $post->post_title ) ?></a>
+					<a href="post.php?action=edit&post=<?php echo absint( $post->ID ) ?>"><?php echo esc_html( $post->post_title ) ?></a>
 					<br /><br />
 					<?php
 				}

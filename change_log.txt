@@ -1,4 +1,16 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.13
+	- Fixed JS error triggered when evaluating conditional logic for Credit Card fields.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.6.12
+	- Updated the use of "title" attributes in HTML tags.
+	- Fixed an issue with the next field ID in the form editor which doesn't recalculate when fields are added using the API. This fixes an issue when adding fields with the CLI and when adding Repeater fields.
+	- API: Updated GFAPI::add_form() to return a WP_Error if the $form['fields'] is not set or is not an array.
+	- API: Fixed an undefined offset notice which occurred when using GFAPI::add_entry() for a form containing a Repeater field when it did not have values in the supplied entry.
+	- API: Fixed missing field IDs when adding or updating forms.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.6.11
 	- Updated the Canadian Provinces list to use "and" instead of ampersand for Newfoundland and Labrador.
 	- Updated the minimum version of WordPress required for support to 5.0.
