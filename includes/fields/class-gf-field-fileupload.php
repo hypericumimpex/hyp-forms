@@ -110,7 +110,6 @@ class GF_Field_FileUpload extends GF_Field {
 		return $this->multipleFiles ? '' : 'input_' . $form['id'] . '_' . $this->id;
 	}
 
-
 	public function get_field_input( $form, $value = '', $entry = null ) {
 
 		$lead_id = absint( rgar( $entry, 'id' ) );
@@ -230,11 +229,13 @@ class GF_Field_FileUpload extends GF_Field {
 				//  MAX_FILE_SIZE > 2048MB fails. The file size is checked anyway once uploaded, so it's not necessary.
 				$upload = sprintf( "<input type='hidden' name='MAX_FILE_SIZE' value='%d' />", $max_upload_size );
 			}
-			$upload .= sprintf( "<input name='input_%d' id='%s' type='file' class='%s' aria-describedby='%s' onchange='javascript:gformValidateFileSize( this, %s );' {$tabindex} %s/>", $id, $field_id, esc_attr( $class ), $extensions_message_id, esc_attr( $max_upload_size ), $disabled_text );
+			$validation_message_id = 'validation_message_' . $form_id . '_' . $id;
+			$live_validation_message_id= 'live_validation_message_' . $form_id . '_' . $id;
+			$upload .= sprintf( "<input name='input_%d' id='%s' type='file' class='%s' aria-describedby='%s %s %s' onchange='javascript:gformValidateFileSize( this, %s );' {$tabindex} %s/>", $id, $field_id, esc_attr( $class ), $validation_message_id, $live_validation_message_id, $extensions_message_id, esc_attr( $max_upload_size ), $disabled_text );
 
 			if ( ! $is_admin ) {
 				$upload .= "<span id='{$extensions_message_id}' class='screen-reader-text'>{$extensions_message}</span>";
-				$upload .= "<div class='validation_message'></div>";
+				$upload .= "<div class='validation_message' id='{$live_validation_message_id}'></div>";
 			}
 		}
 

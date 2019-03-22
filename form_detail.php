@@ -2995,13 +2995,14 @@ class GFFormDetail {
 			if ( apply_filters( 'gform_default_notification', true ) ) {
 
 				$default_notification = array(
-					'id'      => uniqid(),
-					'to'      => '{admin_email}',
-					'name'    => __( 'Admin Notification', 'gravityforms' ),
-					'event'   => 'form_submission',
-					'toType'  => 'email',
-					'subject' => __( 'New submission from', 'gravityforms' ) . ' {form_title}',
-					'message' => '{all_fields}',
+					'id'       => uniqid(),
+					'isActive' => true,
+					'to'       => '{admin_email}',
+					'name'     => __( 'Admin Notification', 'gravityforms' ),
+					'event'    => 'form_submission',
+					'toType'   => 'email',
+					'subject'  => __( 'New submission from', 'gravityforms' ) . ' {form_title}',
+					'message'  => '{all_fields}',
 				);
 
 				$notifications = array( $default_notification['id'] => $default_notification );

@@ -1,9 +1,9 @@
 # Copyright 2009-2019 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.6.13\n"
+"Project-Id-Version: Gravity Forms 2.4.6.15\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2019-03-19 15:36:58+00:00\n"
+"POT-Creation-Date: 2019-03-22 08:58:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -316,7 +316,7 @@ msgid ""
 "in touch with you shortly."
 msgstr ""
 
-#: common.php:4540 common.php:4570 form_detail.php:3021 includes/api.php:461
+#: common.php:4540 common.php:4570 form_detail.php:3022 includes/api.php:461
 msgid "Thanks for contacting us! We will get in touch with you shortly."
 msgstr ""
 
@@ -811,7 +811,7 @@ msgid "You don't have adequate permission to delete notes."
 msgstr ""
 
 #: entry_detail.php:416 entry_list.php:1357 entry_list.php:1394
-#: form_list.php:843
+#: form_list.php:877
 msgid "You don't have adequate permission to delete entries."
 msgstr ""
 
@@ -3454,15 +3454,15 @@ msgstr ""
 msgid "Pricing Fields"
 msgstr ""
 
-#: form_detail.php:3000 forms_model.php:1170
+#: form_detail.php:3001 forms_model.php:1170
 msgid "Admin Notification"
 msgstr ""
 
-#: form_detail.php:3003
+#: form_detail.php:3004
 msgid "New submission from"
 msgstr ""
 
-#: form_detail.php:3018 forms_model.php:6217 includes/api.php:458
+#: form_detail.php:3019 forms_model.php:6217 includes/api.php:458
 msgid "Default Confirmation"
 msgstr ""
 
@@ -3761,67 +3761,87 @@ msgstr ""
 msgid "You don't have any forms. Let's go %screate one%s!"
 msgstr ""
 
-#: form_list.php:758 form_list.php:792
+#: form_list.php:759 form_list.php:808
 msgid "Form moved to the trash."
 msgstr ""
 
-#: form_list.php:763
-msgid "Form restored."
+#: form_list.php:762 form_list.php:811
+msgid "You don't have adequate permission to trash forms."
 msgstr ""
 
 #: form_list.php:769
-msgid "Form deleted."
+msgid "Form restored."
 msgstr ""
 
 #: form_list.php:772
+msgid "You don't have adequate permission to restore forms."
+msgstr ""
+
+#: form_list.php:779
+msgid "Form deleted."
+msgstr ""
+
+#: form_list.php:782
 msgid "You don't have adequate permission to delete forms."
 msgstr ""
 
-#: form_list.php:778 form_list.php:798
+#: form_list.php:789 form_list.php:820
 msgid "Form duplicated."
 msgstr ""
 
-#: form_list.php:815
+#: form_list.php:792 form_list.php:823
+msgid "You don't have adequate permission to duplicate forms."
+msgstr ""
+
+#: form_list.php:842
 msgid "%s form moved to the trash."
 msgid_plural "%s forms moved to the trash."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:819
+#: form_list.php:844
+msgid "You don't have adequate permissions to trash forms."
+msgstr ""
+
+#: form_list.php:850
 msgid "%s form restored."
 msgid_plural "%s forms restored."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:824
+#: form_list.php:852
+msgid "You don't have adequate permissions to restore forms."
+msgstr ""
+
+#: form_list.php:858
 msgid "%s form deleted."
 msgid_plural "%s forms deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:826
+#: form_list.php:860
 msgid "You don't have adequate permissions to delete forms."
 msgstr ""
 
-#: form_list.php:834
+#: form_list.php:868
 msgid "Views for %s form have been reset."
 msgid_plural "Views for %s forms have been reset."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:841
+#: form_list.php:875
 msgid "Entries for %s form have been deleted."
 msgid_plural "Entries for %s forms have been deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:851
+#: form_list.php:885
 msgid "%s form has been marked as active."
 msgid_plural "%s forms have been marked as active."
 msgstr[0] ""
 msgstr[1] ""
 
-#: form_list.php:857
+#: form_list.php:891
 msgid "%s form has been marked as inactive."
 msgid_plural "%s forms have been marked as inactive."
 msgstr[0] ""
@@ -8480,47 +8500,47 @@ msgstr ""
 msgid "The uploaded file type is not allowed. Must be one of the following: %s"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:142
+#: includes/fields/class-gf-field-fileupload.php:141
 msgid "Accepted file types: %s."
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:177
-#: includes/fields/class-gf-field-fileupload.php:200
+#: includes/fields/class-gf-field-fileupload.php:176
+#: includes/fields/class-gf-field-fileupload.php:199
 msgid "Allowed Files"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:206
+#: includes/fields/class-gf-field-fileupload.php:205
 msgid "Drop files here or"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:207
+#: includes/fields/class-gf-field-fileupload.php:206
 msgid "Select files"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:268
+#: includes/fields/class-gf-field-fileupload.php:269
 msgid "Download file"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:269
-#: includes/fields/class-gf-field-fileupload.php:296
+#: includes/fields/class-gf-field-fileupload.php:270
+#: includes/fields/class-gf-field-fileupload.php:297
 msgid "Delete file"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:270
+#: includes/fields/class-gf-field-fileupload.php:271
 msgid "View file"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:438
+#: includes/fields/class-gf-field-fileupload.php:439
 msgid "%d files"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:453
+#: includes/fields/class-gf-field-fileupload.php:454
 #: includes/fields/class-gf-field-post-image.php:114
 #: includes/fields/class-gf-field-post-image.php:138
 msgid "View the image"
 msgstr ""
 
-#: includes/fields/class-gf-field-fileupload.php:498
+#: includes/fields/class-gf-field-fileupload.php:499
 msgid "Click to view"
 msgstr ""
 
@@ -8744,19 +8764,19 @@ msgstr ""
 msgid "Please enter a valid Website URL (e.g. http://www.gravityforms.com)."
 msgstr ""
 
-#: includes/fields/class-gf-field.php:919
+#: includes/fields/class-gf-field.php:920
 msgid "click to duplicate this field"
 msgstr ""
 
-#: includes/fields/class-gf-field.php:928
+#: includes/fields/class-gf-field.php:929
 msgid "click to delete this field"
 msgstr ""
 
-#: includes/fields/class-gf-field.php:942
+#: includes/fields/class-gf-field.php:943
 msgid "Field ID"
 msgstr ""
 
-#: includes/fields/class-gf-field.php:942
+#: includes/fields/class-gf-field.php:943
 msgid "click to expand and edit the options for this field"
 msgstr ""
 

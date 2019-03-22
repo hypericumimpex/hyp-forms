@@ -1827,13 +1827,9 @@ function gformValidateFileSize( field, max_file_size ) {
 	if ( file && file.size > max_file_size ) {
 
 		// Set validation message.
-		validation_element.text( file.name + " - " + gform_gravityforms.strings.file_exceeds_limit );
+		validation_element.text(file.name + " - " + gform_gravityforms.strings.file_exceeds_limit);
 
-		// Unset file selection.
-		var input = jQuery( field );
-		input.replaceWith( input.val( '' ).clone( true ) );
-
-	} else {
+    } else {
 
 		// Reset validation message.
 		validation_element.text( '' );
