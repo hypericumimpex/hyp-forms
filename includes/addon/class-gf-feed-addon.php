@@ -465,6 +465,9 @@ abstract class GFFeedAddOn extends GFAddOn {
 	 * @return bool
 	 */
 	public function is_asynchronous( $feed, $entry, $form ) {
+		if ( $this->_bypass_feed_delay ) {
+			return false;
+		}
 
 		/**
 		 * Allow feed to be processed asynchronously.

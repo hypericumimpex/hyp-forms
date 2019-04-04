@@ -3109,7 +3109,7 @@ body .gform_wrapper ul.chosen-results li {
 
     body .gform_wrapper select.small.gfield_select + div.chosen-container-single[style],
     body .gform_wrapper select.small.gfield_select + div.chosen-container-multi[style] {
-        width: 25%; !important;
+        width: 25% !important;
     }
 
 }

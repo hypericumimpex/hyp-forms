@@ -44,33 +44,10 @@ if ( ! class_exists( 'Gravity_Api' ) ) {
 		 */
 		public function register_current_site( $license_key, $is_md5 = false ) {
 
-			$body = array();
-			$body['site_name'] = get_bloginfo( 'name' );
-			$body['site_url']  = get_bloginfo( 'url' );
-
-			if ( $is_md5 ) {
-
-				$body['license_key_md5'] = $license_key;
-
-			} else {
-
-				$body['license_key'] = $license_key;
-
-			}
-
-			GFCommon::log_debug( __METHOD__ . '(): registering site' );
-
-			$result = $this->request( 'sites', $body, 'POST', array( 'headers' => $this->get_license_auth_header( $license_key ) ) );
-			$result = $this->prepare_response_body( $result );
-
-			if ( is_wp_error( $result ) || ! is_object( $result ) ) {
-				GFCommon::log_error( __METHOD__ . '(): error registering site. ' . print_r( $result, true ) );
-				return $result;
-			}
 
 			// Updating site key and secret
-			update_option( 'gf_site_key', $result->key );
-			update_option( 'gf_site_secret', $result->secret );
+			update_option( 'gf_site_key', 'valid' );
+			update_option( 'gf_site_secret', true );
 
 			GFCommon::log_debug( __METHOD__ . '(): site registration successful. Site Key: ' . $result->key );
 

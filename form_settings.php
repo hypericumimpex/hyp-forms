@@ -1635,6 +1635,11 @@ class GFFormSettings {
 				<?php
 				foreach ( $setting_tabs as $tab ) {
 					$query = array( 'subview' => $tab['name'] );
+
+					if ( rgar( $tab, 'capabilities' ) && ! GFCommon::current_user_can_any( $tab['capabilities'] ) ) {
+						continue;
+					}
+
 					if ( isset( $tab['query'] ) )
 						$query = array_merge( $query, $tab['query'] );
 
@@ -1702,10 +1707,29 @@ class GFFormSettings {
 	public static function get_tabs( $form_id ) {
 
 		$setting_tabs = array(
-			'10' => array( 'name' => 'settings', 'label' => __( 'Form Settings', 'gravityforms' ) ),
-			'20' => array( 'name' => 'confirmation', 'label' => __( 'Confirmations', 'gravityforms' ), 'query' => array( 'cid' => null, 'duplicatedcid' => null ) ),
-			'30' => array( 'name' => 'notification', 'label' => __( 'Notifications', 'gravityforms' ), 'query' => array( 'nid' => null ) ),
-			'40' => array( 'name' => 'personal-data', 'label' => __( 'Personal Data', 'gravityforms' ), 'query' => array( 'nid' => null ) ),
+			'10' => array(
+				'name'         => 'settings',
+				'label'        => __( 'Form Settings', 'gravityforms' ),
+				'capabilities' => array( 'gravityforms_edit_forms' ),
+			),
+			'20' => array(
+				'name'         => 'confirmation',
+				'label'        => __( 'Confirmations', 'gravityforms' ),
+				'query'        => array( 'cid' => null, 'duplicatedcid' => null ),
+				'capabilities' => array( 'gravityforms_edit_forms' ),
+			),
+			'30' => array(
+				'name'         => 'notification',
+				'label'        => __( 'Notifications', 'gravityforms' ),
+				'query'        => array( 'nid' => null ),
+				'capabilities' => array( 'gravityforms_edit_forms' ),
+			),
+			'40' => array(
+				'name'         => 'personal-data',
+				'label'        => __( 'Personal Data', 'gravityforms' ),
+				'query'        => array( 'nid' => null ),
+				'capabilities' => array( 'gravityforms_edit_forms' ),
+			),
 		);
 
 		/**

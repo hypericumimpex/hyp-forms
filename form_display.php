@@ -1948,8 +1948,6 @@ class GFFormDisplay {
 		 */
 		gf_do_action( array( 'gform_pre_enqueue_scripts', $form['id'] ), $form, $ajax );
 
-		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
-
 		if ( ! get_option( 'rg_gforms_disable_css' ) ) {
 
 			wp_enqueue_style( 'gforms_reset_css' );
@@ -2028,6 +2026,10 @@ class GFFormDisplay {
 		// enqueue jQuery every time form is displayed to allow 'gform_post_render' js hook
 		// to be available to users even when GF is not using it
 		wp_enqueue_script( 'jquery' );
+
+		if ( wp_script_is( 'gform_gravityforms' ) ) {
+			wp_localize_script( 'gform_gravityforms', 'gf_global', GFCommon::gf_global( false, true ) );
+		}
 
 	}
 
@@ -2110,7 +2112,7 @@ class GFFormDisplay {
 		wp_print_scripts( $scripts );
 
 		if ( wp_script_is( 'gform_gravityforms' ) ) {
-			echo '<script type="text/javascript"> ' . GFCommon::gf_global( false ) . ' </script>';
+			wp_localize_script( 'gform_gravityforms', 'gf_global', GFCommon::gf_global( false, true ) );
 		}
 
 	}
@@ -2448,11 +2450,6 @@ class GFFormDisplay {
 	public static function get_form_init_scripts( $form ) {
 
 		$script_string = '';
-
-		// temporary solution for output gf_global obj until wp min version raised to 3.3
-		if ( wp_script_is( 'gform_gravityforms' ) ) {
-			$gf_global_script = "if(typeof gf_global == 'undefined') " . GFCommon::gf_global( false );
-		}
 
 		/* rendering initialization scripts */
 		$init_scripts = rgar( self::$init_scripts, $form['id'] );
