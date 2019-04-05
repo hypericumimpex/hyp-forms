@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.7';
+	public static $version = '2.4.7.3';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -1894,7 +1894,39 @@ class GFForms {
 	 * @param string $plugin_name The plugin filename.  Immediately overwritten.
 	 */
 	public static function plugin_row( $plugin_name ) {
-		//clear
+
+		if ( $plugin_name == 'gravityforms/gravityforms.php' ) {
+
+			$version_info = GFCommon::get_version_info();
+
+			if ( ! rgar( $version_info, 'is_valid_key' ) ) {
+
+				$new_version = version_compare( GFCommon::$version, $version_info['version'], '<' ) ? esc_html__( 'There is a new version of Gravity Forms available.', 'gravityforms' ) . ' <a class="thickbox" title="Gravity Forms" href="plugin-install.php?tab=plugin-information&plugin=gravityforms&TB_iframe=true&width=640&height=808">' . sprintf( esc_html__( 'View version %s Details', 'gravityforms' ), $version_info['version'] ) . '</a>. ' : '';
+
+				echo '</tr><tr class="plugin-update-tr"><td colspan="3" class="plugin-update"><div class="update-message">' . $new_version . sprintf( esc_html__( '%sRegister%s your copy of Gravity Forms to receive access to automatic upgrades and support. Need a license key? %sPurchase one now%s.', 'gravityforms' ), '<a href="' . admin_url() . 'admin.php?page=gf_settings">', '</a>', '<a href="https://www.gravityforms.com">', '</a>' ) . '</div></td>';
+			}
+
+			return;
+		}
+
+		$add_ons = gf_upgrade()->get_min_addon_requirements();
+
+		if ( isset( $add_ons[ $plugin_name ] ) ) {
+			$plugin_path = WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . $plugin_name;
+			if ( ! file_exists( $plugin_path ) ) {
+				return;
+			}
+			$plugin_data     = get_plugin_data( $plugin_path, false, false );
+			$current_version = $plugin_data['Version'];
+			$add_on          = $add_ons[ $plugin_name ];
+			$min_version     = $add_on['min_version'];
+			if ( version_compare( $current_version, $min_version, '<' ) ) {
+				$name = $add_on['name'];
+				/* translators: 1: The name of the add-on, 2: version number. */
+				$message = esc_html__( 'This version of the %1$s is not compatible with the version of Gravity Forms that is installed. Upgrade this add-on to version %2$s or greater to avoid compatibility issues and potential loss of data.', 'gravityforms' );
+				echo '</tr><tr class="plugin-update-tr"><td colspan="3" style="border-left: 4px solid #dc3232;"><div class="update-message">' . sprintf( $message, $name, $min_version ) . '</div></td>';
+			}
+		}
 	}
 
 	/**
@@ -4316,7 +4348,7 @@ class GFForms {
 			$sub_menu_items[] = array(
 				'url'          => admin_url( "admin.php?page=gf_edit_forms&view=settings&subview={$tab['name']}&id={$form_id}" ),
 				'label'        => $tab['label'],
-				'capabilities' => $tab['capabilities'],
+				'capabilities' => ( isset( $tab['capabilities'] ) ) ? $tab['capabilities'] : array( 'gravityforms_edit_forms' ),
 			);
 
 		}
