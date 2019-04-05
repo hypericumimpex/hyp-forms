@@ -372,7 +372,7 @@ class GFSettings {
 						} else if ( rgar( $version_info, 'is_valid_key' ) ) {
 							$key_field .= "&nbsp;<i class='fa fa-check gf_keystatus_valid'></i> <span class='gf_keystatus_valid_text'>" . esc_html__( 'Valid Key : Your license key has been successfully validated.', 'gravityforms' ) . '</span>';
 						} else if ( ! empty( $key ) ) {
-							$key_field .= "&nbsp;<i class='fa fa-check gf_keystatus_valid'></i> <span class='gf_keystatus_valid_text'>" . esc_html__( 'Valid Key : Your license key has been successfully validated.', 'gravityforms' ) . '</span>';
+							$key_field .= "&nbsp;<i class='fa fa-times gf_keystatus_invalid'></i> <span class='gf_keystatus_invalid_text'>" . esc_html__( 'Invalid or Expired Key : Please make sure you have entered the correct value and that your key is not expired.', 'gravityforms' ) . '</span>';
 						}
 
 						echo apply_filters( 'gform_settings_key_field', $key_field );
