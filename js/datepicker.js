@@ -8,7 +8,7 @@ function gformInitDatepicker() {
 }
 
 function gformInitSingleDatepicker( $element ) {
-	var inputId = $element.attr( 'id' ),
+	var inputId = $element.attr( 'id' ) ? $element.attr( 'id' ) : '',
 		optionsObj = {
 			yearRange: '-100:+20',
 			showOn: 'focus',

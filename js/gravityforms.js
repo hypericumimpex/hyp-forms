@@ -1962,19 +1962,26 @@ function gformValidateFileSize( field, max_file_size ) {
                     return;
                 }
 
-                var size = typeof file.size !== 'undefined' ? plupload.formatSize(file.size) : strings.in_progress;
-                var status = '<div id="'
-                    + file.id
-                    + '" class="ginput_preview">'
-                    + htmlEncode(file.name)
-                    + ' (' + size + ') <b></b> '
-                    + '<a href="javascript:void(0)" title="' + strings.cancel_upload + '" onclick=\'$this=jQuery(this); var uploader = gfMultiFileUploader.uploaders.' + up.settings.container.id + ';uploader.stop();uploader.removeFile(uploader.getFile("' + file.id +'"));$this.after("' + strings.cancelled + '"); uploader.start();$this.remove();\' onkeypress=\'$this=jQuery(this); var uploader = gfMultiFileUploader.uploaders.' + up.settings.container.id + ';uploader.stop();uploader.removeFile(uploader.getFile("' + file.id +'"));$this.after("' + strings.cancelled + '"); uploader.start();$this.remove();\'>' + strings.cancel + '</a>'
-                    + '</div>';
+                var size         = typeof file.size !== 'undefined' ? plupload.formatSize(file.size) : strings.in_progress,
+                    removeFileJs = '$this=jQuery(this); var uploader = gfMultiFileUploader.uploaders.' + up.settings.container.id + ';uploader.stop();uploader.removeFile(uploader.getFile(\'' + file.id +'\'));$this.after(\'' + strings.cancelled + '\'); uploader.start();$this.remove();',
+                    statusMarkup = '<div id="{0}" class="ginput_preview">{1} ({2}) <b></b> <a href="javascript:void(0)" title="{3}" onclick="{4}" onkeypress="{4}">{5}</a></div>';
 
-                $('#' + up.settings.filelist).prepend(status);
+                /**
+                 *  Filer the file upload markup as it is being uploaded.
+                 *
+                 *  @param {string}            statusMarkup Markup template used to render the status of the file being uploaded.
+                 *  @param {plupload.File}     file         Instance of File being uploaded. See: https://www.plupload.com/docs/v2/File.
+                 *  @param {int|string}        size         File size.
+                 *  @param {object}            strings      Array of localized strings relating to the file upload UI.
+                 *  @param {string}            removeFileJs JS used to remove the file when the "Cancel" link is click/pressed.
+                 *  @param {plupload.Uploader} up           Instance of Uploader responsible for uploading current file. See: https://www.plupload.com/docs/v2/Uploader.
+                 */
+                statusMarkup = gform.applyFilters( 'gform_file_upload_status_markup', statusMarkup, file, size, strings, removeFileJs, up )
+                    .format( file.id, htmlEncode( file.name ), size, strings.cancel_upload, removeFileJs, strings.cancel );
+
+                $( '#' + up.settings.filelist ).prepend( statusMarkup );
+
                 totalCount++;
-
-
 
             });
 

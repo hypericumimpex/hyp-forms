@@ -1,4 +1,17 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.3
+	- Added 'gform_file_upload_status_markup' filter to allow modifying file upload markup while it is being uploaded.
+	- Fixed issue where default values were not repopulated into Multi Select fields when they are hidden via conditional logic.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.2
+	- Fixed the price not being restored by conditional logic when the single product/shipping field has the unsupported choices property defined.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.1
+	- Fixed issue where datepicker failed to initialize when filtering Date fields in the Entry List filter.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.8
 	- Fixed notices generated when AF add-ons did not specify a $_capabilities_form_settings capability or specified an array of capabilities.
 	- Fixed an issue with the Gravity Forms widget introduced in v2.4.7 where forms are missing the gf_global JavaScript variable.

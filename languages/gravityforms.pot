@@ -1,9 +1,9 @@
 # Copyright 2009-2019 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.8\n"
+"Project-Id-Version: Gravity Forms 2.4.8.3\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2019-04-05 14:56:13+00:00\n"
+"POT-Creation-Date: 2019-04-09 18:21:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -290,7 +290,7 @@ msgid "Update"
 msgstr ""
 
 #: common.php:4546 form_display.php:281 form_display.php:1050
-#: form_display.php:2937 js.php:533
+#: form_display.php:2947 js.php:533
 msgid "Previous"
 msgstr ""
 
@@ -2853,19 +2853,19 @@ msgstr ""
 msgid "Minimum Strength"
 msgstr ""
 
-#: form_detail.php:1591 form_display.php:2573
+#: form_detail.php:1591 form_display.php:2583
 msgid "Short"
 msgstr ""
 
-#: form_detail.php:1592 form_display.php:2573
+#: form_detail.php:1592 form_display.php:2583
 msgid "Bad"
 msgstr ""
 
-#: form_detail.php:1593 form_display.php:2573
+#: form_detail.php:1593 form_display.php:2583
 msgid "Good"
 msgstr ""
 
-#: form_detail.php:1594 form_display.php:2573
+#: form_detail.php:1594 form_display.php:2583
 msgid "Strong"
 msgstr ""
 
@@ -3510,7 +3510,7 @@ msgstr ""
 msgid "Errors have been highlighted below."
 msgstr ""
 
-#: form_display.php:1049 form_display.php:2936
+#: form_display.php:1049 form_display.php:2946
 msgid "Previous Page"
 msgstr ""
 
@@ -3561,66 +3561,66 @@ msgstr ""
 msgid "At least one field must be filled out"
 msgstr ""
 
-#: form_display.php:2501
+#: form_display.php:2511
 msgid "No results matched"
 msgstr ""
 
-#: form_display.php:2555 form_display.php:3141
+#: form_display.php:2565 form_display.php:3151
 msgid "of"
 msgstr ""
 
-#: form_display.php:2555
+#: form_display.php:2565
 msgid "max characters"
 msgstr ""
 
-#: form_display.php:2573 includes/fields/class-gf-field-password.php:86
+#: form_display.php:2583 includes/fields/class-gf-field-password.php:86
 msgid "Strength indicator"
 msgstr ""
 
-#: form_display.php:2573
+#: form_display.php:2583
 msgid "Mismatch"
 msgstr ""
 
-#: form_display.php:2942
+#: form_display.php:2952
 msgid "Next Page"
 msgstr ""
 
-#: form_display.php:2943
+#: form_display.php:2953
 #: includes/wizard/steps/class-gf-installation-wizard-step.php:102 js.php:531
 msgid "Next"
 msgstr ""
 
-#: form_display.php:3093
+#: form_display.php:3103
 msgid ""
 "This page is unsecured. Do not enter a real credit card number! Use this "
 "field only for testing purposes. "
 msgstr ""
 
-#: form_display.php:3141
+#: form_display.php:3151
 msgid "Step"
 msgstr ""
 
-#: form_display.php:3231
+#: form_display.php:3241
 msgid "Sorry. This form is no longer accepting new submissions."
 msgstr ""
 
-#: form_display.php:3248
+#: form_display.php:3258
 msgid "This form is not yet available."
 msgstr ""
 
-#: form_display.php:3250
+#: form_display.php:3260
 msgid "Sorry. This form is no longer available."
 msgstr ""
 
-#: form_display.php:3384
+#: form_display.php:3394
 msgid "Send Link"
 msgstr ""
 
-#: form_display.php:3385 includes/fields/class-gf-field-email.php:61
+#: form_display.php:3395 includes/fields/class-gf-field-email.php:61
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: form_display.php:3386
+#: form_display.php:3396
 msgid "email address"
 msgstr ""
 
