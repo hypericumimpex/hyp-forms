@@ -1,4 +1,12 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.5
+	- API: Fixed an issue with GFAPI::update_form() when notifications/confirmations are included in the form using indexed arrays.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.4
+	- Fix issue where default value is not populated for empty inputs when other inputs have dynamically populated value.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.8.3
 	- Added 'gform_file_upload_status_markup' filter to allow modifying file upload markup while it is being uploaded.
 	- Fixed issue where default values were not repopulated into Multi Select fields when they are hidden via conditional logic.
