@@ -1,4 +1,21 @@
 ------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.9
+	- API: Fixed a fatal error which occurred when using REST API v2 to get an entry which does not exist.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.8
+	- Fixed issue where Hidden Product hidden/shown by conditional logic did not have their price correctly reset.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.7
+	- Updated Chosen.js to v1.8.7.
+	- Fixed the Enhanced UI on the Option type field not retaining the selected choice.
+
+------------------------------------------------------------------------------------------------------------------
+Version 2.4.8.6
+	- Fixed an issue with files containing special characters not attaching to notifications.
+
+------------------------------------------------------------------------------------------------------------------
 Version 2.4.8.5
 	- API: Fixed an issue with GFAPI::update_form() when notifications/confirmations are included in the form using indexed arrays.
 

@@ -1,9 +1,9 @@
 # Copyright 2009-2019 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.8.5\n"
+"Project-Id-Version: Gravity Forms 2.4.8.9\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2019-04-11 11:57:43+00:00\n"
+"POT-Creation-Date: 2019-04-16 17:12:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8353,11 +8353,13 @@ msgid "Quantity:"
 msgstr ""
 
 #: includes/fields/class-gf-field-calculation.php:99
+#: includes/fields/class-gf-field-hiddenproduct.php:94
 #: includes/fields/class-gf-field-singleproduct.php:121
 msgid "Qty: "
 msgstr ""
 
 #: includes/fields/class-gf-field-calculation.php:99
+#: includes/fields/class-gf-field-hiddenproduct.php:98
 #: includes/fields/class-gf-field-singleproduct.php:125
 msgid "Price: "
 msgstr ""
@@ -9544,15 +9546,16 @@ msgid ""
 "secret in the password field."
 msgstr ""
 
-#: includes/webapi/v2/includes/controllers/class-controller-entries.php:180
+#: includes/webapi/v2/includes/controllers/class-controller-entries.php:94
+#: includes/webapi/v2/includes/controllers/class-controller-entries.php:181
 msgid "Invalid entry id."
 msgstr ""
 
-#: includes/webapi/v2/includes/controllers/class-controller-entries.php:198
+#: includes/webapi/v2/includes/controllers/class-controller-entries.php:199
 msgid "The entry has already been deleted."
 msgstr ""
 
-#: includes/webapi/v2/includes/controllers/class-controller-entries.php:335
+#: includes/webapi/v2/includes/controllers/class-controller-entries.php:336
 #: includes/webapi/v2/includes/controllers/class-controller-form-entries.php:231
 msgid "Missing entry JSON"
 msgstr ""

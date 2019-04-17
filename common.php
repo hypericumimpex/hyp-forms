@@ -1826,7 +1826,7 @@ class GFCommon {
 				}
 
 				// Convert to array.
-				$attachment_urls = $upload_field->multipleFiles ? json_decode( stripslashes( $attachment_urls ), true ) : array( $attachment_urls );
+				$attachment_urls = $upload_field->multipleFiles ? json_decode( $attachment_urls, true ) : array( $attachment_urls );
 
 				self::log_debug( __METHOD__ . '(): Attaching file(s) for field #' . $upload_field->id . '. ' . print_r( $attachment_urls, true ) );
 

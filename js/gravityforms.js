@@ -398,7 +398,6 @@ function gformCalculateProductPrice(form_id, productFieldId){
             var label = gformGetOptionLabel(choice_element, choice_element.val(), selected_price, form_id, field_id);
             choice_element.html(label);
         });
-		dropdown_field.trigger('chosen:updated');
     });
 
 
