@@ -47,6 +47,7 @@ function gformInitSingleDatepicker( $element ) {
 		optionsObj.showOn = 'both';
 		optionsObj.buttonImage = $element.parent().siblings("[id^='gforms_calendar_icon_input']").val();
 		optionsObj.buttonImageOnly = true;
+		optionsObj.buttonText = '';
 	}
 
 	inputId = inputId.split('_');

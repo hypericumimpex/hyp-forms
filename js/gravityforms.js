@@ -948,6 +948,8 @@ function gformDeleteRepeaterItem(deleteButton, max) {
 
 function gformResetRepeaterAttributes($container, depth, row) {
 
+	var cachedRadioSelection = null;
+
 	if (typeof depth === 'undefined') {
 		depth = 0;
 	}
@@ -956,7 +958,7 @@ function gformResetRepeaterAttributes($container, depth, row) {
 		row = 0;
 	}
 
-	$container.children('.gfield_repeater_items').children('.gfield_repeater_item').each(function (i) {
+	$container.children('.gfield_repeater_items').children('.gfield_repeater_item').each(function () {
 		var $children = jQuery(this).children('.gfield_repeater_cell');
 		$children.each(function () {
 			var $cell = jQuery(this);
@@ -1016,15 +1018,30 @@ function gformResetRepeaterAttributes($container, depth, row) {
 						$this.attr('id', newId);
 					}
 				}
-				var newName = name.replace(parts[0], newNameIndex);
+				var newName = name.replace(parts[0], newNameIndex),
+					newNameIsChecked = jQuery('input[name="'+ newName +'"]').is(':checked');
+
+				if ( $this.is(':radio') && $this.is(':checked') && name !== newName && newNameIsChecked ) {
+					if ( cachedRadioSelection !== null ) {
+						cachedRadioSelection.prop('checked', true);
+					}
+
+					$this.prop('checked', false);
+					cachedRadioSelection = $this;
+				}
+
 				$this.attr('name', newName);
 			});
-
 		});
 		if (depth === 0) {
 			row++;
 		}
 	});
+
+	if ( cachedRadioSelection !== null ) {
+		cachedRadioSelection.prop('checked', true);
+		cachedRadioSelection = null;
+	}
 
 }
 
