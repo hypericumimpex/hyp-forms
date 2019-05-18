@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Gravity Forms plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4.9\n"
+"Project-Id-Version: Gravity Forms 2.4.9.2\n"
 "Report-Msgid-Bugs-To: https://gravityforms.com/support\n"
 "Last-Translator: Gravity Forms <support@gravityforms.com>\n"
 "Language-Team: Gravity Forms <support@gravityforms.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-05-08T10:34:49+00:00\n"
+"POT-Creation-Date: 2019-05-16T08:47:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: gravityforms\n"
@@ -1355,7 +1355,7 @@ msgid "Tab Index Start Value"
 msgstr ""
 
 #: tooltips.php:168
-#: widget.php:153
+#: widget.php:160
 msgid "If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero)."
 msgstr ""
 
@@ -1440,7 +1440,7 @@ msgstr ""
 
 #: form_display.php:281
 #: form_display.php:1050
-#: form_display.php:2947
+#: form_display.php:2948
 #: js.php:533
 #: common.php:4567
 msgid "Previous"
@@ -1471,7 +1471,7 @@ msgid "Errors have been highlighted below."
 msgstr ""
 
 #: form_display.php:1049
-#: form_display.php:2946
+#: form_display.php:2947
 msgid "Previous Page"
 msgstr ""
 
@@ -1479,17 +1479,17 @@ msgstr ""
 msgid "This iframe contains the logic required to handle Ajax powered Gravity Forms."
 msgstr ""
 
-#: form_display.php:1274
+#: form_display.php:1275
 #: form_list.php:344
 #: common.php:4574
 msgid "Submit"
 msgstr ""
 
-#: form_display.php:1363
+#: form_display.php:1364
 msgid "This field is for validation purposes and should be left unchanged."
 msgstr ""
 
-#: form_display.php:1772
+#: form_display.php:1773
 #: includes/addon/class-gf-addon.php:3908
 #: includes/fields/class-gf-field-calculation.php:32
 #: includes/fields/class-gf-field-repeater.php:579
@@ -1501,112 +1501,112 @@ msgstr ""
 msgid "This field is required."
 msgstr ""
 
-#: form_display.php:1781
+#: form_display.php:1782
 msgid "This date has already been taken. Please select a new date."
 msgstr ""
 
-#: form_display.php:1785
+#: form_display.php:1786
 msgid "This field requires a unique entry and the values you entered have already been used."
 msgstr ""
 
-#: form_display.php:1786
+#: form_display.php:1787
 msgid "This field requires a unique entry and '%s' has already been used"
 msgstr ""
 
-#: form_display.php:1795
+#: form_display.php:1796
 msgid "Please enter a valid value."
 msgstr ""
 
-#: form_display.php:1795
+#: form_display.php:1796
 msgid "Invalid selection. Please select one of the available choices."
 msgstr ""
 
-#: form_display.php:1817
+#: form_display.php:1818
 msgid "At least one field must be filled out"
 msgstr ""
 
-#: form_display.php:2511
+#: form_display.php:2512
 msgid "No results matched"
 msgstr ""
 
-#: form_display.php:2565
-#: form_display.php:3151
+#: form_display.php:2566
+#: form_display.php:3152
 msgid "of"
 msgstr ""
 
-#: form_display.php:2565
+#: form_display.php:2566
 msgid "max characters"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 #: includes/fields/class-gf-field-password.php:86
 msgid "Strength indicator"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 msgid "Mismatch"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 #: form_detail.php:1592
 msgid "Bad"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 #: form_detail.php:1591
 msgid "Short"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 #: form_detail.php:1593
 msgid "Good"
 msgstr ""
 
-#: form_display.php:2583
+#: form_display.php:2584
 #: form_detail.php:1594
 msgid "Strong"
 msgstr ""
 
-#: form_display.php:2952
+#: form_display.php:2953
 msgid "Next Page"
 msgstr ""
 
-#: form_display.php:2953
+#: form_display.php:2954
 #: js.php:531
 #: includes/wizard/steps/class-gf-installation-wizard-step.php:102
 msgid "Next"
 msgstr ""
 
-#: form_display.php:3103
+#: form_display.php:3104
 msgid "This page is unsecured. Do not enter a real credit card number! Use this field only for testing purposes. "
 msgstr ""
 
-#: form_display.php:3151
+#: form_display.php:3152
 msgid "Step"
 msgstr ""
 
-#: form_display.php:3241
+#: form_display.php:3242
 msgid "Sorry. This form is no longer accepting new submissions."
 msgstr ""
 
-#: form_display.php:3258
+#: form_display.php:3259
 msgid "This form is not yet available."
 msgstr ""
 
-#: form_display.php:3260
+#: form_display.php:3261
 msgid "Sorry. This form is no longer available."
 msgstr ""
 
-#: form_display.php:3394
+#: form_display.php:3395
 msgid "Send Link"
 msgstr ""
 
-#: form_display.php:3395
+#: form_display.php:3396
 #: includes/fields/class-gf-field-email.php:61
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: form_display.php:3396
+#: form_display.php:3397
 msgid "email address"
 msgstr ""
 
@@ -1904,7 +1904,7 @@ msgid "Move to trash"
 msgstr ""
 
 #: form_list.php:548
-#: widget.php:119
+#: widget.php:126
 #: includes/fields/class-gf-field-post-title.php:13
 #: includes/fields/class-gf-field-post-image.php:75
 #: includes/fields/class-gf-field-post-image.php:132
@@ -3288,40 +3288,40 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: widget.php:116
+#: widget.php:123
 msgid "Contact Us"
 msgstr ""
 
-#: widget.php:123
+#: widget.php:130
 #: gravityforms.php:4856
 msgid "Select a Form"
 msgstr ""
 
-#: widget.php:139
+#: widget.php:146
 #: gravityforms.php:4872
 msgid "Display form title"
 msgstr ""
 
-#: widget.php:141
+#: widget.php:148
 #: gravityforms.php:4880
 msgid "Display form description"
 msgstr ""
 
-#: widget.php:144
+#: widget.php:151
 #: includes/templates/edit-shortcode-form.tpl.php:14
 msgid "Advanced Options"
 msgstr ""
 
-#: widget.php:148
+#: widget.php:155
 #: gravityforms.php:4888
 msgid "Enable Ajax"
 msgstr ""
 
-#: widget.php:150
+#: widget.php:157
 msgid "Disable script output"
 msgstr ""
 
-#: widget.php:151
+#: widget.php:158
 msgid "Tab Index Start"
 msgstr ""
 
