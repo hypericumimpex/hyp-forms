@@ -1,3 +1,17 @@
+### 2.4.9.5
+- Fixed a database error when getting REST API keys on a sub-site of a WordPress multi-site installation.
+- Updated Forms block to load when Gutenberg Add-On is activated.
+
+
+### 2.4.9.4
+- Updated the credit card field so, like other pricing fields, it is not editable on the entry detail page.
+- Fixed the credit card type value being lost when the entry is updated from the entry detail page.
+
+
+### 2.4.9.3
+- Added Forms block.
+
+
 ### 2.4.9.2
 - Fixed a fatal error which occurs when using the widget_title filter with two or three arguments.
 
