@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 const { PanelBody, Placeholder, SelectControl, ServerSideRender, TextControl, ToggleControl } = wp.components;
 const { InspectorControls } = wp.editor;
-const { Component } = wp.element;
+const { Component, Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 /**
@@ -129,11 +129,34 @@ class Edit extends Component {
 
 		super(...arguments);
 
+		// Set initial state.
+		this.state = { formWasDeleted: false };
+
+		// Bind events.
 		this.setFormId = this.setFormId.bind(this);
 
-		let form = this.getForm(this.props.attributes.formId);
-		if (form && form.hasConditionalLogic) {
-			this.props.setAttributes({ formPreview: false });
+		// Get defined form ID.
+		const { formId } = this.props.attributes;
+
+		// If form has been selected, disable preview / reset.
+		if (formId) {
+
+			// Get form object.
+			const form = Edit.getForm(formId);
+
+			// If form was not found, reset block.
+			if (!form) {
+
+				// Reset form ID.
+				this.props.setAttributes({ formId: '' });
+
+				// Set failed state.
+				this.state = { formWasDeleted: true };
+
+				// If form was found and has conditional logic, disable preview.
+			} else if (form && form.hasConditionalLogic) {
+				this.props.setAttributes({ formPreview: false });
+			}
 		}
 	}
 
@@ -144,21 +167,22 @@ class Edit extends Component {
 
 	setFormId(formId) {
 
-		let form = this.getForm(formId);
+		let form = Edit.getForm(formId);
 
 		this.props.setAttributes({ formId });
+		this.setState({ formWasDeleted: false });
 
 		if (form && form.hasConditionalLogic) {
 			this.props.setAttributes({ formPreview: false });
 		}
 	}
 
-	getForm(formId) {
+	static getForm(formId) {
 
 		return gform_block_form.forms.find(form => form.id == formId);
 	}
 
-	getFormOptions() {
+	static getFormOptions() {
 
 		let options = [{
 			label: __('Select a Form', 'gravityforms'),
@@ -166,9 +190,12 @@ class Edit extends Component {
 		}];
 
 		for (let i = 0; i < gform_block_form.forms.length; i++) {
+
+			let form = gform_block_form.forms[i];
+
 			options.push({
-				label: gform_block_form.forms[i].title,
-				value: gform_block_form.forms[i].id
+				label: form.title,
+				value: form.id
 			});
 		}
 
@@ -201,7 +228,7 @@ class Edit extends Component {
 				React.createElement(SelectControl, {
 					label: __('Form', 'gravityforms'),
 					value: formId,
-					options: this.getFormOptions(),
+					options: Edit.getFormOptions(),
 					onChange: this.setFormId
 				}),
 				formId && React.createElement(ToggleControl, {
@@ -222,7 +249,7 @@ class Edit extends Component {
 					initialOpen: false,
 					className: 'gform-block__panel'
 				},
-				formId && !this.getForm(formId).hasConditionalLogic && React.createElement(ToggleControl, {
+				formId && !Edit.getForm(formId).hasConditionalLogic && React.createElement(ToggleControl, {
 					label: __('Preview', 'gravityforms'),
 					checked: formPreview,
 					onChange: toggleFormPreview
@@ -233,17 +260,35 @@ class Edit extends Component {
 					onChange: toggleAjax
 				}),
 				React.createElement(TextControl, {
+					className: 'gform-block__tabindex',
 					label: __('Tabindex', 'gravityforms'),
+					type: 'number',
 					value: tabindex,
 					onChange: updateTabindex,
 					placeholder: '-1'
-				})
+				}),
+				React.createElement(
+					Fragment,
+					null,
+					'Form ID: ',
+					formId
+				)
 			)
 		)];
 
 		if (!formId || !formPreview) {
 
-			return [controls, React.createElement(
+			const { formWasDeleted } = this.state;
+
+			return [controls, formWasDeleted && React.createElement(
+				'div',
+				{ className: 'gform-block__alert gform-block__alert-error' },
+				React.createElement(
+					'p',
+					null,
+					__('The selected form has been deleted or trashed. Please select a new form.', 'gravityforms')
+				)
+			), React.createElement(
 				Placeholder,
 				{ key: 'placeholder', className: 'wp-block-embed gform-block__placeholder' },
 				React.createElement(
@@ -270,7 +315,7 @@ class Edit extends Component {
 					React.createElement(
 						'select',
 						{ value: formId, onChange: setFormIdFromPlaceholder },
-						this.getFormOptions().map(form => React.createElement(
+						Edit.getFormOptions().map(form => React.createElement(
 							'option',
 							{ key: form.value, value: form.value },
 							form.label

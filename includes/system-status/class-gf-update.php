@@ -83,43 +83,6 @@ class GF_Update {
 						</div>
 					</td>
 				</tr>
-	
-				<?php if ( $update_available ) { ?>
-				<tr class="plugin-update-tr inactive">
-					<td colspan="3" class="plugin-update colspanchange">
-						<div class="update-message notice inline notice-warning notice-alt">
-							<p>
-								<?php
-									
-									printf( esc_html__( 'There is a new version of %s available.', 'gravityforms' ), $update['name'] );
-	
-									if ( $update['is_valid_key'] ) {
-	
-										printf( esc_html__( '%1$sView version %2$s details %3$s or %4$supdate now%5$s.', 'gravityforms' ),
-											'<a href="plugin-install.php?tab=plugin-information&plugin=' . urlencode( $update['slug'] ) . '&section=changelog&TB_iframe=true&width=600&height=700" class="thickbox open-plugin-details-modal">',
-											$update['latest_version'],
-											'</a>',
-											'<a href="' . $update['upgrade_url'] . '" class="update-link">',
-											'</a>'
-										);
-	
-									} else {
-	
-										printf(
-											esc_html( ' %sRegister%s your copy of Gravity Forms to receive access to automatic updates and support. Need a license key? %sPurchase one now%s.', 'gravityforms' ),
-											'<a href="admin.php?page=gf_settings">',
-											'</a>',
-											'<a href="https://www.gravityforms.com">',
-											'</a>'
-										);
-	
-									}
-								?>
-							</p>
-						</div>
-					</td>
-				</tr>
-				<?php
 				}
 			}
 			?>

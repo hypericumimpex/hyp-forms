@@ -42,7 +42,7 @@ class GF_Block_Form extends GF_Block {
 		'title'       => array( 'type' => 'boolean' ),
 		'description' => array( 'type' => 'boolean' ),
 		'ajax'        => array( 'type' => 'boolean' ),
-		'tabindex'    => array( 'type' => 'integer' ),
+		'tabindex'    => array( 'type' => 'string' ),
 		'formPreview' => array( 'type' => 'boolean' ),
 	);
 
@@ -211,15 +211,29 @@ class GF_Block_Form extends GF_Block {
 		$title       = isset( $attributes['title'] ) ? $attributes['title'] : true;
 		$description = isset( $attributes['description'] ) ? $attributes['description'] : true;
 		$ajax        = isset( $attributes['ajax'] ) ? $attributes['ajax'] : false;
-		$tabindex    = isset( $attributes['tabindex'] ) ? $attributes['tabindex'] : 0;
+		$tabindex    = isset( $attributes['tabindex'] ) ? intval( $attributes['tabindex'] ) : 0;
 
 		// If form ID was not provided or form does not exist, return.
 		if ( ! $form_id || ( $form_id && ! GFAPI::get_form( $form_id ) ) ) {
 			return '';
 		}
 
-		if ( defined( 'REST_REQUEST' ) && REST_REQUEST && rgget( 'context' ) === 'edit' ) {
-			return gravity_form( $form_id, $title, $description, false, null, $ajax, $tabindex, false );
+		// Use Gravity Forms function for REST API requests.
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+
+			// Start output buffering.
+			ob_start();
+
+			// Get form output string.
+			$form_string = gravity_form( $form_id, $title, $description, false, null, $ajax, $tabindex, false );
+
+			// Get output buffer contents.
+			$buffer_contents = ob_get_contents();
+			ob_end_clean();
+
+			// Return buffer contents with form string.
+			return $buffer_contents . $form_string;
+
 		}
 
 		return sprintf( '[gravityforms id="%d" title="%s" description="%s" ajax="%s" tabindex="%d"]', $form_id, ( $title ? 'true' : 'false' ), ( $description ? 'true' : 'false' ), ( $ajax ? 'true' : 'false' ), $tabindex );
