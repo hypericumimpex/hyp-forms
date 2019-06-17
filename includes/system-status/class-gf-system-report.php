@@ -405,6 +405,9 @@ class GF_System_Report {
 		}
 		self::$background_tasks = $background_tasks;
 
+		$db_date  = $wpdb->get_var( 'SELECT utc_timestamp()' );
+		$php_date = date( 'Y-m-d H:i:s' );
+
 		// Prepare system report.
 		$system_report = array(
 			array(
@@ -666,6 +669,37 @@ class GF_System_Report {
 								'label'        => esc_html__( 'Database Collation', 'gravityforms' ),
 								'label_export' => 'Database Collation',
 								'value'        => esc_html( $wpdb->get_var( 'SELECT @@collation_database' ) ),
+							),
+						),
+					),
+					array(
+						'title'        => esc_html__( 'Date and Time', 'gravityforms' ),
+						'title_export' => 'Date and Time',
+						'items'        => array(
+							array(
+								'label'        => esc_html__( 'WordPress (Local) Timezone', 'gravityforms' ),
+								'label_export' => 'WordPress (Local) Timezone',
+								'value'        => self::get_timezone(),
+							),
+							array(
+								'label'        => esc_html__( 'MySQL - Universal time (UTC)', 'gravityforms' ),
+								'label_export' => 'MySQL (UTC)',
+								'value'        => $db_date,
+							),
+							array(
+								'label'        => esc_html__( 'MySQL - Local time', 'gravityforms' ),
+								'label_export' => 'MySQL (Local)',
+								'value'        => GFCommon::format_date( $db_date, false ),
+							),
+							array(
+								'label'        => esc_html__( 'PHP - Universal time (UTC)', 'gravityforms' ),
+								'label_export' => 'PHP (UTC)',
+								'value'        => $php_date,
+							),
+							array(
+								'label'        => esc_html__( 'PHP - Local time', 'gravityforms' ),
+								'label_export' => 'PHP (Local)',
+								'value'        => GFCommon::format_date( $php_date, false ),
 							),
 						),
 					),
@@ -1566,6 +1600,37 @@ class GF_System_Report {
 	public static function is_rest_api_enabled() {
 		$rest_api_settings = get_option( 'gravityformsaddon_gravityformswebapi_settings' );
 		return ! empty( $rest_api_settings ) && $rest_api_settings['enabled'];
+	}
+
+	/**
+	* Gets the WordPress timezone string.
+	*
+	* Based on WP 5.2 options-general.php.
+	*
+	* @since 2.4.11
+	*
+	* @return string
+	*/
+	public static function get_timezone() {
+		$tzstring = get_option( 'timezone_string' );
+
+		// Remove old Etc mappings. Fallback to gmt_offset.
+		if ( false !== strpos( $tzstring, 'Etc/GMT' ) ) {
+			$tzstring = '';
+		}
+
+		if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists
+			$current_offset = get_option( 'gmt_offset' );
+			if ( 0 == $current_offset ) {
+				$tzstring = 'UTC+0';
+			} elseif ( $current_offset < 0 ) {
+				$tzstring = 'UTC' . $current_offset;
+			} else {
+				$tzstring = 'UTC+' . $current_offset;
+			}
+		}
+
+		return $tzstring;
 	}
 
 }

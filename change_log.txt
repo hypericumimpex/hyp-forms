@@ -1,3 +1,10 @@
+### 2.4.10.1 | 2019-06-13
+- Updated the system report to include timezone details.
+- Updated the minimum version of WordPress required for support to 5.1.
+- Fixed an issue with submitting when multiple AJAX enabled forms are embedded into one page and invisible reCAPTCHAs are present.
+- Fixed an issue when tabbing through a form where an invisible reCAPTCHA is present.
+- Fixed an issue where a field's character count text could duplicate when submitting an AJAX enabled form.
+
 ### 2.4.10 | 2019-06-12
 - Added the Form block to the editor.
 - Updated the default scroll positions to display the error or confirmation message for AJAX forms.
