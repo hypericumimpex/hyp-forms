@@ -1,9 +1,22 @@
+### 2.4.10.3 | 2019-06-17
+- API: Added GFAPI::log_debug() and GFAPI::log_error() which write to the "Gravity Forms API" log.
+- API: Added logging helpers and logging statements to various methods in REST API v2.
+- API: Updated REST API v1 to write to the "Gravity Forms API" log.
+
+### 2.4.10.2 | 2019-06-14
+- Updated new Drop Down type Quantity fields to default to numeric choices. Credit: The GravityView team.
+- Updated the Website type field input markup, removing the unused maxLength attribute. Credit: The GravityView team.
+- Updated the Single Line Text field to validate the value length during submission when the maxLength property is configured. Credit: The GravityView team.
+- Fixed GFAPI::update_entry() and GFAPI::update_entry_field() for repeater fields.
+
+
 ### 2.4.10.1 | 2019-06-13
 - Updated the system report to include timezone details.
 - Updated the minimum version of WordPress required for support to 5.1.
 - Fixed an issue with submitting when multiple AJAX enabled forms are embedded into one page and invisible reCAPTCHAs are present.
 - Fixed an issue when tabbing through a form where an invisible reCAPTCHA is present.
 - Fixed an issue where a field's character count text could duplicate when submitting an AJAX enabled form.
+
 
 ### 2.4.10 | 2019-06-12
 - Added the Form block to the editor.
@@ -606,8 +619,8 @@
 
 
 ### 2.1.3.7
-- Added *[gform_list_post_item_add](https://docs.gravityforms.com/gform_list_post_item_add/)* Javascript action. 
-- Added *[gform_list_post_item_delete](https://docs.gravityforms.com/gform_list_post_item_delete/)* Javascript action. 
+- Added *[gform_list_post_item_add](https://docs.gravityforms.com/gform_list_post_item_add/)* Javascript action.
+- Added *[gform_list_post_item_delete](https://docs.gravityforms.com/gform_list_post_item_delete/)* Javascript action.
 
 
 ### 2.1.3.6
@@ -616,7 +629,7 @@
 
 
 ### 2.1.3.5
-- Added the *[gform_temp_file_expiration_days](https://docs.gravityforms.com/gform_temp_file_expiration_days/)* filter. 
+- Added the *[gform_temp_file_expiration_days](https://docs.gravityforms.com/gform_temp_file_expiration_days/)* filter.
 - Fixed wrong entry being displayed when using the next/previous links on the entry detail page when the entry list has been sorted.
 - Fixed the Paragraph field character limit not being displayed on form render.
 
@@ -1001,7 +1014,7 @@ Description Filter which checks whether the operator is valid. Allows …)* filt
 - AF: Fixed an issue with the check for updates when the check doesn't run in an admin context, e.g. WP-CLI.
 - AF: Updated the delayed payment choices on the PayPal feed to appear under the 'Post Payment Actions' setting instead of 'Options'.
 - AF: Added GF_Addon::get_slug().
-- AF: Added the *[gform_post_process_feed](https://docs.gravityforms.com/gform_post_process_feed/)* action hook. 
+- AF: Added the *[gform_post_process_feed](https://docs.gravityforms.com/gform_post_process_feed/)* action hook.
 - AF: Removed GFPaymentAddon::disable_entry_info_payment() method.
 - AF: Added *[gform_gf_field_create](https://docs.gravityforms.com/gform_gf_field_create/)* filter to allow modifying or replacing the GF_Field object after it has been created.
 - AF: Fixed an issue when upgrading due to feed order column name.
@@ -1206,7 +1219,7 @@ Description Filter which checks whether the operator is valid. Allows …)* filt
 - Updated GFFormDisplay::maybe_add_review_page() to accept a $form parameter (rather than a $form_id).
 - Updated GFFormDisplay::maybe_add_review_page() to only generate a temp entry if a function has been bound to the *[gform_review_page](https://docs.gravityforms.com/gform_review_page/)* filter.
 - Updated *[gform_pre_process]()* action to a filter to allow filtering the $form object before GF has begun processing the submission.
-- Updated gf_do_action() and gf_apply_filters() functions to no longer require a modifiers parameter; Modifiers should no longer be passed as a separate parameter. Combine the action name and modifier(s) into an array and pass that array as the first parameter of the function. 
+- Updated gf_do_action() and gf_apply_filters() functions to no longer require a modifiers parameter; Modifiers should no longer be passed as a separate parameter. Combine the action name and modifier(s) into an array and pass that array as the first parameter of the function.
        Example: <em>gf_do_action( array( 'action_name', 'mod1', 'mod2' ), $arg1, $arg2 );</em>
 - Updated all calls to gf_do_action() and gf_apply_filters() to use new parameter format
 - Updated List field markup to include *gfield_list_container* class on the table and *gfield_list_group* on each table row.
@@ -1409,7 +1422,7 @@ Description Filter which checks whether the operator is valid. Allows …)* filt
 - Updated repeater.addNewItem() to support manually adding an item.
 - Updated repeater.removeItem() to support manually removing an item.
 - Updated repeater script to support removing ALL items (and still adding new items back).
-- Updated the *[gform_field_choice_markup_pre_render](https://docs.gravityforms.com/gform_field_choice_markup_pre_render/)* filter to include a field specific version and also to apply to select choices. 
+- Updated the *[gform_field_choice_markup_pre_render](https://docs.gravityforms.com/gform_field_choice_markup_pre_render/)* filter to include a field specific version and also to apply to select choices.
 - Fixed typo in the form editor getting started steps.
 - Fixed WP_List_Tables error in WordPress 4.3 for feed lists.
 - Fixed a false positive being identified by some security scanners under certain conditions.
@@ -1626,7 +1639,7 @@ Description Filter which checks whether the operator is valid. Allows …)* filt
 - Added GFNotifications::get_routing_field_types() for fetching supported fields types.
 - Added *[gform_routing_field_types](https://docs.gravityforms.com/gform_routing_field_types/)* filter; allows modifying supported routing field types.
 - Added minified versions of all JavaScript and CSS files. All minified versions of JavaScript and CSS files are now loaded by default. Use the SCRIPT_DEBUG constant or the query param gform_debug (e.g. domain.com/?gform_debug) to override.
-- Added security precautions to the file upload field. If the allowed file types setting is empty, then uploaded files will be checked against the WordPress whitelist of extensions and mime types. Use the WordPress filter upload_mimes to add or remove extensions/types. Use the *[gform_file_upload_whitelisting_disabled](https://docs.gravityforms.com/gform_file_upload_whitelisting_disabled/)* filter to disable completely. 
+- Added security precautions to the file upload field. If the allowed file types setting is empty, then uploaded files will be checked against the WordPress whitelist of extensions and mime types. Use the WordPress filter upload_mimes to add or remove extensions/types. Use the *[gform_file_upload_whitelisting_disabled](https://docs.gravityforms.com/gform_file_upload_whitelisting_disabled/)* filter to disable completely.
         Example:
 `        <em>add_filter('gform_file_upload_whitelisting_disabled', '__return_true');</em>`
 - Updated the Phone field to disable the input mask for Android phones. This is a temporary workaround for an issue with certain models of Android phones where numbers don't appear correctly inside the mask.
@@ -1791,7 +1804,7 @@ Description Use this filter to prevent the thousand separator being …)* filter
 - Added security precautions.
 - Added THE BEST FIX EVER for on-going IE issues with the datepicker.
 - Added security precautions to updates.
-- Added the *[gform_upload_root_htaccess_rules](https://docs.gravityforms.com/gform_upload_root_htaccess_rules/)* filter to allow the .htaccess file rules to be removed or modified. Please consult your system administrator before using this filter. 
+- Added the *[gform_upload_root_htaccess_rules](https://docs.gravityforms.com/gform_upload_root_htaccess_rules/)* filter to allow the .htaccess file rules to be removed or modified. Please consult your system administrator before using this filter.
 - Added extra CSS classes for name field to help in styling them.
 - Added the gform_enable_shortcode_notification_message hook back, allowing shortcode processing of notification messages to be disabled.
 - Added context to some strings to allow a better translation.
@@ -3587,7 +3600,7 @@ Description Use this filter to prevent the thousand separator being …)* filter
 - Fixed issue with currency formatting for currencies with commas as decimal points.
 - Added form specific version of *[gform_validation](https://docs.gravityforms.com/gform_validation/)* hook.
 - Fixed issue with gform_unique_id not escaping result before displaying.
-    
+
 
 ### 1.5.RC7
 - Added "Disable Auto-formatting" option to form confirmations.
@@ -3988,7 +4001,7 @@ Description Use this filter to prevent the thousand separator being …)* filter
 
 ### 1.3.8.2
 - Correct time zone for {date_dmy} and (date_mdy} variables.
-    
+
 
 ### 1.3.8.1
 - Changed paths to take SSL into account.
@@ -4087,7 +4100,7 @@ Description Use this filter to prevent the thousand separator being …)* filter
 
 ### 1.3.dev-4
 - Implemented different field types for post custom fields.
-    
+
 
 ### 1.3.dev-3
 - Implemented notification routing.
