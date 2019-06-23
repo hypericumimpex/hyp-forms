@@ -1414,7 +1414,7 @@ class GFAPI {
 
 			$lead_detail_id = $wpdb->get_var( $sql );
 
-			if ( ! isset( $entry[ $input_id ] ) || $entry[ $input_id ] != $value ) {
+			if ( ! isset( $entry[ $input_id ] ) || ( $value === 0 && $entry[ $input_id ] !== '0' ) || $entry[ $input_id ] != $value ) {
 				$result = GFFormsModel::update_entry_field_value( $form, $entry, $field, $lead_detail_id, $input_id, $value, $item_index );
 			}
 		}
@@ -1495,7 +1495,6 @@ class GFAPI {
 		$input_values[ 'gform_source_page_number_' . $form_id ] = absint( $source_page );
 		$input_values['gform_field_values']                     = $field_values;
 
-
 		require_once( GFCommon::get_base_path() . '/form_display.php' );
 
 		if ( ! isset( $_POST ) ) {
@@ -1507,14 +1506,21 @@ class GFAPI {
 		// Ensure that confirmation handler doesn't send a redirect header or add redirect JavaScript.
 		add_filter( 'gform_suppress_confirmation_redirect', '__return_true' );
 
+		// Ensure the state field is in the submission.
+		add_filter( 'gform_pre_validation', array( 'GFAPI', 'submit_form_filter_gform_pre_validation' ), 50 );
+
 		try {
 			GFFormDisplay::process_form( $form_id );
 		} catch ( Exception $ex ) {
 			remove_filter( 'gform_suppress_confirmation_redirect', '__return_true' );
+			remove_filter( 'gform_pre_validation', array( 'GFAPI', 'submit_form_filter_gform_pre_validation' ), 50 );
 			return new WP_Error( 'error_processing_form', __( 'There was an error while processing the form:', 'gravityforms' ) . ' ' . $ex->getCode() . ' ' . $ex->getMessage() );
 		}
 
 		remove_filter( 'gform_suppress_confirmation_redirect', '__return_true' );
+
+		remove_filter( 'gform_pre_validation', array( 'GFAPI', 'submit_form_filter_gform_pre_validation' ), 50 );
+
 
 		if ( empty( GFFormDisplay::$submission ) ) {
 			return new WP_Error( 'error_processing_form', __( 'There was an error while processing the form:', 'gravityforms' ) );
@@ -1569,6 +1575,26 @@ class GFAPI {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Ensure that the state field is set when the form is submitted via GFAPI::submit_form()
+	 * or via the POST forms/[id]/submissions REST API endpoint.
+	 *
+	 * @since 2.4.11
+	 *
+	 * @param array $form
+	 *
+	 * @return array
+	 */
+	public static function submit_form_filter_gform_pre_validation( $form ) {
+		$name = 'state_' . absint( $form['id'] );
+		if ( ! isset( $_POST[ $name ] ) ) {
+			$field_values   = rgpost( 'gform_field_values' );
+			$_POST[ $name ] = GFFormDisplay::get_state( $form, $field_values );
+		}
+
+		return $form;
 	}
 
 	// FEEDS ------------------------------------------------------

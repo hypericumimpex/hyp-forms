@@ -390,7 +390,8 @@ class GF_System_Report {
 
 		$response = wp_remote_post( $url, $args );
 
-		$background_tasks = wp_remote_retrieve_body( $response ) == 'ok';
+		// Trims the background tasks response to prevent extraneous characters causing unexpected content in the response.
+		$background_tasks = trim( wp_remote_retrieve_body( $response ) ) == 'ok';
 
 		$background_validation_message = '';
 		if ( is_wp_error( $response ) ) {
