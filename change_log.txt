@@ -1,3 +1,13 @@
+### 2.4.10.9
+- Fixed an issue where the source field setting would not display the previously selected option when copying values of another field.
+
+
+### 2.4.10.8
+- Fixed an issue with the Rich Text Editor for the Paragraph and Post Body fields with WordPress 5.2 when submit button conditional logic is configured.
+- Fixed an issue with PHP 7.0+ where the submission could die when an invalid calculation formula is evaluated. Credit: The GravityView team.
+- Fixed a PHP notice during validation of the Password strength if JavaScript is disabled in the browser. Credit: The GravityView team.
+
+
 ### 2.4.10.7
 - Fixed the required Address field city input missing the aria-required attribute when the zip input is located before the city.
 
