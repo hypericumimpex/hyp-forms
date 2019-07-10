@@ -3,7 +3,7 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.10.9
+Version: 2.4.10.12
 Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.10.9';
+	public static $version = '2.4.10.12';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -822,7 +822,7 @@ class GFForms {
 		// ignores all errors
 		set_error_handler( '__return_false', E_ALL );
 
-		foreach ( glob( $wp_upload_path . DIRECTORY_SEPARATOR . '*_input_*.{php,php5}', GLOB_BRACE ) as $filename ) {
+		foreach ( glob( $wp_upload_path . DIRECTORY_SEPARATOR . '*_input_*.php' ) as $filename ) {
 			$mini_hash = substr( wp_hash( $filename ), 0, 6 );
 			$newName   = sprintf( '%s.%s.bak', $filename, $mini_hash );
 			rename( $filename, $newName );
@@ -5207,7 +5207,7 @@ class GFForms {
 			return;
 		}
 		GFCommon::log_debug( __METHOD__ . '(): Start deleting old export files' );
-		foreach ( glob( $export_folder . DIRECTORY_SEPARATOR . '*.csv', GLOB_BRACE ) as $filename ) {
+		foreach ( glob( $export_folder . DIRECTORY_SEPARATOR . '*.csv' ) as $filename ) {
 			$timestamp = filemtime( $filename );
 			if ( $timestamp < time() - DAY_IN_SECONDS ) {
 				// Delete files over a day old
@@ -5239,7 +5239,7 @@ class GFForms {
 			return;
 		}
 		GFCommon::log_debug( __METHOD__ . '(): Start deleting old log files' );
-		foreach ( glob( $logs_folder . DIRECTORY_SEPARATOR . '*.txt', GLOB_BRACE ) as $filename ) {
+		foreach ( glob( $logs_folder . DIRECTORY_SEPARATOR . '*.txt' ) as $filename ) {
 			$timestamp = filemtime( $filename );
 			if ( $timestamp < time() - MONTH_IN_SECONDS ) {
 				// Delete files over one month old

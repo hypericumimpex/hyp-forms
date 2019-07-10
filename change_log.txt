@@ -1,5 +1,20 @@
+### 2.4.10.12
+- Fixed an issue where special characters (e.g. accented characters) in List and Multi-Select fields are ignored when searching for entries.
+
+### 2.4.10.11
+- Added security enhancements.
+- Added header title support for dynamic field map settings fields.
+- Updated + and - icons so that they are consistent accross all settings fields.
+- Fixed an issue where the use of GLOB_BRACE would cause PHP errors in non-GNU operating systems.
+- Fixed an issue with conditional notification routing when checking if a field value ends with a 0 due to it being treated as an empty string rather than an integer.
+
+### 2.4.10.10
+- Added support for the id query param on the export entries page (/wp-admin/admin.php?page=gf_export&view=export_entry&id=[FORM ID]) to preselect the form. Credit: The GravityView team.
+- Fixed the legacy table access PHP notices being displayed when deleting a site on multi-site installations.
+
+
 ### 2.4.10.9
-- Fixed an issue where the source field setting would not display the previously selected option when copying values of another field.
+- Fixed an issue with the Address field in the form editor where the source field setting would not display the previously selected option when copying values of another field.
 
 
 ### 2.4.10.8

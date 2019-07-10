@@ -3354,7 +3354,13 @@ class GFFormsModel {
 				break;
 
 			case 'ends_with' :
+				// If target value is a 0 set $val2 to 0 rather than the empty string it currently is to prevent false positives.
+				if ( empty( $val2 ) ) {
+					$val2 = 0;
+				}
+
 				$start = strlen( $val1 ) - strlen( $val2 );
+
 				if ( $start < 0 ) {
 					return false;
 				}
@@ -5419,6 +5425,9 @@ class GFFormsModel {
 		$legacy_tables = GF_Forms_Model_Legacy::get_legacy_tables();
 
 		$drop_tables = array_merge( $drop_tables, $legacy_tables );
+
+		// Prevent the legacy table query notice when they are dropped by wp_uninitialize_site().
+		remove_filter( 'query', array( 'GFForms', 'filter_query' ) );
 
 		return $drop_tables;
 	}
