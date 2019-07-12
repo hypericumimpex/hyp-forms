@@ -3,7 +3,7 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.10.12
+Version: 2.4.11
 Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.10.12';
+	public static $version = '2.4.11';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -737,19 +737,10 @@ class GFForms {
 	 * Self-heals suspicious files.
 	 *
 	 * @since  Unknown
-	 * @access private
-	 *
-	 * @uses   GFForms::heal_wp_upload_dir()
-	 * @uses   GFFormsModel::get_upload_root()
-	 * @uses   GFForms::rename_suspicious_files_recursive()
-	 *
-	 * @return void
 	 */
 	private static function do_self_healing() {
 
 		GFCommon::log_debug( __METHOD__ . '(): Start self healing' );
-
-		self::heal_wp_upload_dir();
 
 		$gf_upload_root = GFFormsModel::get_upload_root();
 
@@ -805,12 +796,13 @@ class GFForms {
 	/**
 	 * Renames suspicious content within the wp_upload directory.
 	 *
-	 * @since   Unknown
-	 * @access  private
+	 * @deprecated  2.4.11
 	 *
-	 * @used-by GFForms::do_self_healing()
+	 * @since       Unknown
 	 */
 	private static function heal_wp_upload_dir() {
+	    _deprecated_function( 'heal_wp_upload_dir', '2.4.11' );
+
 		$wp_upload_dir = wp_upload_dir();
 
 		$wp_upload_path = $wp_upload_dir['basedir'];
