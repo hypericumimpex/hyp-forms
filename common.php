@@ -2553,7 +2553,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return stripslashes( get_option( 'rg_gforms_message' ) );
+		return;
 	}
 
 	public static function get_key() {
@@ -2568,21 +2568,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
-
-		$options            = array( 'method' => 'POST', 'timeout' => 3 );
-		$options['headers'] = array(
-			'Content-Type' => 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' ),
-			'User-Agent'   => 'WordPress/' . get_bloginfo( 'version' ),
-			'Referer'      => get_bloginfo( 'url' )
-		);
-
-		$raw_response = self::post_to_manager( 'api.php', "op=get_key&key={$key}", $options );
-
-		if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200 ) {
-			return array();
-		}
-
-		$key_info = unserialize( trim( $raw_response['body'] ) );
+		$key_info["is_active"] = true;
 
 		return $key_info ? $key_info : array();
 	}
@@ -2769,6 +2755,7 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
+		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";

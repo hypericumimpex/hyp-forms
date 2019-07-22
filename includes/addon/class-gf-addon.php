@@ -1767,11 +1767,6 @@ abstract class GFAddOn {
 		$default_value       = rgar( $field, 'value' ) ? rgar( $field, 'value' ) : rgar( $field, 'default_value' );
 		$value               = $this->get_setting( $field['name'], $default_value );
 
-		// Add autocomplete attribute for password inputs.
-		if ( 'password' === $field['input_type'] ) {
-			$attributes['autocomplete'] = 'autocomplete="off"';
-		}
-
 		$html    = '';
 
 		$html .= '<input
@@ -5469,8 +5464,8 @@ abstract class GFAddOn {
 	 * @param bool $is_error
 	 */
 	public static function display_plugin_message( $message, $is_error = false ) {
-		$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
-		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';
+		//$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
+		//echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';
 	}
 
 	//--------------- Logging -------------------------------------------------------------
