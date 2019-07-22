@@ -1767,6 +1767,11 @@ abstract class GFAddOn {
 		$default_value       = rgar( $field, 'value' ) ? rgar( $field, 'value' ) : rgar( $field, 'default_value' );
 		$value               = $this->get_setting( $field['name'], $default_value );
 
+		// Add autocomplete attribute for password inputs.
+		if ( 'password' === $field['input_type'] ) {
+			$attributes['autocomplete'] = 'autocomplete="off"';
+		}
+
 		$html    = '';
 
 		$html .= '<input

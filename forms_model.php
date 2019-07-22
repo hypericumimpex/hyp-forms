@@ -7131,7 +7131,7 @@ class GFFormsModel {
 
 		$recent_form_ids = get_user_meta( $current_user_id, 'gform_recent_forms', true );
 
-		if ( empty( $recent_form_ids ) ) {
+		if ( empty( $recent_form_ids ) || ! is_array( $recent_form_ids ) ) {
 			$all_form_ids    = self::get_form_ids();
 			$all_form_ids    = array_reverse( $all_form_ids );
 			$recent_form_ids = array_slice( $all_form_ids, 0, 10 );
