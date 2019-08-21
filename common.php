@@ -2553,7 +2553,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return;
+		return stripslashes( get_option( 'rg_gforms_message' ) );
 	}
 
 	public static function get_key() {
@@ -2568,7 +2568,21 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
-		$key_info["is_active"] = true;
+
+		$options            = array( 'method' => 'POST', 'timeout' => 3 );
+		$options['headers'] = array(
+			'Content-Type' => 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' ),
+			'User-Agent'   => 'WordPress/' . get_bloginfo( 'version' ),
+			'Referer'      => get_bloginfo( 'url' )
+		);
+
+		$raw_response = self::post_to_manager( 'api.php', "op=get_key&key={$key}", $options );
+
+		if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200 ) {
+			return array();
+		}
+
+		$key_info = unserialize( trim( $raw_response['body'] ) );
 
 		return $key_info ? $key_info : array();
 	}
@@ -2755,7 +2769,6 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
-		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";
@@ -5235,17 +5248,17 @@ Content-Type: text/html;
 		wp_localize_script(
 			'gform_gravityforms', 'gform_gravityforms', array(
 				'strings' => array(
-					'invalid_file_extension' => esc_html__( 'This type of file is not allowed. Must be one of the following: ', 'gravityforms' ),
-					'delete_file'            => esc_html__( 'Delete this file', 'gravityforms' ),
-					'in_progress'            => esc_html__( 'in progress', 'gravityforms' ),
-					'file_exceeds_limit'     => esc_html__( 'File exceeds size limit', 'gravityforms' ),
-					'illegal_extension'      => esc_html__( 'This type of file is not allowed.', 'gravityforms' ),
-					'max_reached'            => esc_html__( 'Maximum number of files reached', 'gravityforms' ),
-					'unknown_error'          => esc_html__( 'There was a problem while saving the file on the server', 'gravityforms' ),
-					'currently_uploading'    => esc_html__( 'Please wait for the uploading to complete', 'gravityforms' ),
-					'cancel'                 => esc_html__( 'Cancel', 'gravityforms' ),
-					'cancel_upload'          => esc_html__( 'Cancel this upload', 'gravityforms' ),
-					'cancelled'              => esc_html__( 'Cancelled', 'gravityforms' )
+					'invalid_file_extension' => wp_strip_all_tags( __( 'This type of file is not allowed. Must be one of the following: ', 'gravityforms' ) ),
+					'delete_file'            => wp_strip_all_tags( __( 'Delete this file', 'gravityforms' ) ),
+					'in_progress'            => wp_strip_all_tags( __( 'in progress', 'gravityforms' ) ),
+					'file_exceeds_limit'     => wp_strip_all_tags( __( 'File exceeds size limit', 'gravityforms' ) ),
+					'illegal_extension'      => wp_strip_all_tags( __( 'This type of file is not allowed.', 'gravityforms' ) ),
+					'max_reached'            => wp_strip_all_tags( __( 'Maximum number of files reached', 'gravityforms' ) ),
+					'unknown_error'          => wp_strip_all_tags( __( 'There was a problem while saving the file on the server', 'gravityforms' ) ),
+					'currently_uploading'    => wp_strip_all_tags( __( 'Please wait for the uploading to complete', 'gravityforms' ) ),
+					'cancel'                 => wp_strip_all_tags( __( 'Cancel', 'gravityforms' ) ),
+					'cancel_upload'          => wp_strip_all_tags( __( 'Cancel this upload', 'gravityforms' ) ),
+					'cancelled'              => wp_strip_all_tags( __( 'Cancelled', 'gravityforms' ) )
 				),
 				'vars'    => array(
 					'images_url' => GFCommon::get_base_url() . '/images'
@@ -6008,6 +6021,31 @@ Content-Type: text/html;
 
 		return $result;
 	}
+
+	/**
+	 * Checks if notification from email is using the site domain.
+	 *
+	 * @since  2.4.12
+	 *
+	 * @param string $email_address Email address to check.
+	 * @param string $domain        Domain to check.
+	 *
+	 * @return bool
+	 */
+	public static function email_domain_matches( $email_address, $domain = '' ) {
+		if ( ! is_email( $email_address ) ) {
+			return false;
+		}
+
+		if ( empty( $domain ) ) {
+			$domain = parse_url( get_bloginfo( 'url' ), PHP_URL_HOST );
+		}
+
+		$domain_matches = ( strpos( $email_address, $domain ) !== false ) ? true : false;
+
+		return $domain_matches;
+  }
+
 }
 
 class GFCategoryWalker extends Walker {
