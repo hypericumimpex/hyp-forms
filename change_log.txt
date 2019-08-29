@@ -1,32 +1,15 @@
-### 2.4.11.6 | 2019-08-20
+### 2.4.12 | 2019-08-28
 - Added security enhancements.
-
-
-### 2.4.11.5 | 2019-08-12
-- Added security enhancements.
-- Added From Email validation.
-- Added From Email warning message when the site domain is not being used for this setting.
+- Added From Email validation in the notifications settings.
+- Added From Email warning message in the notification settings when the site domain is not being used for this setting.
 - Added [gform_export_line](https://docs.gravityforms.com/gform_export_line/) filter to allow modifying each line of the export separately.
 - Updated the default placeholder for new Website fields. Credit: The GravityView team.
 - Fixed a typo preventing the year sub-label input from displaying when editing a date field and having sub-label placement set to be above inputs.
-- Fixed Dashicons not appearing in block editor when using a Classic block with a Gravity Forms shortcode whose form contains a Rich Text Editor enabled Paragraph field.
+- Fixed Dashicons not appearing in the block editor when using a Classic block with a Gravity Forms shortcode whose form contains a Rich Text Editor enabled Paragraph field.
 - Fixed legacy database errors and notices generated during the uninstall process for add-ons.
-
-### 2.4.11.4 | 2019-07-19
 - Fixed a PHP fatal error which can occur during entry export if invalid values are entered in the start or end date filters.
-
-
-### 2.4.11.3 | 2019-07-16
-- Added security enhancements.
 - Fixed PHP errors which could occur if the gform_recent_forms user meta does not contain the expected value.
-
-
-### 2.4.11.2 | 2019-07-15
-- Added security enhancements.
-
-
-### 2.4.11.1 | 2019-07-12
-- API: Fixed an issue with how REST API v2 is handling entry values for legacy (pre v2.2) Multi Select fields.
+- API: Fixed an issue with the way REST API v2 is handling entry values for legacy (pre v2.2) Multi Select fields.
 
 
 ### 2.4.11 | 2019-07-10

@@ -3,7 +3,7 @@
 Plugin Name: HYP Forms
 Plugin URI: https://github.com/hypericumimpex/hyp-forms/
 Description: Easily create web forms and manage form entries within the WordPress admin.
-Version: 2.4.16
+Version: 2.4.12
 Author: Romeo C.
 Author URI: https://github.com/hypericumimpex/
 License: GPL-2.0+
@@ -215,7 +215,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-	public static $version = '2.4.11.6';
+	public static $version = '2.4.12';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -3361,7 +3361,11 @@ class GFForms {
 	 */
 	public static function update_form_active() {
 		check_ajax_referer( 'rg_update_form_active', 'rg_update_form_active' );
-		RGFormsModel::update_form_active( $_POST['form_id'], $_POST['is_active'] );
+		if ( GFCommon::current_user_can_any( 'gravityforms_edit_forms' ) ) {
+			GFFormsModel::update_form_active( $_POST['form_id'], $_POST['is_active'] );
+		} else {
+			wp_die( -1, 403 );
+		}
 	}
 
 	/**
@@ -3376,7 +3380,11 @@ class GFForms {
 	 */
 	public static function update_notification_active() {
 		check_ajax_referer( 'rg_update_notification_active', 'rg_update_notification_active' );
-		RGFormsModel::update_notification_active( $_POST['form_id'], $_POST['notification_id'], $_POST['is_active'] );
+		if ( GFCommon::current_user_can_any( 'gravityforms_edit_forms' ) ) {
+			GFFormsModel::update_notification_active( $_POST['form_id'], $_POST['notification_id'], $_POST['is_active'] );
+		} else {
+			wp_die( -1, 403 );
+		}
 	}
 
 	/**
@@ -3391,7 +3399,11 @@ class GFForms {
 	 */
 	public static function update_confirmation_active() {
 		check_ajax_referer( 'rg_update_confirmation_active', 'rg_update_confirmation_active' );
-		RGFormsModel::update_confirmation_active( $_POST['form_id'], $_POST['confirmation_id'], $_POST['is_active'] );
+		if ( GFCommon::current_user_can_any( 'gravityforms_edit_forms' ) ) {
+			GFFormsModel::update_confirmation_active( $_POST['form_id'], $_POST['confirmation_id'], $_POST['is_active'] );
+		} else {
+			wp_die( -1, 403 );
+		}
 	}
 
 	/**
