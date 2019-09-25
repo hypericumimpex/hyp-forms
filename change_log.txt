@@ -1,3 +1,33 @@
+### 2.4.12.6 | 2019-09-17
+- Removed Members v1 integration. Members v2+ integration remains.
+
+### 2.4.12.5 | 2019-09-16
+- Added support for defining field values when using Form block.
+- Added support for defining note sub-types in GFFormsModel::add_note().
+- Updated [gform_post_note_added](https://docs.gravityforms.com/gform_post_note_added/) filter to support new note sub-type parameter.
+
+
+### 2.4.12.4 | 2019-09-12
+- Fixed the conditional logic init scripts not being output when a Repeater field is located before other fields with conditional logic.
+
+
+### 2.4.12.3 | 2019-09-09
+- AF: Added the [gform_post_save_feed_settings](https://docs.gravityforms.com/gform_post_save_feed_settings/) action hook which runs when the feed is saved or updated from the feed configuration page.
+
+
+### 2.4.12.2
+- Added the [gform_notification_disable_from_warning](https://docs.gravityforms.com/gform_notification_disable_from_warning/) filter to allow the from address warning to be disabled.
+- Updated Import/Export page to be accessible if user has "gravityforms_edit_forms" capability.
+- Fixed an issue where HTML tags in field choices break conditional logic.
+- Fixed an issue with the merge tag UI where labels with HTML tags are not encoded.
+- Fixed an issue with the merge tag UI where the selected merge tag is incomplete if the label contains a double quote character.
+
+
+### 2.4.12.1 | 2019-09-02
+- Fixed issue where selects in Add-on Framework could overflow and break the settings layout.
+- Fixed detection of domain used for the From Email warning message in certain scenarios.
+
+
 ### 2.4.12 | 2019-08-28
 - Added security enhancements.
 - Added From Email validation in the notifications settings.
