@@ -4091,7 +4091,7 @@ abstract class GFAddOn {
 	public function get_field( $name, $settings ) {
 		foreach ( $settings as $section ) {
 			for ( $i = 0; $i < count( $section['fields'] ); $i ++ ) {
-				if ( $section['fields'][ $i ]['name'] == $name ) {
+				if ( rgar( $section['fields'][ $i ], 'name' ) == $name ) {
 					return $section['fields'][ $i ];
 				}
 			}
@@ -5456,8 +5456,8 @@ abstract class GFAddOn {
 	 * @param bool $is_error
 	 */
 	public static function display_plugin_message( $message, $is_error = false ) {
-		$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
-		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';
+		/*$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
+		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';*/
 	}
 
 	//--------------- Logging -------------------------------------------------------------
