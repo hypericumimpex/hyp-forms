@@ -286,6 +286,50 @@ class GFCommon {
 		return dirname( __FILE__ );
 	}
 
+	/**
+	 * Returns an array of files/directories which match the supplied pattern.
+	 *
+	 * @since 2.4.15
+	 *
+	 * @param string $pattern   The pattern to be appended to the base path when performing the search.
+	 * @param string $base_path The base path. Defaults to the plugin's root folder.
+	 *
+	 * @return array|false
+	 */
+	public static function glob( $pattern, $base_path = '' ) {
+		if ( empty( $base_path ) ) {
+			$base_path = self::get_base_path();
+		}
+
+		// Escape any brackets in the base path.
+		$base_path = str_replace( array( '[', ']' ), array( '\[', '\]' ), $base_path );
+		$base_path = str_replace( array( '\[', '\]' ), array( '[[]', '[]]' ), $base_path );
+
+		return glob( $base_path . $pattern );
+	}
+
+	/**
+	 * Requires and returns an array of files which match the supplied pattern.
+	 *
+	 * @since 2.4.15
+	 *
+	 * @param string $pattern   The pattern to be appended to the base path when performing the search.
+	 * @param string $base_path The base path. Defaults to the plugin's root folder.
+	 *
+	 * @return array|false
+	 */
+	public static function glob_require_once( $pattern, $base_path = '' ) {
+		$files = self::glob( $pattern, $base_path );
+
+		if ( is_array( $files ) ) {
+			foreach ( $files as $file ) {
+				require_once $file;
+			}
+		}
+
+		return $files;
+	}
+
 	public static function get_email_fields( $form ) {
 		$fields = array();
 		foreach ( $form['fields'] as $field ) {
@@ -1740,7 +1784,7 @@ class GFCommon {
 
 		$email_to = rgar( $notification, 'to' );
 		//do routing logic if "to" field doesn't have a value (to support legacy notifications that will run routing prior to this method)
-		if ( empty( $email_to ) && rgar( $notification, 'toType' ) == 'routing' ) {
+		if ( empty( $email_to ) && rgar( $notification, 'toType' ) == 'routing' && ! empty( $notification['routing'] ) ) {
 			$email_to = array();
 			foreach ( $notification['routing'] as $routing ) {
 				if ( rgempty( 'email', $routing ) ) {
@@ -1991,16 +2035,28 @@ class GFCommon {
 			$from = get_bloginfo( 'admin_email' );
 		}
 
+		// Array containing email details.
+		$email = compact( 'from', 'to', 'bcc', 'reply_to', 'subject', 'message', 'from_name', 'message_format', 'attachments', 'cc' );
+
 		$error = false;
 		if ( ! GFCommon::is_valid_email_list( $to ) ) {
+
+			$error_info = esc_html__( 'Cannot send email because the TO address is invalid.', 'gravityforms' );
+			GFFormsModel::add_notification_note( $entry_id, false, $notification, $error_info, $email );
 
 			$error = new WP_Error( 'invalid_to', 'Cannot send email because the TO address is invalid.' );
 
 		} elseif ( empty( $subject ) && empty( $message ) ) {
 
+			$error_info = esc_html__( 'Cannot send email because there is no SUBJECT and no MESSAGE.', 'gravityforms' );
+			GFFormsModel::add_notification_note( $entry_id, false, $notification, $error_info, $email );
+
 			$error = new WP_Error( 'missing_subject_and_message', 'Cannot send email because there is no SUBJECT and no MESSAGE.' );
 
 		} elseif ( ! GFCommon::is_valid_email( $from ) ) {
+
+			$error_info = esc_html__( 'Cannot send email because the FROM address is invalid.', 'gravityforms' );
+			GFFormsModel::add_notification_note( $entry_id, false, $notification, $error_info, $email );
 
 			$error = new WP_Error( 'invalid_from', 'Cannot send email because the FROM address is invalid.' );
 		}
@@ -2041,7 +2097,7 @@ class GFCommon {
 			 * @param array  $entry   The Entry object
 			 *
 			 */
-			do_action( 'gform_send_email_failed', $error, compact( 'from', 'to', 'bcc', 'reply_to', 'subject', 'message', 'from_name', 'message_format', 'attachments', 'cc' ), $entry );
+			do_action( 'gform_send_email_failed', $error, $email, $entry );
 
 			return;
 		}
@@ -2115,6 +2171,9 @@ class GFCommon {
 
 			$result = is_wp_error( $is_success ) ? $is_success->get_error_message() : $is_success;
 
+			// Add note with sending result ?
+			GFFormsModel::add_notification_note( $entry_id, $result, $notification, $phpmailer->ErrorInfo, $email );
+
 			GFCommon::log_debug( __METHOD__ . "(): Result from wp_mail(): {$result}" );
 
 			if ( ! is_wp_error( $is_success ) && $is_success ) {
@@ -2128,7 +2187,7 @@ class GFCommon {
 			}
 
 			if ( ! empty( $phpmailer->ErrorInfo ) ) {
-				GFCommon::log_debug( __METHOD__ . '(): PHPMailer class returned an error message: ' . print_r( $phpmailer->ErrorInfo, 1 ) );
+				GFCommon::log_debug( __METHOD__ . '(): PHPMailer class returned an error message: ' . $phpmailer->ErrorInfo );
 			}
 		} else {
 			GFCommon::log_debug( __METHOD__ . "(): Aborting notification (#{$notification['id']} - {$notification['name']}) for entry #{$entry_id}. The gform_pre_send_email hook was used to set the abort_email parameter to true." );
@@ -2553,7 +2612,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return;
+		return stripslashes( get_option( 'rg_gforms_message' ) );
 	}
 
 	public static function get_key() {
@@ -2569,7 +2628,20 @@ Content-Type: text/html;
 
 	public static function get_key_info( $key ) {
 
-     $key_info["is_active"] = true;
+		$options            = array( 'method' => 'POST', 'timeout' => 3 );
+		$options['headers'] = array(
+			'Content-Type' => 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' ),
+			'User-Agent'   => 'WordPress/' . get_bloginfo( 'version' ),
+			'Referer'      => get_bloginfo( 'url' )
+		);
+
+		$raw_response = self::post_to_manager( 'api.php', "op=get_key&key={$key}", $options );
+
+		if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200 ) {
+			return array();
+		}
+
+		$key_info = unserialize( trim( $raw_response['body'] ) );
 
 		return $key_info ? $key_info : array();
 	}
@@ -2756,7 +2828,6 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
-		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";

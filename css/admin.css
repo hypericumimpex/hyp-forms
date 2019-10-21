@@ -536,8 +536,7 @@ td.content_center {
 	text-align: center !important;
 }
 
-tr img.gform_active_icon,
-img[src*="active"]{
+tr img[src*="active"]{
 	width: 25px;
 	height: auto;
 	display: -moz-inline-stack;
@@ -4848,9 +4847,9 @@ div.wrap.gf_browser_chrome .gfield_checkbox li input {
 
 #entry_list_form .column-is_starred,
 #form_list_form .column-is_active{
-    width: 40px;
+    width: 19px;
 	vertical-align: top;
-	padding: 8px 10px;
+	padding: 9px 31px 8px 10px;
 }
 
 

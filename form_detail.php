@@ -3011,19 +3011,9 @@ class GFFormDetail {
 				RGFormsModel::save_form_notifications( $id, $notifications );
 			}
 
-			// add default confirmation when saving a new form
-			$confirmation_id                 = uniqid();
-			$confirmations                   = array();
-			$confirmations[ $confirmation_id ] = array(
-				'id'          => $confirmation_id,
-				'name'        => __( 'Default Confirmation', 'gravityforms' ),
-				'isDefault'   => true,
-				'type'        => 'message',
-				'message'     => __( 'Thanks for contacting us! We will get in touch with you shortly.', 'gravityforms' ),
-				'url'         => '',
-				'pageId'      => '',
-				'queryString' => '',
-			);
+			// Add default confirmation when saving a new form.
+			$confirmation  = GFFormsModel::get_default_confirmation();
+			$confirmations = array( $confirmation['id'] => $confirmation );
 			GFFormsModel::save_form_confirmations( $id, $confirmations );
 
 			//updating form meta

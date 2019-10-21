@@ -5456,8 +5456,8 @@ abstract class GFAddOn {
 	 * @param bool $is_error
 	 */
 	public static function display_plugin_message( $message, $is_error = false ) {
-		/*$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
-		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';*/
+		$style = $is_error ? 'style="background-color: #ffebe8;"' : '';
+		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';
 	}
 
 	//--------------- Logging -------------------------------------------------------------

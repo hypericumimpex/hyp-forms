@@ -1521,14 +1521,14 @@ class GFFormDisplay {
 			return false;
 		}
 		$target_path = RGFormsModel::get_upload_path( $form['id'] ) . '/tmp/';
-		$filename    = $target_path . $unique_form_id . '_input_*';
-		$files       = glob( $filename );
+		$filename    = $unique_form_id . '_input_*';
+		$files       = GFCommon::glob( $filename, $target_path );
 		if ( is_array( $files ) ) {
 			array_map( 'unlink', $files );
 		}
 
 		// clean up files from abandoned submissions older than 48 hours (30 days if Save and Continue is enabled)
-		$files = glob( $target_path . '*' );
+		$files = GFCommon::glob( '*', $target_path );
 		if ( is_array( $files ) ) {
 			$seconds_in_day  = 24 * 60 * 60;
 			$save_enabled    = rgars( $form, 'save/enabled' );
