@@ -2604,6 +2604,11 @@ class GFFormsModel {
 	 */
 	public static function add_notification_note( $entry_id, $result, $notification, $error_info = '', $email = array(), $note_args = array() ) {
 
+		// Skip if no entry id (e.g. Save and Continue notifications).
+		if ( empty( $entry_id ) ) {
+			return;
+		}
+
 		// If $note_args is empty, use default arguments for Gravity Forms core notifications.
 		if ( empty( $note_args ) ) {
 			if ( $result === true ) {

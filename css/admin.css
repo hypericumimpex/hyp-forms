@@ -2180,6 +2180,34 @@ a.button-primary.gfbutton {
 	border-radius: 16px !important;
 }
 
+/* Password Visibility */
+.ginput_container_password span {
+	position: relative;
+}
+
+.ginput_container_password span button {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	padding: 3px 0;
+	position: absolute;
+	right: 1px;
+	text-align: center;
+	top: 1px;
+	width: 30px;
+}
+
+.ginput_container_password span button .dashicons {
+	font-size: 16px;
+	height: 16px;
+	width: 16px;
+}
+
+.ginput_container_password span.ginput_left button {
+	right: 21px;
+}
+
 /* password strength */
 
 .gfield_password_strength {

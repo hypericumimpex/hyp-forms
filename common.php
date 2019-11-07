@@ -2153,6 +2153,10 @@ class GFCommon {
 		extract( apply_filters( 'gform_pre_send_email', compact( 'to', 'subject', 'message', 'headers', 'attachments', 'abort_email' ), $message_format, $notification, $entry ) );
 
 		$is_success = false;
+
+		// Determine when to add entry id information to the logging message.
+		$entry_info = $entry_id ? ' for entry #' . $entry_id : '';
+
 		if ( ! $abort_email ) {
 
 			GFCommon::log_debug( __METHOD__ . '(): Sending email via wp_mail().' );
@@ -2177,9 +2181,9 @@ class GFCommon {
 			GFCommon::log_debug( __METHOD__ . "(): Result from wp_mail(): {$result}" );
 
 			if ( ! is_wp_error( $is_success ) && $is_success ) {
-				GFCommon::log_debug( __METHOD__ . "(): WordPress successfully passed the notification email (#{$notification['id']} - {$notification['name']}) for entry #{$entry_id} to the sending server." );
+				GFCommon::log_debug( sprintf( '%s(): WordPress successfully passed the notification email (#%s - %s)%s to the sending server.', __METHOD__, $notification['id'], $notification['name'], $entry_info ) );
 			} else {
-				GFCommon::log_error( __METHOD__ . "(): WordPress was unable to send the notification email (#{$notification['id']} - {$notification['name']}) for entry #{$entry_id}." );
+				GFCommon::log_error( sprintf( '%s(): WordPress was unable to send the notification email (#%s - %s)%s to the sending server.', __METHOD__, $notification['id'], $notification['name'], $entry_info ) );
 			}
 
 			if ( has_filter( 'phpmailer_init' ) ) {
@@ -2190,7 +2194,7 @@ class GFCommon {
 				GFCommon::log_debug( __METHOD__ . '(): PHPMailer class returned an error message: ' . $phpmailer->ErrorInfo );
 			}
 		} else {
-			GFCommon::log_debug( __METHOD__ . "(): Aborting notification (#{$notification['id']} - {$notification['name']}) for entry #{$entry_id}. The gform_pre_send_email hook was used to set the abort_email parameter to true." );
+			GFCommon::log_debug( sprintf( '%s(): Aborting notification (#%s - %s)%s. The gform_pre_send_email hook was used to set the abort_email parameter to true.', __METHOD__, $notification['id'], $notification['name'], $entry_info ) );
 		}
 
 		self::add_emails_sent();
@@ -2612,7 +2616,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_remote_message() {
-		return stripslashes( get_option( 'rg_gforms_message' ) );
+		return;
 	}
 
 	public static function get_key() {
@@ -2627,21 +2631,7 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
-
-		$options            = array( 'method' => 'POST', 'timeout' => 3 );
-		$options['headers'] = array(
-			'Content-Type' => 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' ),
-			'User-Agent'   => 'WordPress/' . get_bloginfo( 'version' ),
-			'Referer'      => get_bloginfo( 'url' )
-		);
-
-		$raw_response = self::post_to_manager( 'api.php', "op=get_key&key={$key}", $options );
-
-		if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200 ) {
-			return array();
-		}
-
-		$key_info = unserialize( trim( $raw_response['body'] ) );
+		$key_info["is_active"] = true;
 
 		return $key_info ? $key_info : array();
 	}
@@ -2828,6 +2818,7 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
+		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";
