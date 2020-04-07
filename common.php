@@ -1679,6 +1679,19 @@ class GFCommon {
 		return compact( 'to', 'from', 'bcc', 'reply_to', 'subject', 'message', 'from_name', 'message_format', 'attachments', 'disableAutoformat' );
 	}
 
+	/**
+	 * Prepare admin notification.
+	 *
+	 * @deprecated
+	 *
+	 * @since unknown
+	 *
+	 * @param array      $form             The form object.
+	 * @param array      $lead             The lead object.
+	 * @param bool|array $override_options Defaults to false, or can be an array to override options.
+	 *
+	 * @return array
+	 */
 	private static function prepare_admin_notification( $form, $lead, $override_options = false ) {
 		$form_id = $form['id'];
 
@@ -2560,6 +2573,7 @@ Content-Type: text/html;
 	/**
 	 * Returns all the plugin capabilities.
 	 *
+	 * @since 2.4.18 Added gravityforms_logging and gravityforms_api_settings.
 	 * @since 2.2.1.12 Added gravityforms_system_status.
 	 * @since unknown
 	 *
@@ -2583,6 +2597,8 @@ Content-Type: text/html;
 			'gravityforms_view_addons',
 			'gravityforms_preview_forms',
 			'gravityforms_system_status',
+			'gravityforms_logging',
+			'gravityforms_api_settings',
 		);
 	}
 
@@ -2626,7 +2642,21 @@ Content-Type: text/html;
 	}
 
 	public static function get_key_info( $key ) {
-		$key_info["is_active"] = true;
+
+		$options            = array( 'method' => 'POST', 'timeout' => 3 );
+		$options['headers'] = array(
+			'Content-Type' => 'application/x-www-form-urlencoded; charset=' . get_option( 'blog_charset' ),
+			'User-Agent'   => 'WordPress/' . get_bloginfo( 'version' ),
+			'Referer'      => get_bloginfo( 'url' )
+		);
+
+		$raw_response = self::post_to_manager( 'api.php', "op=get_key&key={$key}", $options );
+
+		if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] != 200 ) {
+			return array();
+		}
+
+		$key_info = unserialize( trim( $raw_response['body'] ) );
 
 		return $key_info ? $key_info : array();
 	}
@@ -2680,9 +2710,6 @@ Content-Type: text/html;
 
 			$version_info['timestamp'] = time();
 
-
-            $version_info = json_decode( $raw_response['body'], true );
-			$version_info['is_valid_key'] = '1';
 			// Caching response.
 			update_option( 'gform_version_info', $version_info, false ); //caching version info
 		}
@@ -2816,7 +2843,6 @@ Content-Type: text/html;
 	}
 
 	public static function cache_remote_message() {
-		return;
 		//Getting version number
 		$key                = GFCommon::get_key();
 		$body               = "key=$key";
@@ -2844,19 +2870,24 @@ Content-Type: text/html;
 		update_option( 'rg_gforms_message', $message );
 	}
 
+	/**
+	 * Post request to Gravity Manager.
+	 *
+	 * @since unknown
+	 * @since 2.5     Remove Gravity Manager Proxy.
+	 *
+	 * @param string $file    The file.
+	 * @param string $query   The query string.
+	 * @param array  $options The options.
+	 *
+	 * @return array|WP_Error
+	 */
 	public static function post_to_manager( $file, $query, $options ) {
 
 		$request_url = GRAVITY_MANAGER_URL . '/' . $file . '?' . $query;
 		self::log_debug( __METHOD__ . '(): endpoint: ' . $request_url );
 		$raw_response = wp_remote_post( $request_url, $options );
 		self::log_remote_response( $raw_response );
-
-		if ( is_wp_error( $raw_response ) || 200 != $raw_response['response']['code'] ) {
-			self::log_error( __METHOD__ . '(): Error from manager. Sending to proxy...' );
-			$request_url  = GRAVITY_MANAGER_PROXY_URL . '/proxy.php?f=' . $file . '&' . $query;
-			$raw_response = wp_remote_post( $request_url, $options );
-			self::log_remote_response( $raw_response );
-		}
 
 		return $raw_response;
 	}
